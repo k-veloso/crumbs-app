@@ -1,0 +1,17 @@
+---
+---
+
+@import "minima";
+
+.site-title--logo {
+  display: flex;
+  align-items: center;
+  min-height: 54px;
+  max-width: calc(100% - 60px);
+}
+
+.site-logo {
+  display: block;
+  width: 144px;
+  height: auto;
+}
