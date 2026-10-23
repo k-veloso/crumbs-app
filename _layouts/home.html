@@ -1,0 +1,45 @@
+---
+layout: default
+---
+<div class="shell home-content">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <p class="eyebrow"><span class="small-dot" aria-hidden="true"></span> A little help with Crumbs</p>
+      <h1 id="hero-title">Find your place.<br><span>Keep your flow.</span></h1>
+      <p class="hero-description">Your quiet companion for long pages and Markdown. Everything you need to make yourself at home.</p>
+      <a class="button button-primary" href="{{ '/getting-started/' | relative_url }}">Get started <span aria-hidden="true">→</span></a>
+      <a class="text-link" href="{{ '/markdown-reader/' | relative_url }}">Explore the Markdown reader <span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="hero-visual" role="img" aria-label="Illustration of a Crumbs outline beside a document, highlighting the section you are reading">
+      <div class="paper-preview" aria-hidden="true">
+        <div class="paper-kicker">A GOOD PLACE TO START</div><div class="paper-heading">Room to read.</div>
+        <div class="paper-lines"><i></i><i></i><i></i></div><div class="paper-subheading">A little more clarity</div>
+        <div class="paper-lines"><i></i><i></i></div><div class="paper-callout">Less searching.<br>More finding your way.</div>
+        <div class="paper-lines"><i></i><i></i></div>
+      </div>
+      <div class="outline-preview" aria-hidden="true">
+        <div class="outline-top"><span>On this page</span><span>⌕</span></div>
+        <div class="outline-row">Room to read.</div><div class="outline-row outline-active"><span class="small-dot"></span>A little more clarity</div>
+        <div class="outline-row outline-indent">Make it yours</div><div class="outline-row outline-indent">Keep your flow</div>
+        <div class="outline-bottom"><span>4 headings</span><span>↗</span></div>
+      </div>
+      <div class="visual-caption"><span class="small-dot" aria-hidden="true"></span> A little orientation goes a long way.</div>
+    </div>
+  </section>
+  <section class="guides-section" aria-labelledby="guides-title">
+    <div class="section-heading"><div><p class="eyebrow">Make yourself at home</p><h2 id="guides-title">A good place to start</h2></div><p>Small guides. Clear answers.</p></div>
+    <div class="guide-grid">
+      <a class="guide-card" href="{{ '/getting-started/' | relative_url }}"><span class="card-icon" aria-hidden="true">↗</span><div class="card-copy"><h3>Getting started</h3><p>Meet the outline, find your way around, and make Crumbs yours.</p><span class="card-link">Find your footing <span aria-hidden="true">→</span></span></div></a>
+      <a class="guide-card" href="{{ '/markdown-reader/' | relative_url }}"><span class="card-icon icon-ube" aria-hidden="true">#</span><div class="card-copy"><h3>Reading Markdown</h3><p>Give standalone documents a little room to breathe. Tables, diagrams, and all.</p><span class="card-link">Settle in and read <span aria-hidden="true">→</span></span></div></a>
+      <a class="guide-card" href="{{ '/shortcuts/' | relative_url }}"><span class="card-icon icon-matcha" aria-hidden="true">⌘</span><div class="card-copy"><h3>Keyboard shortcuts</h3><p>Pin the outline, jump to search, and keep your hands in the flow.</p><span class="card-link">Learn the shortcuts <span aria-hidden="true">→</span></span></div></a>
+      <a class="guide-card" href="{{ '/troubleshooting/' | relative_url }}"><span class="card-icon icon-blueberry" aria-hidden="true">?</span><div class="card-copy"><h3>Troubleshooting</h3><p>Something not quite right? A few simple checks can help you get unstuck.</p><span class="card-link">Find an answer <span aria-hidden="true">→</span></span></div></a>
+    </div>
+  </section>
+  <section class="home-details" aria-labelledby="reading-title">
+    {{ content }}
+  </section>
+  <section class="quiet-note" aria-label="Privacy and support">
+    <div><p class="eyebrow">Quiet by design</p><h2>Your reading stays yours.</h2><p>No account, analytics, or developer-operated backend in the extension. Your settings stay on your device.</p><a class="text-link" href="{{ '/privacy/' | relative_url }}">Read the privacy policy <span aria-hidden="true">→</span></a></div>
+    <div class="support-note"><span class="small-dot" aria-hidden="true"></span><h3>A little extra help?</h3><p>If the guides don’t have your answer, open an issue and tell us what’s happening.</p><a class="text-link" href="https://github.com/k-veloso/crumbs-help/issues">Get in touch <span aria-hidden="true">↗</span></a></div>
+  </section>
+</div>

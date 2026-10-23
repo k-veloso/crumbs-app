@@ -37,6 +37,6 @@ Choose from Caramel, Ube, Blueberry, Velvet, Custard, and Matcha accents.
 
 ## Next steps
 
-- [Learn about keyboard shortcuts](shortcuts.md)
-- [Read standalone Markdown](markdown-reader.md)
-- [Troubleshoot common issues](troubleshooting.md)
+- [Learn about keyboard shortcuts]({{ '/shortcuts/' | relative_url }})
+- [Read standalone Markdown]({{ '/markdown-reader/' | relative_url }})
+- [Troubleshoot common issues]({{ '/troubleshooting/' | relative_url }})

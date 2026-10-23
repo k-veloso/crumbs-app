@@ -10,8 +10,8 @@ Open **General → Shortcuts** in the Crumbs popup to enable, disable, customize
 
 Default shortcuts:
 
-- **Pin or unpin:** Option/Alt + Shift + C
-- **Search the outline:** Command + K on macOS or Ctrl + K elsewhere
+- **Pin or unpin:** <kbd>Option/Alt</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd>
+- **Search the outline:** <kbd>Command</kbd> + <kbd>K</kbd> on macOS or <kbd>Ctrl</kbd> + <kbd>K</kbd> elsewhere
 
 Shortcuts can use Ctrl, Alt/Option, or Command with a letter or number and up to two modifiers. Each action needs a unique combination. Browser and operating-system shortcuts may take priority.
 
