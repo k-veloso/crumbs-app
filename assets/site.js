@@ -19,27 +19,4 @@
       try { localStorage.setItem('crumbs-help-theme', preference); } catch (error) {}
     });
   }
-  const outline = document.querySelector('.page-outline');
-  const headings = [...document.querySelectorAll('.doc-content h2[id]')];
-  if (!outline || headings.length === 0) return;
-  const nav = outline.querySelector('nav');
-  const links = headings.map((heading) => {
-    const link = document.createElement('a');
-    link.href = `#${heading.id}`;
-    link.textContent = heading.textContent;
-    nav.append(link);
-    return link;
-  });
-  outline.hidden = false;
-  if (!('IntersectionObserver' in window)) return;
-  const observer = new IntersectionObserver((entries) => {
-    for (const entry of entries) {
-      if (!entry.isIntersecting) continue;
-      links.forEach((link) => {
-        if (link.hash === `#${entry.target.id}`) link.setAttribute('aria-current', 'location');
-        else link.removeAttribute('aria-current');
-      });
-    }
-  }, { rootMargin: '-12% 0px -65% 0px' });
-  headings.forEach((heading) => observer.observe(heading));
 })();

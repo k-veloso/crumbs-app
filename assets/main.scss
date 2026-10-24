@@ -145,10 +145,10 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 .footer-inner a, .footer-inner a:visited { color: var(--muted); }
 .footer-inner a:hover { color: var(--accent); }
 
-.docs-layout { display: grid; grid-template-columns: 185px minmax(0, 1fr) 155px; gap: 46px; padding-top: 52px; padding-bottom: 80px; align-items: start; }
-.guide-sidebar, .page-outline { min-width: 0; position: sticky; top: 120px; max-height: calc(100vh - 150px); overflow-y: auto; }
+.docs-layout { display: grid; grid-template-columns: 185px minmax(0, 1fr); gap: 46px; padding-top: 52px; padding-bottom: 80px; align-items: start; }
+.guide-sidebar { min-width: 0; position: sticky; top: 120px; max-height: calc(100vh - 150px); overflow-y: auto; }
 .back-link { display: inline-block; font-size: 12px; margin-bottom: 34px; }
-.guide-sidebar .eyebrow, .page-outline .eyebrow { font-size: 9px; letter-spacing: .09em; margin-bottom: 14px; }
+.guide-sidebar .eyebrow { font-size: 9px; letter-spacing: .09em; margin-bottom: 14px; }
 .guide-nav { display: flex; flex-direction: column; gap: 5px; }
 .guide-nav a, .guide-nav a:visited { font-size: 12px; padding: 9px 12px; border-radius: 7px; color: var(--muted); }
 .guide-nav a:hover { background: var(--surface-soft); color: var(--text); }
@@ -156,7 +156,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 .sidebar-note { font-size: 11px; padding: 23px 12px 0; margin-top: 25px; border-top: 1px solid var(--border); }
 .sidebar-note .small-dot { width: 4px; height: 4px; margin-right: 4px; }
 .sidebar-note > span:last-child { display: inline-block; margin-top: 8px; color: var(--muted); line-height: 1.7; }
-.doc-content { min-width: 0; overflow-wrap: anywhere; }
+.doc-content { max-width: 740px; min-width: 0; overflow-wrap: anywhere; }
 .doc-content > .eyebrow { margin: 0 0 15px; }
 .doc-content h1 { font-size: clamp(30px, 3vw, 38px); margin-bottom: 26px; }
 .doc-content h2 { font-size: 23px; margin-top: 38px; margin-bottom: 16px; padding-top: 5px; }
@@ -180,15 +180,10 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 .doc-content kbd { font-size: 12px; border: 1px solid var(--border); border-bottom-width: 3px; border-radius: 5px; background: var(--surface); padding: 2px 6px; white-space: nowrap; }
 .article-support { border-top: 1px solid var(--border); margin-top: 45px; padding-top: 22px; font-size: 12px; color: var(--muted); }
 .article-support a { margin-left: 7px; }
-.page-outline { padding-top: 4px; }
-.page-outline nav { display: flex; flex-direction: column; gap: 13px; border-left: 1px solid var(--border); }
-.page-outline a, .page-outline a:visited { padding-left: 14px; color: var(--muted); font-size: 11px; line-height: 1.5; }
-.page-outline a:hover, .page-outline a[aria-current] { color: var(--accent); }
 
 @media (min-width: 1400px) { .hero { padding-block: 105px 95px; } }
 @media (max-width: 1100px) {
   .docs-layout { grid-template-columns: 170px minmax(0, 1fr); gap: 38px; }
-  .page-outline { display: none; }
   .hero { gap: 30px; }
   .hero-visual { min-height: 340px; }
   .paper-preview { padding-left: 40px; }
