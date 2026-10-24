@@ -10,7 +10,7 @@
       <span class="brand-divider" aria-hidden="true"></span><span class="brand-caption">Help center</span>
     </a>
     <nav class="header-nav" aria-label="Main navigation">
-      <a href="{{ '/getting-started/' | relative_url }}"{% unless page.url == '/' or page.url == '/privacy/' %} aria-current="true"{% endunless %}>Guides</a>
+      <a href="{{ '/getting-started/' | relative_url }}"{% unless page.url == '/' or page.url == '/privacy/' or page.url == '/contact/' %} aria-current="true"{% endunless %}>Guides</a>
       <a href="{{ '/privacy/' | relative_url }}"{% if page.url == '/privacy/' %} aria-current="page"{% endif %}>Privacy</a>
       <button class="theme-toggle" type="button" hidden>Theme: System</button>
     </nav>

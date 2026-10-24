@@ -14,8 +14,10 @@ layout: default
     <div class="sidebar-note"><span class="small-dot" aria-hidden="true"></span> Made for your flow.<br><span>Find what you need, then get back to reading.</span></div>
   </aside>
   <article class="doc-content">
-    <p class="eyebrow">{% if page.url == '/privacy/' %}Your data, your device{% else %}Crumbs essentials{% endif %}</p>
+    <p class="eyebrow">{% if page.url == '/privacy/' %}Your data, your device{% elsif page.url == '/contact/' %}A little extra help{% else %}Crumbs essentials{% endif %}</p>
     {{ content }}
-    <div class="article-support">Still have a question? <a href="https://github.com/k-veloso/crumbs-help/issues">Let us help <span aria-hidden="true">↗</span></a></div>
+    {% unless page.url == '/contact/' %}
+    <div class="article-support">Still have a question? <a href="{{ '/contact/' | relative_url }}">Contact us</a></div>
+    {% endunless %}
   </article>
 </div>

@@ -29,7 +29,7 @@ uses `relative_url` so the image works under the GitHub Pages project path.
 
 The help site keeps Minima as its Jekyll theme and overrides its layouts locally:
 
-- `_layouts/home.html` supplies the homepage, guide cards, and outline illustration.
+- `_layouts/home.html` supplies the help homepage, guide cards, and support links.
 - `_layouts/page.html` supplies the article layout and guide navigation sidebar.
 - `assets/main.scss` defines the extension-inspired Plain surfaces, Caramel accent,
   responsive layouts, and light/dark colors.
@@ -39,3 +39,16 @@ The help site keeps Minima as its Jekyll theme and overrides its layouts locally
 
 Guide content remains in the Markdown files at the repository root. Internal links
 use `relative_url` to support the `/crumbs-help/` GitHub Pages project path.
+
+## Content maintenance
+
+The [October 24 extension review](_audit/2026-10-24-extension-pr-review.md) maps
+merged extension PRs #4–#14 to the help-center updates and records the reviewed
+source revision. Files in `_audit/` are maintenance notes, not published pages.
+
+## Support contact
+
+The Contact page offers email and GitHub issues. Set `support_email` in
+`_config.yml` to the real inbox and set `support_email_placeholder` to `false`
+when it is ready. Until then, `support@example.com` is clearly marked as a
+placeholder on the Contact page.
