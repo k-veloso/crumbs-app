@@ -39,3 +39,9 @@ The help site keeps Minima as its Jekyll theme and overrides its layouts locally
 
 Guide content remains in the Markdown files at the repository root. Internal links
 use `relative_url` to support the `/crumbs-help/` GitHub Pages project path.
+
+## Content maintenance
+
+The [October 24 extension review](_audit/2026-10-24-extension-pr-review.md) maps
+merged extension PRs #4–#14 to the help-center updates and records the reviewed
+source revision. Files in `_audit/` are maintenance notes, not published pages.
