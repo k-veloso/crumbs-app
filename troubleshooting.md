@@ -75,4 +75,4 @@ Hover over or focus the icon for an explanation. The markup may be restricted, s
 
 ## Still need help?
 
-[Open a GitHub issue](https://github.com/k-veloso/crumbs-help/issues) with the page type, expected behavior, and what happened. Do not paste private page contents or credentials into a public issue.
+[Contact us]({{ '/contact/' | relative_url }}) by email or GitHub. Include the page type, what you expected, and what happened so we can understand the problem.

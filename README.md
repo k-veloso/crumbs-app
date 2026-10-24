@@ -45,3 +45,10 @@ use `relative_url` to support the `/crumbs-help/` GitHub Pages project path.
 The [October 24 extension review](_audit/2026-10-24-extension-pr-review.md) maps
 merged extension PRs #4–#14 to the help-center updates and records the reviewed
 source revision. Files in `_audit/` are maintenance notes, not published pages.
+
+## Support contact
+
+The Contact page offers email and GitHub issues. Set `support_email` in
+`_config.yml` to the real inbox and set `support_email_placeholder` to `false`
+when it is ready. Until then, `support@example.com` is clearly marked as a
+placeholder on the Contact page.

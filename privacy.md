@@ -6,7 +6,7 @@ permalink: /privacy/
 
 # Privacy Policy for Crumbs - Navigate Any Page
 
-Last updated: October 21, 2026
+Last updated: October 24, 2026
 
 Crumbs helps people navigate structured web pages and read standalone Markdown documents. It processes page headings and eligible Markdown content in the current browser tab to provide these features.
 
@@ -54,4 +54,4 @@ This policy will be updated when Crumbs' data practices change. The updated date
 
 ## Contact
 
-For privacy questions, [open an issue in the Crumbs Help repository](https://github.com/k-veloso/crumbs-help/issues). Issues are public, so do not include passwords, private documents, health or financial information, or other sensitive personal information.
+For privacy questions, see our [contact page]({{ '/contact/' | relative_url }}) for email and GitHub options. GitHub issues are public, so do not include passwords, private documents, health or financial information, or other sensitive personal information.

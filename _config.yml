@@ -4,6 +4,8 @@ description: Help and privacy documentation for Crumbs - Navigate Any Page
 theme: minima
 url: https://k-veloso.github.io
 baseurl: /crumbs-help
+support_email: support@example.com
+support_email_placeholder: true
 header_pages:
   - getting-started.md
   - markdown-reader.md

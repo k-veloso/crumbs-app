@@ -34,17 +34,23 @@ pattern matching, document themes, file access, and unsupported HTML.
 
 ## Still accurate
 
-- JSON reading and AI-chat-specific navigation remain planned, not available. The
-  extension's README still says so; they were not introduced by these PRs.
 - Local-only preferences, the 500 Raw-view exception limit, click-only clipboard
   writes, and the lack of accounts, analytics, or a developer backend remain
   consistent with the extension's privacy policy and implementation.
 - Group collapse is page-session state, not new persistent browsing history.
-- No substantive privacy-policy change was required by this review.
+- No substantive privacy-policy change was required by the extension review. The
+  contact route was subsequently updated to offer email alongside GitHub.
 
 ## Validation
 
-Passed a Jekyll 3.10.0 / Minima 2.5.1 build and checked all six published pages,
+Passed a Jekyll 3.10.0 / Minima 2.5.1 build and checked all seven published pages,
 internal links, image/style/script assets, one H1 per page, and section-link targets.
 `git diff --check` passed. The local `crumbs/` extension checkout is a reference only
 and is not part of the help-center changes or preview source.
+
+## Contact follow-up
+
+Added a Contact page with a clearly marked `support@example.com` placeholder and
+the existing GitHub issue route. Home, article, footer, troubleshooting, and
+privacy contact links now lead to those choices. Replace the configured address
+and clear the placeholder flag before treating email as a working support inbox.
