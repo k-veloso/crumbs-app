@@ -24,3 +24,18 @@ The logo is copied from `k-veloso/crumbs` at
 `public/brand/crumbs-lockup-horizontal.svg`. Its display size is set in
 `assets/main.scss`; `_includes/header.html` preserves Minima's navigation and
 uses `relative_url` so the image works under the GitHub Pages project path.
+
+## Site styling
+
+The help site keeps Minima as its Jekyll theme and overrides its layouts locally:
+
+- `_layouts/home.html` supplies the homepage, guide cards, and outline illustration.
+- `_layouts/page.html` supplies the article layout and guide navigation sidebar.
+- `assets/main.scss` defines the extension-inspired Plain surfaces, Caramel accent,
+  responsive layouts, and light/dark colors.
+- `assets/site.js` enables the System/Light/Dark switch.
+  The theme preference is stored locally in the browser. Without JavaScript, the
+  site follows the system appearance and guide navigation remains available.
+
+Guide content remains in the Markdown files at the repository root. Internal links
+use `relative_url` to support the `/crumbs-help/` GitHub Pages project path.

@@ -1,0 +1,21 @@
+---
+layout: default
+---
+<div class="shell docs-layout">
+  <aside class="guide-sidebar">
+    <a class="back-link" href="{{ '/' | relative_url }}">← Help center</a>
+    <p class="eyebrow">Explore the guides</p>
+    <nav class="guide-nav" aria-label="Help guides">
+      {% for path in site.header_pages %}
+        {% assign guide = site.pages | where: 'path', path | first %}
+        <a href="{{ guide.url | relative_url }}"{% if page.url == guide.url %} aria-current="page"{% endif %}>{{ guide.title | escape }}</a>
+      {% endfor %}
+    </nav>
+    <div class="sidebar-note"><span class="small-dot" aria-hidden="true"></span> Made for your flow.<br><span>Find what you need, then get back to reading.</span></div>
+  </aside>
+  <article class="doc-content">
+    <p class="eyebrow">{% if page.url == '/privacy/' %}Your data, your device{% else %}Crumbs essentials{% endif %}</p>
+    {{ content }}
+    <div class="article-support">Still have a question? <a href="https://github.com/k-veloso/crumbs-help/issues">Let us help <span aria-hidden="true">↗</span></a></div>
+  </article>
+</div>
