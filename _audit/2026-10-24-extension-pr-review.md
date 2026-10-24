@@ -54,3 +54,10 @@ Added a Contact page with a clearly marked `support@example.com` placeholder and
 the existing GitHub issue route. Home, article, footer, troubleshooting, and
 privacy contact links now lead to those choices. Replace the configured address
 and clear the placeholder flag before treating email as a working support inbox.
+
+## Homepage wording follow-up
+
+Simplified the homepage into a guide directory with short descriptions and direct
+support/privacy links. Removed the promotional headline, illustration, small
+captions, product overview, privacy pitch, and footer tagline. Product marketing
+copy is reserved for a separate landing page.

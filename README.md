@@ -29,7 +29,7 @@ uses `relative_url` so the image works under the GitHub Pages project path.
 
 The help site keeps Minima as its Jekyll theme and overrides its layouts locally:
 
-- `_layouts/home.html` supplies the homepage, guide cards, and outline illustration.
+- `_layouts/home.html` supplies the help homepage, guide cards, and support links.
 - `_layouts/page.html` supplies the article layout and guide navigation sidebar.
 - `assets/main.scss` defines the extension-inspired Plain surfaces, Caramel accent,
   responsive layouts, and light/dark colors.
