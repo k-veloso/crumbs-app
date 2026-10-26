@@ -1,0 +1,31 @@
+---
+import SiteLayout from "../../layouts/SiteLayout.astro";
+import { withBase } from "../../lib/paths";
+---
+
+<SiteLayout
+  title="Onboarding"
+  description="A future home for guided Crumbs onboarding. No extension integration is active on this page yet."
+  bodyClass="article-page"
+>
+  <div class="article-shell shell onboarding-shell">
+    <p class="eyebrow"><span class="small-dot"></span>Future route</p>
+    <h1>Guided onboarding will live here.</h1>
+    <p class="onboarding-lede">
+      This public page is a scaffold for a future extension-guided introduction.
+      It does not currently connect to the extension, validate completion, grant
+      permissions, or unlock features.
+    </p>
+    <div class="onboarding-card">
+      <span aria-hidden="true">↗</span>
+      <div>
+        <h2>Start with the current guide</h2>
+        <p>
+          Learn how to open the outline, navigate headings, choose site rules,
+          and adjust appearance.
+        </p>
+        <a href={withBase("/help/getting-started/")}>Read Getting Started</a>
+      </div>
+    </div>
+  </div>
+</SiteLayout>

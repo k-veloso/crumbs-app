@@ -1,54 +1,77 @@
-# Crumbs Help
+# Crumbs website
 
-Public help and privacy documentation for **Crumbs - Navigate Any Page**.
+Public landing page, help center, privacy policy, and support information for **Crumbs — Navigate Any Page**.
 
-The published site is available at <https://k-veloso.github.io/crumbs-help/>.
+The site is built with Astro and Starlight and is published at <https://k-veloso.github.io/crumbs-app/>.
 
-## Content
+This public repository does not contain the Crumbs extension source, privileged logic, credentials, or private user data.
 
-- Getting started
-- Reading Markdown
-- Keyboard shortcuts
-- Troubleshooting
-- Privacy policy
+## Routes
 
-This repository contains documentation only. The Crumbs extension source is maintained separately.
+- `/` — product landing page
+- `/help/` — searchable Starlight help center
+- `/help/getting-started/` — page navigation, rules, and appearance
+- `/help/markdown-reader/` — Markdown rendering and local files
+- `/help/shortcuts/` — keyboard shortcuts and hover preview
+- `/help/troubleshooting/` — common problems and fixes
+- `/privacy/` — privacy policy
+- `/contact/` — public support route
+- `/onboarding/` — future onboarding scaffold; no extension integration is active
 
-## Header logo
+The previous top-level guide paths are generated as redirect pages. See [the URL migration table](docs/url-migration.md) for details.
 
-The header displays the local SVG configured by `logo` in `_config.yml`. Keep
-`title` as text for page metadata and the logo's accessible label. Remove `logo`
-to show the text title again.
+## Local development
 
-The logo is copied from `k-veloso/crumbs` at
-`public/brand/crumbs-lockup-horizontal.svg`. Its display size is set in
-`assets/main.scss`; `_includes/header.html` preserves Minima's navigation and
-uses `relative_url` so the image works under the GitHub Pages project path.
+Requires Node.js 24 and npm.
 
-## Site styling
+```sh
+npm ci
+npm run dev
+```
 
-The help site keeps Minima as its Jekyll theme and overrides its layouts locally:
+Astro serves the project with the configured `/crumbs-app` base path. Follow the local URL printed in the terminal.
 
-- `_layouts/home.html` supplies the help homepage, guide cards, and support links.
-- `_layouts/page.html` supplies the article layout and guide navigation sidebar.
-- `assets/main.scss` defines the extension-inspired Plain surfaces, Caramel accent,
-  responsive layouts, and light/dark colors.
-- `assets/site.js` enables the System/Light/Dark switch.
-  The theme preference is stored locally in the browser. Without JavaScript, the
-  site follows the system appearance and guide navigation remains available.
+## Validation
 
-Guide content remains in the Markdown files at the repository root. Internal links
-use `relative_url` to support the `/crumbs-help/` GitHub Pages project path.
+```sh
+npm run lint
+npm run build
+npm test
+```
 
-## Content maintenance
+- `npm run lint` runs Astro's type/content checks and Prettier's formatting check.
+- `npm run build` creates the static site in `dist/`.
+- `npm test` validates generated routes, project-base URLs, internal links, assets, and legacy redirects. Run it after the build.
 
-The [October 24 extension review](_audit/2026-10-24-extension-pr-review.md) maps
-merged extension PRs #4–#14 to the help-center updates and records the reviewed
-source revision. Files in `_audit/` are maintenance notes, not published pages.
+The dependency versions are pinned in `package.json`; commit `package-lock.json` whenever dependencies change.
 
-## Support contact
+## GitHub Pages deployment
 
-The Contact page offers email and GitHub issues. Set `support_email` in
-`_config.yml` to the real inbox and set `support_email_placeholder` to `false`
-when it is ready. Until then, `support@example.com` is clearly marked as a
-placeholder on the Contact page.
+`.github/workflows/deploy.yml` runs on pushes to `main` and by manual dispatch. It installs with `npm ci`, validates the project, builds the static site, checks the generated routes, uploads the Pages artifact, and deploys it with GitHub's official Pages actions.
+
+Astro is configured with:
+
+```js
+site: "https://k-veloso.github.io";
+base: "/crumbs-app";
+```
+
+### One-time repository setting
+
+After this branch is merged:
+
+1. Open **Settings → Pages** in `k-veloso/crumbs-app`.
+2. Under **Build and deployment**, set **Source** to **GitHub Actions**.
+3. Confirm Actions are enabled under **Settings → Actions → General**.
+4. Push or merge to `main`, then watch the **Deploy to GitHub Pages** workflow.
+5. Open <https://k-veloso.github.io/crumbs-app/> after the deployment finishes.
+
+The repository currently uses the legacy branch-based Pages build; it must be changed to GitHub Actions for this workflow to become the publishing source.
+
+## Content and contact maintenance
+
+Help articles live in `src/content/docs/help/`. Landing, privacy, contact, redirects, and onboarding routes live in `src/pages/`.
+
+No verified Chrome Web Store URL or working support email is published. Add an install CTA only after verifying the store URL. When a support inbox is ready, add it to `src/pages/contact.md`; do not use a placeholder address.
+
+The [October 24 extension review](_audit/2026-10-24-extension-pr-review.md) maps merged extension work to the preserved help content. Files under `_audit/` and `docs/` are maintenance records and are not published by Astro.

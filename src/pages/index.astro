@@ -1,0 +1,234 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+import { withBase } from "../lib/paths";
+---
+
+<SiteLayout
+  title="Crumbs"
+  description="A Chrome extension for navigating long pages and reading standalone Markdown without losing your place."
+  bodyClass="landing-page"
+>
+  <section class="hero shell">
+    <div class="hero-copy">
+      <p class="eyebrow"><span class="small-dot"></span>Navigate any page</p>
+      <h1>Keep your place.<br /><span>Find what matters.</span></h1>
+      <p class="hero-lede">
+        Crumbs turns a page's headings into a focused outline and gives
+        standalone Markdown a clean, readable view—without sending your reading
+        to a developer server.
+      </p>
+      <div class="hero-actions">
+        <a
+          class="button button-primary"
+          href={withBase("/help/getting-started/")}>See how Crumbs works</a
+        >
+        <a class="button button-secondary" href={withBase("/help/")}
+          >Browse help <span aria-hidden="true">→</span></a
+        >
+      </div>
+      <p class="availability-note">
+        An install link will appear here when a verified store listing is
+        available.
+      </p>
+    </div>
+
+    <div
+      class="product-preview"
+      aria-label="Illustration of a Crumbs page outline"
+    >
+      <div class="preview-browser">
+        <div class="browser-bar" aria-hidden="true">
+          <span></span><span></span><span></span>
+          <div class="address-bar">A long, useful page</div>
+        </div>
+        <div class="preview-page">
+          <aside class="preview-outline">
+            <div class="outline-heading">
+              <strong>On this page</strong><span>⌕</span>
+            </div>
+            <ol>
+              <li class="outline-active">
+                <span>01</span>Start with the question
+              </li>
+              <li><span>02</span>Gather the evidence</li>
+              <li><span>03</span>Notice the details</li>
+              <li><span>04</span>Reach a conclusion</li>
+            </ol>
+            <div class="outline-controls">
+              <span>⌃ Top</span><span>Pin</span>
+            </div>
+          </aside>
+          <div class="preview-document" aria-hidden="true">
+            <p class="preview-kicker">A PRACTICAL FIELD GUIDE</p>
+            <h2>How to read a long page without getting lost</h2>
+            <p></p><p></p><p class="short"></p>
+            <h3>Start with the question</h3>
+            <p></p><p class="medium"></p>
+          </div>
+        </div>
+      </div>
+      <div class="preview-chip preview-chip-search">
+        <span>⌘</span> Search headings
+      </div>
+      <div class="preview-chip preview-chip-local">
+        <span>●</span> Processed locally
+      </div>
+    </div>
+  </section>
+
+  <section class="trust-strip" aria-label="Crumbs product highlights">
+    <div class="shell trust-items">
+      <span>Long-page outlines</span>
+      <span>Standalone Markdown</span>
+      <span>Keyboard workflows</span>
+      <span>Local preferences</span>
+    </div>
+  </section>
+
+  <section class="section shell" id="features">
+    <div class="section-intro">
+      <p class="eyebrow">
+        <span class="small-dot"></span>Made for your reading flow
+      </p>
+      <h2>Less hunting.<br />More understanding.</h2>
+      <p>
+        Move through dense pages with a compact set of tools that stay out of
+        the way until you need them.
+      </p>
+    </div>
+    <div class="feature-grid">
+      <article class="feature-card feature-caramel">
+        <span class="feature-number">01</span>
+        <div class="feature-icon" aria-hidden="true">☷</div>
+        <h3>See the structure</h3>
+        <p>
+          Turn visible page headings into an outline, follow your current
+          section, and jump directly to what you need.
+        </p>
+      </article>
+      <article class="feature-card feature-ube">
+        <span class="feature-number">02</span>
+        <div class="feature-icon" aria-hidden="true">⌕</div>
+        <h3>Narrow the noise</h3>
+        <p>
+          Search headings, filter by level, collapse groups, and pin the outline
+          when you want it to stay open.
+        </p>
+      </article>
+      <article class="feature-card feature-matcha">
+        <span class="feature-number">03</span>
+        <div class="feature-icon" aria-hidden="true">#</div>
+        <h3>Read Markdown cleanly</h3>
+        <p>
+          Switch between Rendered and Raw views with support for tables, code,
+          diagrams, math, and common README layouts.
+        </p>
+      </article>
+      <article class="feature-card feature-blueberry">
+        <span class="feature-number">04</span>
+        <div class="feature-icon" aria-hidden="true">⌘</div>
+        <h3>Keep your hands moving</h3>
+        <p>
+          Customize in-page shortcuts, preview sections on hover, and copy
+          reliable section links when the page allows it.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class="privacy-section">
+    <div class="shell privacy-grid">
+      <div class="privacy-copy">
+        <p class="eyebrow eyebrow-light">
+          <span class="small-dot"></span>Privacy by design
+        </p>
+        <h2>Your reading stays on your device.</h2>
+        <p>
+          Crumbs processes headings, eligible Markdown, and preferences locally.
+          It has no account system, analytics, advertising, telemetry, or
+          developer-operated backend.
+        </p>
+        <a href={withBase("/privacy/")}
+          >Read the full privacy policy <span aria-hidden="true">→</span></a
+        >
+      </div>
+      <ul class="privacy-list" aria-label="Privacy highlights">
+        <li>
+          <span>01</span><div>
+            <strong>No account required</strong><p>
+              There is no Crumbs profile to create or maintain.
+            </p>
+          </div>
+        </li>
+        <li>
+          <span>02</span><div>
+            <strong>Preferences stay local</strong><p>
+              Appearance, shortcuts, rules, and reader settings use Chrome's
+              local extension storage.
+            </p>
+          </div>
+        </li>
+        <li>
+          <span>03</span><div>
+            <strong>No page-content backend</strong><p>
+              Crumbs does not transmit handled page content or saved preferences
+              to the developer.
+            </p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section shell faq-section">
+    <div class="section-intro compact">
+      <p class="eyebrow"><span class="small-dot"></span>Good to know</p>
+      <h2>Questions, answered.</h2>
+    </div>
+    <div class="faq-grid">
+      <details open>
+        <summary>What kinds of pages does Crumbs support?</summary>
+        <p>
+          Crumbs works on supported Chrome pages with visible, meaningful
+          headings. Chrome blocks extensions on protected pages such as the
+          Chrome Web Store and <code>chrome://</code> pages.
+        </p>
+      </details>
+      <details>
+        <summary>Can it read local Markdown files?</summary>
+        <p>
+          Yes. Enable Local Markdown files in Crumbs and grant Chrome's Allow
+          access to file URLs permission, then refresh the file.
+        </p>
+      </details>
+      <details>
+        <summary>Does Crumbs save document contents?</summary>
+        <p>
+          No. It does not save the contents of web pages or Markdown documents.
+          It can remember local preferences such as a document's Raw-view
+          choice.
+        </p>
+      </details>
+      <details>
+        <summary>Where can I install it?</summary>
+        <p>
+          This site does not publish an install link yet because a verified
+          store URL is not available. The link will be added once it can be
+          verified.
+        </p>
+      </details>
+    </div>
+  </section>
+
+  <section class="closing-cta shell">
+    <div>
+      <p class="eyebrow">
+        <span class="small-dot"></span>Already using Crumbs?
+      </p>
+      <h2>Find an answer and get back to the page.</h2>
+    </div>
+    <a class="button button-primary" href={withBase("/help/")}
+      >Open the help center</a
+    >
+  </section>
+</SiteLayout>

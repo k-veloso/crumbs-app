@@ -1,0 +1,19 @@
+---
+import SiteLayout from "./SiteLayout.astro";
+import { withBase } from "../lib/paths";
+
+const { frontmatter } = Astro.props;
+---
+
+<SiteLayout
+  title={frontmatter.title}
+  description={frontmatter.description}
+  bodyClass="article-page"
+>
+  <div class="article-shell shell">
+    <a class="back-link" href={withBase("/")}>← Crumbs home</a>
+    <article class="prose">
+      <slot />
+    </article>
+  </div>
+</SiteLayout>
