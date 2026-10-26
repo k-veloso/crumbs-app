@@ -1,0 +1,142 @@
+---
+import logoDark from "../assets/images/crumbs-lockup-horizontal-dark.svg";
+import logoLight from "../assets/images/crumbs-lockup-horizontal.svg";
+import { withBase } from "../lib/paths";
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+  eyebrow?: string;
+  bodyClass?: string;
+}
+
+const { title, description, bodyClass = "" } = Astro.props;
+const pageTitle = title === "Crumbs" ? title : `${title} · Crumbs`;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const isHelp = Astro.url.pathname.includes("/help/");
+const isPrivacy = Astro.url.pathname.includes("/privacy/");
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#f7f7f5" />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href={withBase("/favicon.svg")} type="image/svg+xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <title>{pageTitle}</title>
+    <slot name="head" />
+    <script is:inline>
+      (() => {
+        try {
+          const preference =
+            localStorage.getItem("starlight-theme") ??
+            localStorage.getItem("crumbs-help-theme");
+          if (preference === "light" || preference === "dark") {
+            document.documentElement.dataset.theme = preference;
+          }
+        } catch {}
+      })();
+    </script>
+  </head>
+  <body class={bodyClass}>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <div class="shell header-inner">
+        <a class="brand" href={withBase("/")} aria-label="Crumbs home">
+          <img
+            class="logo-light"
+            src={logoLight.src}
+            alt="Crumbs"
+            width="1007"
+            height="256"
+          />
+          <img
+            class="logo-dark"
+            src={logoDark.src}
+            alt="Crumbs"
+            width="1007"
+            height="256"
+          />
+        </a>
+        <nav class="header-nav" aria-label="Main navigation">
+          <a
+            href={withBase("/help/")}
+            aria-current={isHelp ? "page" : undefined}>Help</a
+          >
+          <a
+            href={withBase("/privacy/")}
+            aria-current={isPrivacy ? "page" : undefined}>Privacy</a
+          >
+          <button class="theme-toggle" type="button" hidden
+            >Theme: System</button
+          >
+        </nav>
+      </div>
+    </header>
+    <main id="main-content" tabindex="-1">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="shell footer-inner">
+        <p>Crumbs · Navigate any page</p>
+        <nav aria-label="Footer navigation">
+          <a href={withBase("/help/")}>Help</a>
+          <a href={withBase("/privacy/")}>Privacy</a>
+          <a href={withBase("/contact/")}>Contact</a>
+          <a href="https://github.com/k-veloso/crumbs-app"
+            >GitHub <span aria-hidden="true">↗</span></a
+          >
+        </nav>
+      </div>
+    </footer>
+    <script>
+      const root = document.documentElement;
+      const button = document.querySelector<HTMLButtonElement>(".theme-toggle");
+      const options = ["system", "light", "dark"] as const;
+      type Theme = (typeof options)[number];
+      let preference: Theme =
+        root.dataset.theme === "light" || root.dataset.theme === "dark"
+          ? root.dataset.theme
+          : "system";
+
+      function updateTheme() {
+        if (!button) return;
+        if (preference === "system") delete root.dataset.theme;
+        else root.dataset.theme = preference;
+        const next =
+          options[(options.indexOf(preference) + 1) % options.length];
+        const label = preference[0].toUpperCase() + preference.slice(1);
+        button.textContent = `Theme: ${label}`;
+        button.setAttribute(
+          "aria-label",
+          `Color theme: ${label}. Switch to ${next}.`,
+        );
+      }
+
+      if (button) {
+        button.hidden = false;
+        updateTheme();
+        button.addEventListener("click", () => {
+          preference =
+            options[(options.indexOf(preference) + 1) % options.length];
+          updateTheme();
+          try {
+            localStorage.setItem(
+              "starlight-theme",
+              preference === "system" ? "" : preference,
+            );
+          } catch {}
+        });
+      }
+    </script>
+  </body>
+</html>

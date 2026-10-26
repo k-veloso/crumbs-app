@@ -1,0 +1,20 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+import { withBase } from "../lib/paths";
+---
+
+<SiteLayout
+  title="Page not found"
+  description="The requested page could not be found on the Crumbs website."
+  bodyClass="article-page"
+>
+  <div class="redirect-card shell">
+    <p class="eyebrow"><span class="small-dot"></span>Error 404</p>
+    <h1>This page left no crumbs behind.</h1>
+    <p>
+      The address may have changed during the site migration. <a
+        href={withBase("/help/")}>Search the help center</a
+      > or <a href={withBase("/")}>return to the Crumbs home page</a>.
+    </p>
+  </div>
+</SiteLayout>

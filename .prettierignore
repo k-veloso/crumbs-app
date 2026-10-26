@@ -1,0 +1,7 @@
+dist/
+node_modules/
+.astro/
+package-lock.json
+public/favicon.svg
+src/assets/images/crumbs-lockup-horizontal.svg
+src/assets/images/crumbs-lockup-horizontal-dark.svg
