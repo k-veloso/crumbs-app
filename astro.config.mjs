@@ -49,6 +49,15 @@ export default defineConfig({
       ],
       disable404Route: true,
       customCss: ["./src/styles/starlight.css"],
+      head: [
+        {
+          tag: "script",
+          attrs: {
+            src: `${base}/crumbs-docs-outline.js`,
+            defer: true,
+          },
+        },
+      ],
       editLink: {
         baseUrl: "https://github.com/k-veloso/crumbs-app/edit/main/",
       },
