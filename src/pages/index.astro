@@ -1,5 +1,10 @@
 ---
+import { Image } from "astro:assets";
 import SiteLayout from "../layouts/SiteLayout.astro";
+import markdownRaw from "../assets/images/mockups/markdown-raw.png";
+import markdownReader from "../assets/images/mockups/markdown-reader.png";
+import quietOutline from "../assets/images/mockups/quiet-outline.png";
+import searchHeadings from "../assets/images/mockups/search-headings.png";
 import { withBase } from "../lib/paths";
 ---
 
@@ -37,11 +42,13 @@ import { withBase } from "../lib/paths";
         <span></span><span></span><span></span>
         <p>A long page, made navigable</p>
       </div>
-      <img
-        src={withBase("/images/mockups/quiet-outline.jpg")}
+      <Image
+        src={quietOutline}
         alt="Crumbs expanded beside a long article, showing its nested heading outline and active section"
-        width="903"
-        height="688"
+        width={1383}
+        layout="constrained"
+        format="webp"
+        quality={90}
         loading="eager"
         decoding="async"
         fetchpriority="high"
@@ -121,11 +128,13 @@ import { withBase } from "../lib/paths";
       <div class="mockup-toolbar" aria-hidden="true">
         <span></span><span></span><span></span><p>Find a heading</p>
       </div>
-      <img
-        src={withBase("/images/mockups/search-headings.jpg")}
+      <Image
+        src={searchHeadings}
         alt="Crumbs filtering a page outline to headings matching the word read"
-        width="903"
-        height="688"
+        width={1383}
+        layout="constrained"
+        format="webp"
+        quality={90}
         loading="lazy"
         decoding="async"
       />
@@ -174,11 +183,13 @@ import { withBase } from "../lib/paths";
           <div class="shot-label">
             <span>Rendered</span><small>Readable view</small>
           </div>
-          <img
-            src={withBase("/images/mockups/markdown-reader.jpg")}
+          <Image
+            src={markdownReader}
             alt="A public Markdown document rendered in dark mode with the Crumbs outline open"
-            width="903"
-            height="632"
+            width={1380}
+            layout="constrained"
+            format="webp"
+            quality={90}
             loading="lazy"
             decoding="async"
           />
@@ -187,11 +198,13 @@ import { withBase } from "../lib/paths";
           <div class="shot-label">
             <span>Raw</span><small>Original source</small>
           </div>
-          <img
-            src={withBase("/images/mockups/markdown-raw.jpg")}
+          <Image
+            src={markdownRaw}
             alt="The same public Markdown document in Raw view with the Crumbs outline open"
-            width="903"
-            height="632"
+            width={1378}
+            layout="constrained"
+            format="webp"
+            quality={90}
             loading="lazy"
             decoding="async"
           />
