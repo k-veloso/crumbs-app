@@ -32,56 +32,33 @@ import { withBase } from "../lib/paths";
       </p>
     </div>
 
-    <div
-      class="product-preview"
-      aria-label="Illustration of a Crumbs page outline"
-    >
-      <div class="preview-browser">
-        <div class="browser-bar" aria-hidden="true">
-          <span></span><span></span><span></span>
-          <div class="address-bar">A long, useful page</div>
-        </div>
-        <div class="preview-page">
-          <aside class="preview-outline">
-            <div class="outline-heading">
-              <strong>On this page</strong><span>⌕</span>
-            </div>
-            <ol>
-              <li class="outline-active">
-                <span>01</span>Start with the question
-              </li>
-              <li><span>02</span>Gather the evidence</li>
-              <li><span>03</span>Notice the details</li>
-              <li><span>04</span>Reach a conclusion</li>
-            </ol>
-            <div class="outline-controls">
-              <span>⌃ Top</span><span>Pin</span>
-            </div>
-          </aside>
-          <div class="preview-document" aria-hidden="true">
-            <p class="preview-kicker">A PRACTICAL FIELD GUIDE</p>
-            <h2>How to read a long page without getting lost</h2>
-            <p></p><p></p><p class="short"></p>
-            <h3>Start with the question</h3>
-            <p></p><p class="medium"></p>
-          </div>
-        </div>
+    <figure class="product-preview mockup-window mockup-window-hero">
+      <div class="mockup-toolbar" aria-hidden="true">
+        <span></span><span></span><span></span>
+        <p>A long page, made navigable</p>
       </div>
-      <div class="preview-chip preview-chip-search">
-        <span>⌘</span> Search headings
-      </div>
-      <div class="preview-chip preview-chip-local">
-        <span>●</span> Processed locally
-      </div>
-    </div>
+      <img
+        src={withBase("/images/mockups/quiet-outline.jpg")}
+        alt="Crumbs expanded beside a long article, showing its nested heading outline and active section"
+        width="903"
+        height="688"
+        loading="eager"
+        decoding="async"
+        fetchpriority="high"
+      />
+      <figcaption>
+        <span><i></i>Real extension interface</span>
+        <span>Glazed · Caramel</span>
+      </figcaption>
+    </figure>
   </section>
 
   <section class="trust-strip" aria-label="Crumbs product highlights">
     <div class="shell trust-items">
-      <span>Long-page outlines</span>
-      <span>Standalone Markdown</span>
-      <span>Keyboard workflows</span>
-      <span>Local preferences</span>
+      <span>Collapsible outlines</span>
+      <span>Search and depth filters</span>
+      <span>Online and local Markdown</span>
+      <span>Glazed or Plain</span>
     </div>
   </section>
 
@@ -96,44 +73,177 @@ import { withBase } from "../lib/paths";
         the way until you need them.
       </p>
     </div>
-    <div class="feature-grid">
-      <article class="feature-card feature-caramel">
-        <span class="feature-number">01</span>
-        <div class="feature-icon" aria-hidden="true">☷</div>
-        <h3>See the structure</h3>
-        <p>
-          Turn visible page headings into an outline, follow your current
-          section, and jump directly to what you need.
-        </p>
-      </article>
-      <article class="feature-card feature-ube">
-        <span class="feature-number">02</span>
-        <div class="feature-icon" aria-hidden="true">⌕</div>
-        <h3>Narrow the noise</h3>
-        <p>
-          Search headings, filter by level, collapse groups, and pin the outline
-          when you want it to stay open.
-        </p>
-      </article>
-      <article class="feature-card feature-matcha">
-        <span class="feature-number">03</span>
-        <div class="feature-icon" aria-hidden="true">#</div>
-        <h3>Read Markdown cleanly</h3>
-        <p>
-          Switch between Rendered and Raw views with support for tables, code,
-          diagrams, math, and common README layouts.
-        </p>
-      </article>
-      <article class="feature-card feature-blueberry">
-        <span class="feature-number">04</span>
-        <div class="feature-icon" aria-hidden="true">⌘</div>
-        <h3>Keep your hands moving</h3>
-        <p>
-          Customize in-page shortcuts, preview sections on hover, and copy
-          reliable section links when the page allows it.
-        </p>
-      </article>
+    <nav class="feature-index" aria-label="Feature details">
+      <a href="#page-outline"><span>01</span>Page outline</a>
+      <a href="#markdown-reader"><span>02</span>Markdown reader</a>
+      <a href="#appearance"><span>03</span>Appearance</a>
+    </nav>
+  </section>
+
+  <section class="feature-detail shell" id="page-outline">
+    <div class="feature-detail-copy">
+      <p class="feature-kicker"><span>01</span>Navigate long pages</p>
+      <h2>A living outline that knows when to get out of the way.</h2>
+      <p class="feature-lede">
+        Crumbs turns meaningful headings into a compact hierarchy, follows your
+        current section, and folds back into a narrow rail whenever it is not
+        hovered or pinned.
+      </p>
+      <ul class="feature-points">
+        <li>
+          <strong>Move with the document.</strong>
+          Click a heading to scroll smoothly to it and briefly highlight the destination
+          on the page.
+        </li>
+        <li>
+          <strong>Preview without losing your flow.</strong>
+          Hold <kbd>Shift</kbd> and hover over headings to move between sections
+          quickly, without changing the URL or adding a page highlight.
+        </li>
+        <li>
+          <strong>Collapse nested groups.</strong>
+          Fold finished branches away, then reveal them again when you need their
+          detail.
+        </li>
+        <li>
+          <strong>Copy a link to the exact section.</strong>
+          Crumbs reuses a stable page anchor when one exists and can create a text-fragment
+          link like Chrome's Copy link to highlight.
+        </li>
+        <li>
+          <strong>Search, then choose a depth.</strong>
+          Filter headings by text or show only levels through H1, H2, H3, and beyond.
+          Hover a truncated heading to see its complete text in a tooltip.
+        </li>
+      </ul>
     </div>
+    <figure class="feature-visual mockup-window">
+      <div class="mockup-toolbar" aria-hidden="true">
+        <span></span><span></span><span></span><p>Find a heading</p>
+      </div>
+      <img
+        src={withBase("/images/mockups/search-headings.jpg")}
+        alt="Crumbs filtering a page outline to headings matching the word read"
+        width="903"
+        height="688"
+        loading="lazy"
+        decoding="async"
+      />
+      <figcaption>
+        <span><i></i>Search in place</span><span>Only matching headings</span>
+      </figcaption>
+    </figure>
+  </section>
+
+  <section class="feature-band" id="markdown-reader">
+    <div class="feature-detail feature-detail-reader shell">
+      <div class="feature-detail-copy">
+        <p class="feature-kicker"><span>02</span>Read Markdown</p>
+        <h2>Readable when you want it. Raw when you need it.</h2>
+        <p class="feature-lede">
+          Open standalone Markdown from the web or from local files, then move
+          between a calm rendered document and its original source.
+        </p>
+        <ul class="feature-points">
+          <li>
+            <strong>Built for real documents.</strong>
+            Read common Markdown plus GitHub-Flavored Markdown features such as tables,
+            task lists, strikethrough, autolinks, and alerts.
+          </li>
+          <li>
+            <strong>Diagrams stay useful.</strong>
+            Mermaid diagrams include zoom, pan, reset, and source-copy controls.
+          </li>
+          <li>
+            <strong>Code remains practical.</strong>
+            Syntax-highlighted code blocks include quick copy and per-block line
+            wrapping.
+          </li>
+          <li>
+            <strong>Local files are supported.</strong>
+            Enable local Markdown in Crumbs and grant Chrome file access once; the
+            document itself remains on your device.
+          </li>
+        </ul>
+        <a class="feature-link" href={withBase("/help/markdown-reader/")}
+          >Explore Markdown support <span aria-hidden="true">→</span></a
+        >
+      </div>
+      <div class="reader-compare" aria-label="Rendered and Raw Markdown views">
+        <figure class="reader-shot">
+          <div class="shot-label">
+            <span>Rendered</span><small>Readable view</small>
+          </div>
+          <img
+            src={withBase("/images/mockups/markdown-reader.jpg")}
+            alt="A public Markdown document rendered in dark mode with the Crumbs outline open"
+            width="903"
+            height="632"
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
+        <figure class="reader-shot reader-shot-raw">
+          <div class="shot-label">
+            <span>Raw</span><small>Original source</small>
+          </div>
+          <img
+            src={withBase("/images/mockups/markdown-raw.jpg")}
+            alt="The same public Markdown document in Raw view with the Crumbs outline open"
+            width="903"
+            height="632"
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section
+    class="feature-detail feature-detail-appearance shell"
+    id="appearance"
+  >
+    <div class="feature-detail-copy">
+      <p class="feature-kicker"><span>03</span>Make it yours</p>
+      <h2>Blend into the page—or hold a clear edge.</h2>
+      <p class="feature-lede">
+        The interaction stays consistent while the surface adapts to the kind of
+        page you are reading.
+      </p>
+      <ul class="feature-points">
+        <li>
+          <strong>Glazed adapts.</strong>
+          Its translucent, glass-like surface samples the page behind it and adjusts
+          its tint and light or dark treatment automatically.
+        </li>
+        <li>
+          <strong>Plain stays solid.</strong>
+          Choose a solid Light, Dark, or System appearance for stronger separation
+          from the page.
+        </li>
+        <li>
+          <strong>Add one quiet accent.</strong>
+          Choose Caramel, Ube, Blueberry, Velvet, Custard, or Matcha across the outline,
+          settings, and destination highlights.
+        </li>
+        <li>
+          <strong>Keep only useful controls nearby.</strong>
+          Dock left or right and independently show or hide the Top, Bottom, and
+          Dock quick buttons.
+        </li>
+      </ul>
+    </div>
+    <figure class="feature-visual appearance-visual">
+      <img
+        src={withBase("/images/mockups/appearance-controls.jpg")}
+        alt="Crumbs appearance settings showing Glazed and Plain styles, six accents, and quick-button controls"
+        width="1280"
+        height="720"
+        loading="lazy"
+        decoding="async"
+      />
+    </figure>
   </section>
 
   <section class="privacy-section">
