@@ -134,7 +134,7 @@ test("help pages include the desktop Crumbs outline integration", async () => {
   assert.match(script, /\(min-width: 72rem\)/);
   assert.match(script, /crumbs-extension-host/);
   assert.match(script, /\.crumbs-root/);
-  assert.match(script, /Crumbs is hidden on this site/);
+  assert.match(script, /The Crumbs extension is hidden on this site/);
 });
 
 test("legacy guide routes identify their new help-center destinations", async () => {

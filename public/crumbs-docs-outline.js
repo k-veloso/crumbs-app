@@ -31,10 +31,12 @@
     notice.setAttribute("aria-label", "Crumbs outline status");
 
     const title = document.createElement("strong");
-    title.textContent = "Crumbs is hidden on this site";
+    title.textContent = "The Crumbs extension is hidden on this site";
 
     const message = document.createElement("span");
-    message.append("Open Crumbs from the browser toolbar and choose ");
+    message.append(
+      "Open the Crumbs extension from the browser toolbar and choose ",
+    );
     const showLabel = document.createElement("kbd");
     showLabel.textContent = "Show";
     message.append(showLabel, " to use its outline.");
