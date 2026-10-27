@@ -3,7 +3,7 @@ import { Image } from "astro:assets";
 import SiteLayout from "../layouts/SiteLayout.astro";
 import markdownRaw from "../assets/images/mockups/markdown-raw.png";
 import markdownReader from "../assets/images/mockups/markdown-reader.png";
-import quietOutline from "../assets/images/mockups/quiet-outline.png";
+import quietOutlineStates from "../assets/images/mockups/quiet-outline-states.png";
 import searchHeadings from "../assets/images/mockups/search-headings.png";
 import { withBase } from "../lib/paths";
 ---
@@ -43,8 +43,8 @@ import { withBase } from "../lib/paths";
         <p>A long page, made navigable</p>
       </div>
       <Image
-        src={quietOutline}
-        alt="Crumbs expanded beside a long article, showing its nested heading outline and active section"
+        src={quietOutlineStates}
+        alt="Crumbs shown beside a long article as both a collapsed heading rail and an expanded nested outline"
         width={1383}
         layout="constrained"
         format="webp"
@@ -54,8 +54,8 @@ import { withBase } from "../lib/paths";
         fetchpriority="high"
       />
       <figcaption>
-        <span><i></i>Real extension interface</span>
-        <span>Glazed · Caramel</span>
+        <span><i></i>Real extension states</span>
+        <span>Collapsed · Expanded</span>
       </figcaption>
     </figure>
   </section>
