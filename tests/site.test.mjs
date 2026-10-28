@@ -12,6 +12,7 @@ const requiredRoutes = [
   "help/",
   "help/getting-started/",
   "help/markdown-reader/",
+  "help/json-reader/",
   "help/shortcuts/",
   "help/troubleshooting/",
   "privacy/",

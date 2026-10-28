@@ -12,6 +12,7 @@ This public repository does not contain the Crumbs extension source, privileged 
 - `/help/` — searchable Starlight help center
 - `/help/getting-started/` — page navigation, rules, and appearance
 - `/help/markdown-reader/` — Markdown rendering and local files
+- `/help/json-reader/` — JSON rendering, search, copying, and limits
 - `/help/shortcuts/` — keyboard shortcuts and hover preview
 - `/help/troubleshooting/` — common problems and fixes
 - `/privacy/` — privacy policy
