@@ -10,7 +10,7 @@ import { withBase } from "../lib/paths";
 
 <SiteLayout
   title="Crumbs"
-  description="A Chrome extension for navigating long pages and reading standalone Markdown without losing your place."
+  description="A Chrome extension for navigating long pages and reading standalone Markdown or JSON without losing your place."
   bodyClass="landing-page"
 >
   <section class="hero shell">
@@ -19,8 +19,8 @@ import { withBase } from "../lib/paths";
       <h1>Keep your place.<br /><span>Find what matters.</span></h1>
       <p class="hero-lede">
         Crumbs turns a page's headings into a focused outline and gives
-        standalone Markdown a clean, readable view—without sending your reading
-        to a developer server.
+        standalone Markdown and JSON a clean, navigable view—without sending
+        your reading to a developer server.
       </p>
       <div class="hero-actions">
         <a
@@ -64,7 +64,7 @@ import { withBase } from "../lib/paths";
     <div class="shell trust-items">
       <span>Collapsible outlines</span>
       <span>Search and depth filters</span>
-      <span>Online and local Markdown</span>
+      <span>Markdown and JSON readers</span>
       <span>Glazed or Plain</span>
     </div>
   </section>
@@ -83,7 +83,8 @@ import { withBase } from "../lib/paths";
     <nav class="feature-index" aria-label="Feature details">
       <a href="#page-outline"><span>01</span>Page outline</a>
       <a href="#markdown-reader"><span>02</span>Markdown reader</a>
-      <a href="#appearance"><span>03</span>Appearance</a>
+      <a href="#json-reader"><span>03</span>JSON reader</a>
+      <a href="#appearance"><span>04</span>Appearance</a>
     </nav>
   </section>
 
@@ -213,12 +214,108 @@ import { withBase } from "../lib/paths";
     </div>
   </section>
 
+  <section class="json-feature-band" id="json-reader">
+    <div class="feature-detail feature-detail-json shell">
+      <div class="feature-detail-copy">
+        <p class="feature-kicker"><span>03</span>Explore JSON</p>
+        <h2>See the structure before the noise.</h2>
+        <p class="feature-lede">
+          Turn standalone JSON responses into a collapsible tree, then search
+          and copy the exact field you need without leaving the tab.
+        </p>
+        <ul class="feature-points">
+          <li>
+            <strong>Rendered or source-faithful Raw.</strong>
+            Explore nested objects and arrays, or return to the original decoded
+            response text at any time.
+          </li>
+          <li>
+            <strong>Search the entire response.</strong>
+            Find keys, values, or JSON Pointer paths—even inside collapsed and not-yet-mounted
+            branches.
+          </li>
+          <li>
+            <strong>Understand repeated records.</strong>
+            Grouped fields summarize occurrences, types, and small distinct-value
+            counts across arrays.
+          </li>
+          <li>
+            <strong>Copy without changing the data.</strong>
+            Copy raw JSON, exact values, properties, JSON Pointers, or JSONPath-style
+            locations without rounding large integers.
+          </li>
+          <li>
+            <strong>Stay responsive on large documents.</strong>
+            Collections load progressively, with depth controls and clear safety
+            limits when a response is too large to render.
+          </li>
+        </ul>
+        <a class="feature-link" href={withBase("/help/json-reader/")}
+          >Explore JSON support <span aria-hidden="true">→</span></a
+        >
+      </div>
+
+      <figure
+        class="json-product-preview"
+        aria-label="Crumbs Rendered JSON reader with a nested response and grouped field navigation"
+      >
+        <div class="json-preview-canvas" aria-hidden="true">
+          <div class="json-reader-preview">
+            <div class="json-reader-toolbar">
+              <span class="is-active">Rendered</span><span>Raw</span>
+              <i>{`{ }`}</i>
+            </div>
+            <div class="json-pointer">Pointer: /orders/0/customer</div>
+            <div class="json-tree-preview">
+              <p><b>⌄</b><strong>{`{`}</strong></p>
+              <p class="depth-1">
+                <b>⌄</b><em>"requestId"</em>: <q>req_1042</q>,
+              </p>
+              <p class="depth-1">
+                <b>⌄</b><em>"orders"</em>: <strong>[</strong>
+              </p>
+              <p class="depth-2 selected"><b>⌄</b><strong>{`{`}</strong></p>
+              <p class="depth-3">
+                <i>"id"</i>: <mark>9007199254740993123</mark>,
+              </p>
+              <p class="depth-3"><i>"status"</i>: <q>processing</q>,</p>
+              <p class="depth-3">
+                <b>⌄</b><em>"customer"</em>: <strong>{`{`}</strong>
+              </p>
+              <p class="depth-4"><i>"name"</i>: <q>Casey</q>,</p>
+              <p class="depth-4"><i>"email"</i>: <q>casey@example.test</q></p>
+              <p class="depth-3"><strong>{`}`}</strong></p>
+              <p class="depth-2"><strong>{`}`}</strong></p>
+              <p class="depth-1"><strong>]</strong></p>
+              <p><strong>{`}`}</strong></p>
+            </div>
+          </div>
+
+          <aside class="json-outline-preview">
+            <header><strong><i></i>crumbs</strong><span>{`{ }`}</span></header>
+            <div class="json-outline-search">customer <span>⌕</span></div>
+            <small>3 matches · grouped fields</small>
+            <ul>
+              <li class="active"><b>customer</b><span>×3 · object</span></li>
+              <li><b>name</b><span>×3 · 3 values</span></li>
+              <li><b>email</b><span>×2 · string</span></li>
+            </ul>
+          </aside>
+        </div>
+        <figcaption>
+          <span><i></i>Rendered response</span>
+          <span>Search · Group · Copy</span>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
   <section
     class="feature-detail feature-detail-appearance shell"
     id="appearance"
   >
     <div class="feature-detail-copy">
-      <p class="feature-kicker"><span>03</span>Make it yours</p>
+      <p class="feature-kicker"><span>04</span>Make it yours</p>
       <h2>Blend into the page—or hold a clear edge.</h2>
       <p class="feature-lede">
         The interaction stays consistent while the surface adapts to the kind of
@@ -267,9 +364,9 @@ import { withBase } from "../lib/paths";
         </p>
         <h2>Your reading stays on your device.</h2>
         <p>
-          Crumbs processes headings, eligible Markdown, and preferences locally.
-          It has no account system, analytics, advertising, telemetry, or
-          developer-operated backend.
+          Crumbs processes headings, eligible Markdown and JSON, and preferences
+          locally. It has no account system, analytics, advertising, telemetry,
+          or developer-operated backend.
         </p>
         <a href={withBase("/privacy/")}
           >Read the full privacy policy <span aria-hidden="true">→</span></a
@@ -318,18 +415,19 @@ import { withBase } from "../lib/paths";
         </p>
       </details>
       <details>
-        <summary>Can it read local Markdown files?</summary>
+        <summary>Can it read local Markdown and JSON files?</summary>
         <p>
-          Yes. Enable Local Markdown files in Crumbs and grant Chrome's Allow
-          access to file URLs permission, then refresh the file.
+          Yes. Both require Chrome's Allow access to file URLs permission. Local
+          Markdown also requires the Local Markdown files setting; local JSON
+          does not. Refresh the file after changing it.
         </p>
       </details>
       <details>
         <summary>Does Crumbs save document contents?</summary>
         <p>
-          No. It does not save the contents of web pages or Markdown documents.
-          It can remember local preferences such as a document's Raw-view
-          choice.
+          No. It does not save the contents of web pages, Markdown documents, or
+          JSON responses. It can remember local preferences such as a document's
+          Raw-view choice.
         </p>
       </details>
       <details>

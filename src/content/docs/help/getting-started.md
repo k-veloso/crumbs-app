@@ -77,10 +77,11 @@ Choose from Caramel, Ube, Blueberry, Velvet, Custard, and Matcha accents. The ac
 
 Under **General → Quick buttons**, independently show or hide **Jump to Top**, **Jump to Bottom**, and **Dock Left / Right**. Markdown's Rendered/Raw control is separate.
 
-The Markdown document has its own [Light/Dark/System setting](../markdown-reader/#choose-a-reading-theme), independent of the floating outline's appearance.
+Markdown and JSON documents share a Light/Dark/System reader setting, independent of the floating outline's appearance. See the [Markdown](../markdown-reader/#choose-a-reading-theme) and [JSON](../json-reader/#theme-and-saved-preferences) guides.
 
 ## Next steps
 
 - [Learn about keyboard shortcuts](../shortcuts/)
 - [Read standalone Markdown](../markdown-reader/)
+- [Explore standalone JSON](../json-reader/)
 - [Troubleshoot common issues](../troubleshooting/)

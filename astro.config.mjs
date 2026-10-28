@@ -34,6 +34,7 @@ export default defineConfig({
             { label: "Overview", slug: "help" },
             { label: "Getting Started", slug: "help/getting-started" },
             { label: "Reading Markdown", slug: "help/markdown-reader" },
+            { label: "Reading JSON", slug: "help/json-reader" },
             { label: "Keyboard Shortcuts", slug: "help/shortcuts" },
             { label: "Troubleshooting", slug: "help/troubleshooting" },
           ],

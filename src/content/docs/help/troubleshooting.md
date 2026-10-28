@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting
-description: Resolve common outline, shortcut, Markdown, theme, and site-rule problems.
+description: Resolve common outline, shortcut, Markdown, JSON, theme, and site-rule problems.
 ---
 
 ## The outline does not appear
@@ -69,6 +69,22 @@ Images are requested from the location referenced by the document. The host may 
 ## HTML appears as code with an information icon
 
 Hover over or focus the icon for an explanation. The markup may be restricted, such as a script or form, or simply outside Crumbs' supported HTML subset. The icon alone does not mean the document is harmful. Raw view preserves the original source.
+
+## JSON stays in Raw view
+
+Select **Rendered** from the document control or the Crumbs popup. Invalid JSON, responses larger than the rendering limits, or documents nested beyond 128 levels remain in Raw with an explanation. Crumbs does not repair trailing commas, comments, incomplete responses, or other invalid syntax.
+
+Crumbs recognizes standalone JSON responses, not JSON examples embedded in HTML, already-rendered repository pages, downloads, streaming NDJSON, or custom JSON viewers. See [Reading JSON](../json-reader/) for the supported content types and limits.
+
+## A JSON field is missing from the tree or outline
+
+Large objects and arrays load progressively. Select **Show more**, expand the parent branch, or use the Crumbs search to find the key, value, or JSON Pointer path. Search includes accepted fields that are not currently mounted or visible in the outline.
+
+Browser Find only searches mounted lines in Rendered view. Switch to Raw or use Crumbs search for the complete response.
+
+## Local JSON does not render
+
+Enable **Allow access to file URLs** on Chrome's extension Details page and refresh the `.json` file. Unlike local Markdown, local JSON does not require the separate **Local Markdown files** setting.
 
 ## Still need help?
 
