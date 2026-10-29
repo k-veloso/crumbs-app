@@ -278,6 +278,14 @@ summary:focus-visible {
   color: var(--accent);
 }
 
+.hero-lede {
+  max-width: 610px;
+  margin: 28px 0 0;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.75;
+}
+
 .hero-highlights {
   display: flex;
   max-width: 610px;
