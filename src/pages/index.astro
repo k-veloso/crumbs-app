@@ -19,31 +19,9 @@ import { withBase } from "../lib/paths";
       <h1>Keep your place.<br /><span>Find what matters.</span></h1>
       <p class="hero-lede">
         Crumbs turns a page's headings into a focused outline and gives
-        standalone Markdown and JSON a clean, navigable view—without sending
-        your reading to a developer server.
+        standalone Markdown and JSON a clean, browseable view—entirely local and
+        private.
       </p>
-      <nav class="hero-highlights" aria-label="Crumbs features at a glance">
-        <a href="#page-outline">
-          <span aria-hidden="true">01</span>
-          <strong>Outline navigation</strong>
-          <small>Collapse, preview, and jump</small>
-        </a>
-        <a href="#page-outline">
-          <span aria-hidden="true">02</span>
-          <strong>Search and depth</strong>
-          <small>Find the right heading fast</small>
-        </a>
-        <a href="#markdown-reader">
-          <span aria-hidden="true">03</span>
-          <strong>Markdown + JSON</strong>
-          <small>Switch between rendered and raw</small>
-        </a>
-        <a href="#privacy">
-          <span aria-hidden="true">04</span>
-          <strong>Private by design</strong>
-          <small>Local processing, no account</small>
-        </a>
-      </nav>
       <div class="hero-actions">
         <a
           class="button button-primary"
@@ -59,35 +37,34 @@ import { withBase } from "../lib/paths";
       </p>
     </div>
 
-    <figure class="product-preview mockup-window mockup-window-hero">
-      <div class="mockup-toolbar" aria-hidden="true">
-        <span></span><span></span><span></span>
-        <p>A long page, made navigable</p>
-      </div>
-      <Image
-        src={quietOutlineStates}
-        alt="Crumbs shown beside a long article as both a collapsed heading rail and an expanded nested outline"
-        width={1383}
-        layout="constrained"
-        format="webp"
-        quality={90}
-        loading="eager"
-        decoding="async"
-        fetchpriority="high"
-      />
-      <figcaption>
-        <span><i></i>Real extension states</span>
-        <span>Collapsed · Expanded</span>
-      </figcaption>
-    </figure>
-  </section>
-
-  <section class="trust-strip" aria-label="Crumbs product highlights">
-    <div class="shell trust-items">
-      <span>Collapsible outlines</span>
-      <span>Search and depth filters</span>
-      <span>Markdown and JSON readers</span>
-      <span>Glazed or Plain</span>
+    <div class="hero-visual">
+      <figure class="product-preview mockup-window mockup-window-hero">
+        <div class="mockup-toolbar" aria-hidden="true">
+          <span></span><span></span><span></span>
+          <p>A long page, made navigable</p>
+        </div>
+        <Image
+          src={quietOutlineStates}
+          alt="Crumbs shown beside a long article as both a collapsed heading rail and an expanded nested outline"
+          width={1383}
+          layout="constrained"
+          format="webp"
+          quality={90}
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
+        />
+        <figcaption>
+          <span><i></i>Real extension states</span>
+          <span>Collapsed · Expanded</span>
+        </figcaption>
+      </figure>
+      <nav class="hero-highlights" aria-label="Crumbs features at a glance">
+        <a href="#page-outline">Outline navigation</a>
+        <a href="#page-outline">Search and depth</a>
+        <a href="#markdown-reader">Markdown + JSON</a>
+        <a href="#privacy">Private by design</a>
+      </nav>
     </div>
   </section>
 
@@ -103,10 +80,26 @@ import { withBase } from "../lib/paths";
       </p>
     </div>
     <nav class="feature-index" aria-label="Feature details">
-      <a href="#page-outline"><span>01</span>Page outline</a>
-      <a href="#markdown-reader"><span>02</span>Markdown reader</a>
-      <a href="#json-reader"><span>03</span>JSON reader</a>
-      <a href="#appearance"><span>04</span>Appearance</a>
+      <a href="#page-outline">
+        <span>01</span>
+        <strong>Page outline</strong>
+        <small>Collapse, preview, and jump between headings</small>
+      </a>
+      <a href="#markdown-reader">
+        <span>02</span>
+        <strong>Markdown reader</strong>
+        <small>Render rich documents or return to raw source</small>
+      </a>
+      <a href="#json-reader">
+        <span>03</span>
+        <strong>JSON reader</strong>
+        <small>Search, group, and copy deeply nested data</small>
+      </a>
+      <a href="#appearance">
+        <span>04</span>
+        <strong>Appearance</strong>
+        <small>Choose Glazed or Plain in light or dark</small>
+      </a>
     </nav>
   </section>
 
