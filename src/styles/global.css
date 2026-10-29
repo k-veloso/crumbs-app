@@ -288,10 +288,10 @@ summary:focus-visible {
 
 .hero-highlights {
   display: flex;
-  max-width: 610px;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 8px;
-  margin-top: 28px;
+  margin-top: 16px;
 }
 
 .hero-highlights a {
@@ -322,7 +322,7 @@ summary:focus-visible {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 24px;
+  margin-top: 34px;
 }
 
 .button {
@@ -373,6 +373,12 @@ summary:focus-visible {
 
 .product-preview {
   position: relative;
+  width: 100%;
+  max-width: 660px;
+  justify-self: end;
+}
+
+.hero-visual {
   width: 100%;
   max-width: 660px;
   justify-self: end;
@@ -1329,6 +1335,11 @@ summary:focus-visible {
   }
 
   .product-preview {
+    max-width: 680px;
+    justify-self: center;
+  }
+
+  .hero-visual {
     max-width: 680px;
     justify-self: center;
   }

@@ -22,12 +22,6 @@ import { withBase } from "../lib/paths";
         standalone Markdown and JSON a clean, navigable view—without sending
         your reading to a developer server.
       </p>
-      <nav class="hero-highlights" aria-label="Crumbs features at a glance">
-        <a href="#page-outline">Outline navigation</a>
-        <a href="#page-outline">Search and depth</a>
-        <a href="#markdown-reader">Markdown + JSON</a>
-        <a href="#privacy">Private by design</a>
-      </nav>
       <div class="hero-actions">
         <a
           class="button button-primary"
@@ -43,27 +37,35 @@ import { withBase } from "../lib/paths";
       </p>
     </div>
 
-    <figure class="product-preview mockup-window mockup-window-hero">
-      <div class="mockup-toolbar" aria-hidden="true">
-        <span></span><span></span><span></span>
-        <p>A long page, made navigable</p>
-      </div>
-      <Image
-        src={quietOutlineStates}
-        alt="Crumbs shown beside a long article as both a collapsed heading rail and an expanded nested outline"
-        width={1383}
-        layout="constrained"
-        format="webp"
-        quality={90}
-        loading="eager"
-        decoding="async"
-        fetchpriority="high"
-      />
-      <figcaption>
-        <span><i></i>Real extension states</span>
-        <span>Collapsed · Expanded</span>
-      </figcaption>
-    </figure>
+    <div class="hero-visual">
+      <figure class="product-preview mockup-window mockup-window-hero">
+        <div class="mockup-toolbar" aria-hidden="true">
+          <span></span><span></span><span></span>
+          <p>A long page, made navigable</p>
+        </div>
+        <Image
+          src={quietOutlineStates}
+          alt="Crumbs shown beside a long article as both a collapsed heading rail and an expanded nested outline"
+          width={1383}
+          layout="constrained"
+          format="webp"
+          quality={90}
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
+        />
+        <figcaption>
+          <span><i></i>Real extension states</span>
+          <span>Collapsed · Expanded</span>
+        </figcaption>
+      </figure>
+      <nav class="hero-highlights" aria-label="Crumbs features at a glance">
+        <a href="#page-outline">Outline navigation</a>
+        <a href="#page-outline">Search and depth</a>
+        <a href="#markdown-reader">Markdown + JSON</a>
+        <a href="#privacy">Private by design</a>
+      </nav>
+    </div>
   </section>
 
   <section class="section shell" id="features">
