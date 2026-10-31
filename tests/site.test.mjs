@@ -137,9 +137,14 @@ test("landing and help pages include the controlled outline demo", async () => {
   assert.match(landing, /data-crumbs-demo-root/);
   assert.match(landing, /data-crumbs-demo-activate/);
   assert.match(landing, /data-crumbs-demo-heading/);
+  assert.doesNotMatch(landing, /data-crumbs-demo-level="3"/);
   assert.match(landing, /class="crumbs-demo-lockup"/);
   assert.match(landing, /data-crumbs-demo-depth="3"/);
   assert.match(landing, /class="crumbs-demo-settings"/);
+  assert.match(landing, /data-crumbs-demo-settings-close/);
+  assert.match(landing, /data-tooltip="Caramel"/);
+  assert.match(landing, /data-tooltip="Matcha"/);
+  assert.doesNotMatch(landing, />Dock side</);
   assert.doesNotMatch(landing, />Glazed theme</);
   assert.match(help, /crumbs-demo-outline-data/);
   assert.match(help, /Try the Crumbs outline on this page/);

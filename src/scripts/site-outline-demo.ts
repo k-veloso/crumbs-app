@@ -135,7 +135,11 @@ function targetFor(item: OutlineItem) {
       document.querySelector<HTMLElement>("main")
     );
   }
-  return document.getElementById(item.id);
+  return (
+    document.querySelector<HTMLElement>(
+      `[data-crumbs-demo-target="${CSS.escape(item.id)}"]`,
+    ) ?? document.getElementById(item.id)
+  );
 }
 
 export function initSiteOutlineDemo() {
@@ -178,6 +182,12 @@ export function initSiteOutlineDemo() {
     "[data-crumbs-demo-settings-button]",
   );
   const status = requireElement<HTMLElement>("[data-crumbs-demo-status]");
+
+  // The header has its own translucent backdrop. Keep the trigger there, but
+  // mount the demo surface at the page level so its glass samples the actual
+  // page behind it, matching the extension fixture's isolated host.
+  outline.dataset.crumbsDemoPortal = "true";
+  document.body.append(outline);
 
   const items = readOutlineItems();
   if (items.length === 0) return;
@@ -223,7 +233,7 @@ export function initSiteOutlineDemo() {
     outline.dataset.dock = preferences.dock;
     resolveTheme();
 
-    root
+    outline
       .querySelectorAll<HTMLButtonElement>(
         "[data-crumbs-demo-accent-options] button",
       )
@@ -233,30 +243,22 @@ export function initSiteOutlineDemo() {
           String(button.dataset.value === preferences.accent),
         );
       });
-    root
-      .querySelectorAll<HTMLButtonElement>(
-        "[data-crumbs-demo-dock-options] button",
-      )
-      .forEach((button) => {
-        button.setAttribute(
-          "aria-pressed",
-          String(button.dataset.value === preferences.dock),
-        );
+    outline
+      .querySelectorAll<HTMLInputElement>("[data-quick]")
+      .forEach((input) => {
+        const key = input.dataset.quick as keyof Preferences["quick"];
+        input.checked = preferences.quick[key];
       });
-    root.querySelectorAll<HTMLInputElement>("[data-quick]").forEach((input) => {
-      const key = input.dataset.quick as keyof Preferences["quick"];
-      input.checked = preferences.quick[key];
-    });
-    root
+    outline
       .querySelector<HTMLButtonElement>("[data-crumbs-demo-top]")
       ?.toggleAttribute("hidden", !preferences.quick.top);
-    root
+    outline
       .querySelector<HTMLButtonElement>("[data-crumbs-demo-bottom]")
       ?.toggleAttribute("hidden", !preferences.quick.bottom);
-    root
+    outline
       .querySelector<HTMLButtonElement>("[data-crumbs-demo-dock]")
       ?.toggleAttribute("hidden", !preferences.quick.dock);
-    root
+    outline
       .querySelector<HTMLButtonElement>("[data-crumbs-demo-dock]")
       ?.setAttribute(
         "aria-label",
@@ -305,14 +307,16 @@ export function initSiteOutlineDemo() {
 
     activeId = item.id;
     if (!preview) {
-      const accent = getComputedStyle(outline).getPropertyValue(
-        "--crumbs-accent-soft",
+      const accent =
+        getComputedStyle(outline).getPropertyValue("--crumbs-accent");
+      target.style.setProperty(
+        "--crumbs-target-highlight",
+        `color-mix(in srgb, ${accent} 30%, transparent)`,
       );
-      target.style.setProperty("--crumbs-accent-soft", accent);
       target.classList.add("crumbs-demo-target-highlight");
       window.setTimeout(() => {
         target.classList.remove("crumbs-demo-target-highlight");
-        target.style.removeProperty("--crumbs-accent-soft");
+        target.style.removeProperty("--crumbs-target-highlight");
       }, 1400);
     }
     renderOutline();
@@ -453,7 +457,7 @@ export function initSiteOutlineDemo() {
       button.dataset.enabled = String(level <= maxDepth);
       button.dataset.active = String(level === maxDepth);
     });
-    const fill = root.querySelector<HTMLElement>(".crumbs-demo-depth-fill");
+    const fill = outline.querySelector<HTMLElement>(".crumbs-demo-depth-fill");
     if (fill) {
       const progress = (maxDepth - 1) / 2;
       fill.style.width =
@@ -579,21 +583,21 @@ export function initSiteOutlineDemo() {
     const target = event.target as HTMLElement;
     if (target.closest("[data-crumbs-demo-activate]")) setDemoEnabled(true);
   });
-  root
+  outline
     .querySelector("[data-crumbs-demo-close]")
     ?.addEventListener("click", () => setDemoEnabled(false));
   pin.addEventListener("click", () => setPinned(!pinned));
   settingsButton.addEventListener("click", () =>
     setSettingsOpen(settings.hidden),
   );
-  root
+  outline
     .querySelector("[data-crumbs-demo-settings-close]")
     ?.addEventListener("click", () => setSettingsOpen(false));
   search.addEventListener("input", renderOutline);
   searchToggle.addEventListener("click", () =>
     setSearchOpen(depthRow.dataset.searchActive !== "true"),
   );
-  root
+  outline
     .querySelector("[data-crumbs-demo-search-clear]")
     ?.addEventListener("click", () => {
       search.value = "";
@@ -611,7 +615,7 @@ export function initSiteOutlineDemo() {
   outline.addEventListener("mouseleave", () => {
     if (!pinned && settings.hidden) outline.classList.add("is-collapsed");
   });
-  root
+  outline
     .querySelector("[data-crumbs-demo-top]")
     ?.addEventListener("click", () => {
       window.scrollTo({
@@ -619,7 +623,7 @@ export function initSiteOutlineDemo() {
         behavior: reducedMotion.matches ? "auto" : "smooth",
       });
     });
-  root
+  outline
     .querySelector("[data-crumbs-demo-bottom]")
     ?.addEventListener("click", () => {
       window.scrollTo({
@@ -627,14 +631,14 @@ export function initSiteOutlineDemo() {
         behavior: reducedMotion.matches ? "auto" : "smooth",
       });
     });
-  root
+  outline
     .querySelector("[data-crumbs-demo-dock]")
     ?.addEventListener("click", () => {
       preferences.dock = preferences.dock === "right" ? "left" : "right";
       savePreferences(preferences);
       applyPreferences();
     });
-  root
+  outline
     .querySelectorAll<HTMLButtonElement>(
       "[data-crumbs-demo-accent-options] button",
     )
@@ -645,25 +649,16 @@ export function initSiteOutlineDemo() {
         applyPreferences();
       });
     });
-  root
-    .querySelectorAll<HTMLButtonElement>(
-      "[data-crumbs-demo-dock-options] button",
-    )
-    .forEach((button) => {
-      button.addEventListener("click", () => {
-        preferences.dock = button.dataset.value as Preferences["dock"];
+  outline
+    .querySelectorAll<HTMLInputElement>("[data-quick]")
+    .forEach((input) => {
+      input.addEventListener("change", () => {
+        const key = input.dataset.quick as keyof Preferences["quick"];
+        preferences.quick[key] = input.checked;
         savePreferences(preferences);
         applyPreferences();
       });
     });
-  root.querySelectorAll<HTMLInputElement>("[data-quick]").forEach((input) => {
-    input.addEventListener("change", () => {
-      const key = input.dataset.quick as keyof Preferences["quick"];
-      preferences.quick[key] = input.checked;
-      savePreferences(preferences);
-      applyPreferences();
-    });
-  });
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && !settings.hidden) {
       event.preventDefault();

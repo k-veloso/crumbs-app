@@ -20,7 +20,7 @@ import "../styles/site-outline-demo.css";
   </button>
 
   <aside
-    class="crumbs-demo-outline"
+    class="crumbs-demo crumbs-demo-outline"
     id="crumbs-demo-outline"
     data-crumbs-demo-outline
     data-dock="right"
@@ -215,17 +215,24 @@ import "../styles/site-outline-demo.css";
     >
       <div class="crumbs-demo-settings-scroll">
         <header class="crumbs-demo-settings-header">
-          <picture class="crumbs-demo-settings-lockup"
-            ><img
-              class="crumbs-demo-lockup-light"
-              src={lightLogo.src}
-              alt="Crumbs"
-            /><img
-              class="crumbs-demo-lockup-dark"
-              src={darkLogo.src}
-              alt="Crumbs"
-            /></picture
-          ><p>Find your place. Keep your flow.</p>
+          <div class="crumbs-demo-settings-title-row">
+            <picture class="crumbs-demo-settings-lockup"
+              ><img
+                class="crumbs-demo-lockup-light"
+                src={lightLogo.src}
+                alt="Crumbs"
+              /><img
+                class="crumbs-demo-lockup-dark"
+                src={darkLogo.src}
+                alt="Crumbs"
+              /></picture
+            ><button
+              class="crumbs-demo-settings-close"
+              type="button"
+              data-crumbs-demo-settings-close
+              aria-label="Close settings">×</button
+            >
+          </div><p>Find your place. Keep your flow.</p>
         </header>
         <div
           class="crumbs-demo-settings-tabs"
@@ -286,26 +293,32 @@ import "../styles/site-outline-demo.css";
             <button
               type="button"
               data-value="caramel"
+              data-tooltip="Caramel"
               aria-label="Caramel"
               aria-pressed="true"></button><button
               type="button"
               data-value="ube"
+              data-tooltip="Ube"
               aria-label="Ube"
               aria-pressed="false"></button><button
               type="button"
               data-value="blueberry"
+              data-tooltip="Blueberry"
               aria-label="Blueberry"
               aria-pressed="false"></button><button
               type="button"
               data-value="velvet"
+              data-tooltip="Velvet"
               aria-label="Velvet"
               aria-pressed="false"></button><button
               type="button"
               data-value="custard"
+              data-tooltip="Custard"
               aria-label="Custard"
               aria-pressed="false"></button><button
               type="button"
               data-value="matcha"
+              data-tooltip="Matcha"
               aria-label="Matcha"
               aria-pressed="false"></button>
           </div>
@@ -335,18 +348,6 @@ import "../styles/site-outline-demo.css";
               checked
             /></label
           >
-        </section>
-        <section class="crumbs-demo-setting-section">
-          <strong>Dock side</strong><div
-            class="crumbs-demo-style-picker"
-            data-crumbs-demo-dock-options
-          >
-            <button type="button" data-value="left" aria-pressed="false"
-              >Left</button
-            ><button type="button" data-value="right" aria-pressed="true"
-              >Right</button
-            >
-          </div>
         </section>
         <section class="crumbs-demo-setting-section crumbs-demo-shortcuts">
           <strong>Shortcuts</strong><small
