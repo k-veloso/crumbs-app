@@ -831,14 +831,23 @@ export function initSiteOutlineDemo() {
     }
   });
   depthButtons.forEach((button) => {
-    button.addEventListener("click", () =>
-      setMaxDepth(Number(button.dataset.crumbsDemoDepth)),
-    );
+    let dragged = false;
+    button.addEventListener("click", (event) => {
+      // Pointer capture sends the release click to the original marker.
+      // Keep the dragged value; keyboard activation still selects this marker.
+      if (event.detail > 0 && dragged) {
+        dragged = false;
+        return;
+      }
+      setMaxDepth(Number(button.dataset.crumbsDemoDepth));
+    });
     button.addEventListener("pointerdown", (event) => {
+      dragged = false;
       if (button.dataset.active !== "true" || event.button !== 0) return;
       event.preventDefault();
       button.setPointerCapture(event.pointerId);
       const update = (move: PointerEvent) => {
+        if (Math.abs(move.clientX - event.clientX) > 3) dragged = true;
         const rect = depthTrack.getBoundingClientRect();
         const ratio = Math.max(
           0,
