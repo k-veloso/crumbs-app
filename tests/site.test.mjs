@@ -167,3 +167,26 @@ test("legacy guide routes identify their new help-center destinations", async ()
     assert.match(html, new RegExp(`${basePath}${destination}/`));
   }
 });
+
+test("production glass surfaces retain the standard backdrop filter", async () => {
+  const files = (await walk(path.join(dist, "_astro"))).filter((file) =>
+    file.endsWith(".css"),
+  );
+  const css = (
+    await Promise.all(files.map((file) => readFile(file, "utf8")))
+  ).join("\n");
+  for (const selector of [
+    "crumbs-demo-panel",
+    "crumbs-demo-quick-buttons button",
+    "crumbs-demo-settings",
+  ]) {
+    const escaped = selector.replaceAll(" ", "\\s*");
+    const rule = css.match(new RegExp(`\\.${escaped}\\{([^}]+)\\}`));
+    assert.ok(rule, `Missing ${selector} rule`);
+    assert.match(
+      rule[1],
+      /(?:^|;)backdrop-filter:var\(--crumbs-glass-filter\)/,
+      `${selector} lost its standard backdrop-filter during the build`,
+    );
+  }
+});

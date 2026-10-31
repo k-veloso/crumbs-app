@@ -85,7 +85,7 @@ test("search reveals matching descendants while depth and collapse remain bounde
   });
   assert.deepEqual(
     flattenOutlineItems(searched).map((item) => item.id),
-    ["top", "outline", "search"],
+    ["search"],
   );
 
   const shallow = filterOutlineItems(tree, { maxLevel: 2 });
@@ -138,5 +138,24 @@ test("fixed shortcuts use physical key codes across keyboard layouts", () => {
   assert.equal(
     getDemoShortcutAction({ ...modifiers, altKey: false, code: "KeyC" }),
     null,
+  );
+});
+
+test("search omits nonmatching ancestors and cannot hide matches inside collapsed groups", () => {
+  const tree = nestOutlineItems(flat);
+  const results = filterOutlineItems(tree, {
+    query: "  SEARCH  ",
+    maxLevel: 3,
+    collapsedIds: new Set(["top", "outline"]),
+  });
+  assert.deepEqual(
+    results.map((item) => item.id),
+    ["search"],
+  );
+  assert.equal(results[0].hasChildren, false);
+  assert.deepEqual(results[0].children, []);
+  assert.deepEqual(
+    filterOutlineItems(tree, { query: "search", maxLevel: 2 }),
+    [],
   );
 });

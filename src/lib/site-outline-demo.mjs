@@ -77,7 +77,7 @@ export function normalizeStarlightItems(items, pageTitle = "") {
 
 /**
  * Return the visible tree for the current search, depth, and collapsed groups.
- * Searching reveals the ancestors of every match and ignores collapsed state.
+ * Searching shows matching rows only and ignores collapsed state.
  *
  * @param {OutlineItem[]} items
  * @param {{query?: string, maxLevel?: number, collapsedIds?: Set<string>}} options
@@ -89,6 +89,16 @@ export function filterOutlineItems(
 ) {
   const normalizedQuery = query.trim().toLocaleLowerCase();
 
+  if (normalizedQuery) {
+    return flattenOutlineItems(items)
+      .filter(
+        (item) =>
+          item.level <= maxLevel &&
+          item.label.toLocaleLowerCase().includes(normalizedQuery),
+      )
+      .map((item) => ({ ...item, hasChildren: false, children: [] }));
+  }
+
   return items.flatMap((item) => {
     if (item.level > maxLevel) return [];
 
@@ -97,15 +107,11 @@ export function filterOutlineItems(
       maxLevel,
       collapsedIds,
     });
-    const matches = item.label.toLocaleLowerCase().includes(normalizedQuery);
-
-    if (normalizedQuery && !matches && children.length === 0) return [];
-
     return [
       {
         ...item,
         hasChildren: item.children.length > 0,
-        children: normalizedQuery || !collapsedIds.has(item.id) ? children : [],
+        children: !collapsedIds.has(item.id) ? children : [],
       },
     ];
   });
