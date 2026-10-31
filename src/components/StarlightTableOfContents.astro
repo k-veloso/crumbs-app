@@ -1,0 +1,35 @@
+---
+import DefaultTableOfContents from "@astrojs/starlight/components/TableOfContents.astro";
+
+const { toc } = Astro.locals.starlightRoute;
+const serializedOutline = JSON.stringify(toc?.items ?? []).replace(
+  /</g,
+  "\\u003c",
+);
+---
+
+<aside class="crumbs-demo-help-prompt" role="note">
+  <strong>Try the Crumbs outline on this page</strong>
+  <span>
+    Open a site-powered demo using this guide’s real headings. Nothing leaves
+    this tab.
+  </span>
+  <button type="button" data-crumbs-demo-activate>Start demo</button>
+</aside>
+
+<aside class="crumbs-toc-notice" role="note" aria-label="Crumbs outline status">
+  <strong>The Crumbs extension is hidden on this site</strong>
+  <span>
+    Open the Crumbs extension from the browser toolbar and choose <kbd>Show</kbd
+    >
+    to use its outline.
+  </span>
+</aside>
+
+<DefaultTableOfContents />
+<script
+  id="crumbs-demo-outline-data"
+  type="application/json"
+  is:inline
+  set:html={serializedOutline}
+/>

@@ -12,11 +12,19 @@ import { withBase } from "../lib/paths";
   title="Crumbs"
   description="A Chrome extension for navigating long pages and reading standalone Markdown or JSON without losing your place."
   bodyClass="landing-page"
+  outlineDemo
 >
   <section class="hero shell">
     <div class="hero-copy">
       <p class="eyebrow"><span class="small-dot"></span>Navigate any page</p>
-      <h1>Keep your place.<br /><span>Find what matters.</span></h1>
+      <h1
+        id="landing-top"
+        data-crumbs-demo-heading
+        data-crumbs-demo-level="1"
+        data-crumbs-demo-label="Keep your place. Find what matters."
+      >
+        Keep your place.<br /><span>Find what matters.</span>
+      </h1>
       <p class="hero-lede">
         Crumbs turns a page's headings into a focused outline and gives
         standalone Markdown and JSON a clean, browseable view—entirely local and
@@ -29,6 +37,11 @@ import { withBase } from "../lib/paths";
         >
         <a class="button button-secondary" href={withBase("/help/")}
           >Browse help <span aria-hidden="true">→</span></a
+        >
+        <button
+          class="button button-secondary crumbs-demo-hero-activate"
+          type="button"
+          data-crumbs-demo-activate>Demo it on this page</button
         >
       </div>
       <p class="availability-note">
@@ -73,7 +86,14 @@ import { withBase } from "../lib/paths";
       <p class="eyebrow">
         <span class="small-dot"></span>Made for your reading flow
       </p>
-      <h2>Less hunting.<br />More understanding.</h2>
+      <h2
+        data-crumbs-demo-heading
+        data-crumbs-demo-level="2"
+        data-crumbs-demo-target="features"
+        data-crumbs-demo-label="Less hunting. More understanding."
+      >
+        Less hunting.<br />More understanding.
+      </h2>
       <p>
         Move through dense pages with a compact set of tools that stay out of
         the way until you need them.
@@ -106,7 +126,13 @@ import { withBase } from "../lib/paths";
   <section class="feature-detail shell" id="page-outline">
     <div class="feature-detail-copy">
       <p class="feature-kicker"><span>01</span>Navigate long pages</p>
-      <h2>A living outline that knows when to get out of the way.</h2>
+      <h2
+        data-crumbs-demo-heading
+        data-crumbs-demo-level="2"
+        data-crumbs-demo-target="page-outline"
+      >
+        A living outline that knows when to get out of the way.
+      </h2>
       <p class="feature-lede">
         Crumbs turns meaningful headings into a compact hierarchy, follows your
         current section, and folds back into a narrow rail whenever it is not
@@ -114,27 +140,47 @@ import { withBase } from "../lib/paths";
       </p>
       <ul class="feature-points">
         <li>
-          <strong>Move with the document.</strong>
+          <strong
+            id="outline-move-with-document"
+            data-crumbs-demo-heading
+            data-crumbs-demo-level="3">Move with the document.</strong
+          >
           Click a heading to scroll smoothly to it and briefly highlight the destination
           on the page.
         </li>
         <li>
-          <strong>Preview without losing your flow.</strong>
+          <strong
+            id="outline-hover-preview"
+            data-crumbs-demo-heading
+            data-crumbs-demo-level="3">Preview without losing your flow.</strong
+          >
           Hold <kbd>Shift</kbd> and hover over headings to move between sections
           quickly, without changing the URL or adding a page highlight.
         </li>
         <li>
-          <strong>Collapse nested groups.</strong>
+          <strong
+            id="outline-collapse-groups"
+            data-crumbs-demo-heading
+            data-crumbs-demo-level="3">Collapse nested groups.</strong
+          >
           Fold finished branches away, then reveal them again when you need their
           detail.
         </li>
         <li>
-          <strong>Copy a link to the exact section.</strong>
+          <strong
+            id="outline-copy-section-link"
+            data-crumbs-demo-heading
+            data-crumbs-demo-level="3">Copy a link to the exact section.</strong
+          >
           Crumbs reuses a stable page anchor when one exists and can create a text-fragment
           link like Chrome's Copy link to highlight.
         </li>
         <li>
-          <strong>Search, then choose a depth.</strong>
+          <strong
+            id="outline-search-and-depth"
+            data-crumbs-demo-heading
+            data-crumbs-demo-level="3">Search, then choose a depth.</strong
+          >
           Filter headings by text or show only levels through H1, H2, H3, and beyond.
           Hover a truncated heading to see its complete text in a tooltip.
         </li>
@@ -164,28 +210,50 @@ import { withBase } from "../lib/paths";
     <div class="feature-detail feature-detail-reader shell">
       <div class="feature-detail-copy">
         <p class="feature-kicker"><span>02</span>Read Markdown</p>
-        <h2>Readable when you want it. Raw when you need it.</h2>
+        <h2
+          data-crumbs-demo-heading
+          data-crumbs-demo-level="2"
+          data-crumbs-demo-target="markdown-reader"
+        >
+          Readable when you want it. Raw when you need it.
+        </h2>
         <p class="feature-lede">
           Open standalone Markdown from the web or from local files, then move
           between a calm rendered document and its original source.
         </p>
         <ul class="feature-points">
           <li>
-            <strong>Built for real documents.</strong>
+            <strong
+              id="markdown-real-documents"
+              data-crumbs-demo-heading
+              data-crumbs-demo-level="3">Built for real documents.</strong
+            >
             Read common Markdown plus GitHub-Flavored Markdown features such as tables,
             task lists, strikethrough, autolinks, and alerts.
           </li>
           <li>
-            <strong>Diagrams stay useful.</strong>
+            <strong
+              id="markdown-diagrams"
+              data-crumbs-demo-heading
+              data-crumbs-demo-level="3">Diagrams stay useful.</strong
+            >
             Mermaid diagrams include zoom, pan, reset, and source-copy controls.
           </li>
           <li>
-            <strong>Code remains practical.</strong>
+            <strong
+              id="markdown-code-blocks"
+              data-crumbs-demo-heading
+              data-crumbs-demo-level="3">Code remains practical.</strong
+            >
             Syntax-highlighted code blocks include quick copy and per-block line
             wrapping.
           </li>
           <li>
-            <strong>Local files are supported.</strong>
+            <strong
+              id="markdown-local-files"
+              data-crumbs-demo-heading
+              data-crumbs-demo-level="3">Local files are supported.</strong
+            >
             Enable local Markdown in Crumbs and grant Chrome file access once; the
             document itself remains on your device.
           </li>
@@ -233,34 +301,62 @@ import { withBase } from "../lib/paths";
     <div class="feature-detail feature-detail-json shell">
       <div class="feature-detail-copy">
         <p class="feature-kicker"><span>03</span>Explore JSON</p>
-        <h2>See the structure before the noise.</h2>
+        <h2
+          data-crumbs-demo-heading
+          data-crumbs-demo-level="2"
+          data-crumbs-demo-target="json-reader"
+        >
+          See the structure before the noise.
+        </h2>
         <p class="feature-lede">
           Turn standalone JSON responses into a collapsible tree, then search
           and copy the exact field you need without leaving the tab.
         </p>
         <ul class="feature-points">
           <li>
-            <strong>Rendered or source-faithful Raw.</strong>
+            <strong
+              id="json-rendered-or-raw"
+              data-crumbs-demo-heading
+              data-crumbs-demo-level="3"
+              >Rendered or source-faithful Raw.</strong
+            >
             Explore nested objects and arrays, or return to the original decoded
             response text at any time.
           </li>
           <li>
-            <strong>Search the entire response.</strong>
+            <strong
+              id="json-search-response"
+              data-crumbs-demo-heading
+              data-crumbs-demo-level="3">Search the entire response.</strong
+            >
             Find keys, values, or JSON Pointer paths—even inside collapsed and not-yet-mounted
             branches.
           </li>
           <li>
-            <strong>Understand repeated records.</strong>
+            <strong
+              id="json-repeated-records"
+              data-crumbs-demo-heading
+              data-crumbs-demo-level="3">Understand repeated records.</strong
+            >
             Grouped fields summarize occurrences, types, and small distinct-value
             counts across arrays.
           </li>
           <li>
-            <strong>Copy without changing the data.</strong>
+            <strong
+              id="json-copy-data"
+              data-crumbs-demo-heading
+              data-crumbs-demo-level="3">Copy without changing the data.</strong
+            >
             Copy raw JSON, exact values, properties, JSON Pointers, or JSONPath-style
             locations without rounding large integers.
           </li>
           <li>
-            <strong>Stay responsive on large documents.</strong>
+            <strong
+              id="json-large-documents"
+              data-crumbs-demo-heading
+              data-crumbs-demo-level="3"
+              >Stay responsive on large documents.</strong
+            >
             Collections load progressively, with depth controls and clear safety
             limits when a response is too large to render.
           </li>
@@ -331,29 +427,51 @@ import { withBase } from "../lib/paths";
   >
     <div class="feature-detail-copy">
       <p class="feature-kicker"><span>04</span>Make it yours</p>
-      <h2>Blend into the page—or hold a clear edge.</h2>
+      <h2
+        data-crumbs-demo-heading
+        data-crumbs-demo-level="2"
+        data-crumbs-demo-target="appearance"
+      >
+        Blend into the page—or hold a clear edge.
+      </h2>
       <p class="feature-lede">
         The interaction stays consistent while the surface adapts to the kind of
         page you are reading.
       </p>
       <ul class="feature-points">
         <li>
-          <strong>Glazed adapts.</strong>
+          <strong
+            id="appearance-glazed"
+            data-crumbs-demo-heading
+            data-crumbs-demo-level="3">Glazed adapts.</strong
+          >
           Its translucent, glass-like surface samples the page behind it and adjusts
           its tint and light or dark treatment automatically.
         </li>
         <li>
-          <strong>Plain stays solid.</strong>
+          <strong
+            id="appearance-plain"
+            data-crumbs-demo-heading
+            data-crumbs-demo-level="3">Plain stays solid.</strong
+          >
           Choose a solid Light, Dark, or System appearance for stronger separation
           from the page.
         </li>
         <li>
-          <strong>Add one quiet accent.</strong>
+          <strong
+            id="appearance-accent"
+            data-crumbs-demo-heading
+            data-crumbs-demo-level="3">Add one quiet accent.</strong
+          >
           Choose Caramel, Ube, Blueberry, Velvet, Custard, or Matcha across the outline,
           settings, and destination highlights.
         </li>
         <li>
-          <strong>Keep only useful controls nearby.</strong>
+          <strong
+            id="appearance-quick-controls"
+            data-crumbs-demo-heading
+            data-crumbs-demo-level="3">Keep only useful controls nearby.</strong
+          >
           Dock left or right and independently show or hide the Top, Bottom, and
           Dock quick buttons.
         </li>
@@ -377,7 +495,13 @@ import { withBase } from "../lib/paths";
         <p class="eyebrow eyebrow-light">
           <span class="small-dot"></span>Privacy by design
         </p>
-        <h2>Your reading stays on your device.</h2>
+        <h2
+          data-crumbs-demo-heading
+          data-crumbs-demo-level="2"
+          data-crumbs-demo-target="privacy"
+        >
+          Your reading stays on your device.
+        </h2>
         <p>
           Crumbs processes headings, eligible Markdown and JSON, and preferences
           locally. It has no account system, analytics, advertising, telemetry,
@@ -418,7 +542,9 @@ import { withBase } from "../lib/paths";
   <section class="section shell faq-section">
     <div class="section-intro compact">
       <p class="eyebrow"><span class="small-dot"></span>Good to know</p>
-      <h2>Questions, answered.</h2>
+      <h2 id="questions" data-crumbs-demo-heading data-crumbs-demo-level="2">
+        Questions, answered.
+      </h2>
     </div>
     <div class="faq-grid">
       <details open>
@@ -461,7 +587,13 @@ import { withBase } from "../lib/paths";
       <p class="eyebrow">
         <span class="small-dot"></span>Already using Crumbs?
       </p>
-      <h2>Find an answer and get back to the page.</h2>
+      <h2
+        id="find-an-answer"
+        data-crumbs-demo-heading
+        data-crumbs-demo-level="2"
+      >
+        Find an answer and get back to the page.
+      </h2>
     </div>
     <a class="button button-primary" href={withBase("/help/")}
       >Open the help center</a
