@@ -1,6 +1,7 @@
 ---
 import logoDark from "../assets/images/crumbs-lockup-horizontal-dark.svg";
 import logoLight from "../assets/images/crumbs-lockup-horizontal.svg";
+import SiteOutlineDemo from "../components/SiteOutlineDemo.astro";
 import { withBase } from "../lib/paths";
 import "../styles/global.css";
 
@@ -9,9 +10,10 @@ interface Props {
   description: string;
   eyebrow?: string;
   bodyClass?: string;
+  outlineDemo?: boolean;
 }
 
-const { title, description, bodyClass = "" } = Astro.props;
+const { title, description, bodyClass = "", outlineDemo = false } = Astro.props;
 const pageTitle = title === "Crumbs" ? title : `${title} · Crumbs`;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const isHelp = Astro.url.pathname.includes("/help/");
@@ -76,6 +78,7 @@ const isPrivacy = Astro.url.pathname.includes("/privacy/");
             href={withBase("/privacy/")}
             aria-current={isPrivacy ? "page" : undefined}>Privacy</a
           >
+          {outlineDemo && <SiteOutlineDemo />}
           <button class="theme-toggle" type="button" hidden
             >Theme: System</button
           >

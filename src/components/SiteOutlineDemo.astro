@@ -1,0 +1,374 @@
+---
+import lightLogo from "../assets/images/crumbs-lockup-horizontal.svg";
+import darkLogo from "../assets/images/crumbs-lockup-horizontal-dark.svg";
+import "../styles/site-outline-demo.css";
+---
+
+<div class="crumbs-demo" data-crumbs-demo-root>
+  <button
+    class="crumbs-demo-trigger"
+    type="button"
+    data-crumbs-demo-trigger
+    aria-pressed="false"
+    aria-controls="crumbs-demo-outline"
+    hidden
+  >
+    <span class="crumbs-demo-trigger-icon" aria-hidden="true"
+      ><i></i><i></i><i></i></span
+    >
+    <span data-crumbs-demo-trigger-label>Show demo outline</span>
+  </button>
+
+  <aside
+    class="crumbs-demo-outline"
+    id="crumbs-demo-outline"
+    data-crumbs-demo-outline
+    data-dock="right"
+    data-accent="caramel"
+    aria-label="Crumbs outline demo"
+    hidden
+  >
+    <div class="crumbs-demo-panel-hitbox">
+      <div class="crumbs-demo-panel">
+        <header class="crumbs-demo-panel-header">
+          <picture class="crumbs-demo-lockup">
+            <img
+              class="crumbs-demo-lockup-light"
+              src={lightLogo.src}
+              alt="Crumbs"
+            />
+            <img
+              class="crumbs-demo-lockup-dark"
+              src={darkLogo.src}
+              alt="Crumbs"
+            />
+          </picture>
+          <div class="crumbs-demo-header-actions">
+            <button
+              class="crumbs-demo-header-icon crumbs-demo-settings-button"
+              type="button"
+              data-crumbs-demo-settings-button
+              aria-label="Settings"
+              aria-expanded="false"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true"
+                ><path
+                  d="m9.5 3-.7 2.4-2 .9-2.3-.6-2 3.5 1.7 1.8v2l-1.7 1.8 2 3.5 2.3-.6 2 .9.7 2.4h5l.7-2.4 2-.9 2.3.6 2-3.5-1.7-1.8v-2l1.7-1.8-2-3.5-2.3.6-2-.9L14.5 3Z"
+                ></path><circle cx="12" cy="12" r="3"></circle></svg
+              >
+            </button>
+            <button
+              class="crumbs-demo-header-icon crumbs-demo-pin"
+              type="button"
+              data-crumbs-demo-pin
+              aria-label="Pin outline"
+              aria-pressed="false"
+              title="Pin · Alt/Option + Shift + C"
+            >
+              <svg
+                class="crumbs-demo-pin-icon"
+                viewBox="0 -960 960 960"
+                aria-hidden="true"
+                ><path
+                  d="m640-480 80 80v80H520v240l-40 40-40-40v-240H240v-80l80-80v-280h-40v-80h400v80h-40v280Zm-286 80h252l-46-46v-314H400v314l-46 46Zm126 0Z"
+                ></path></svg
+              >
+              <svg
+                class="crumbs-demo-unpin-icon"
+                viewBox="0 -960 960 960"
+                aria-hidden="true"
+                ><path
+                  d="M680-840v80h-40v327l-80-80v-247H400v87l-87-87-33-33v-47h400ZM480-40l-40-40v-240H240v-80l80-80v-46L56-792l56-56 736 736-58 56-264-264h-6v240l-40 40ZM354-400h92l-44-44-2-2-46 46Zm126-193Zm-78 149Z"
+                ></path></svg
+              >
+            </button>
+          </div>
+        </header>
+
+        <div class="crumbs-demo-depth-row" data-search-active="false">
+          <div
+            class="crumbs-demo-depth-track"
+            role="group"
+            aria-label="Heading depth"
+          >
+            <span class="crumbs-demo-depth-rail" aria-hidden="true"></span><span
+              class="crumbs-demo-depth-fill"
+              aria-hidden="true"></span>
+            <div class="crumbs-demo-depth-blobs">
+              <button
+                type="button"
+                data-crumbs-demo-depth="1"
+                data-enabled="true"
+                aria-label="Only H1"
+                ><svg viewBox="0 0 28 28" aria-hidden="true"
+                  ><path
+                    d="M13.9 2.8c2.6-.6 5.5-.1 7.4 1.7 2 1.8 2.7 4.5 2.6 7.1-.1 1.7-.6 3.4-1.6 4.7-.9 1.1-2.1 1.9-3 2.9-1 1-1.6 2.4-2.8 3.3-1.7 1.2-4 1.5-6 .9-2-.6-3.6-2.1-5-3.7-1.3-1.6-2.3-3.5-2.5-5.6-.2-2.2.4-4.5 1.8-6.2 1.4-1.8 3.5-3 5.7-3.8 1-.4 2.2-.8 3.4-1.3Z"
+                  ></path></svg
+                ></button
+              >
+              <button
+                type="button"
+                data-crumbs-demo-depth="2"
+                data-enabled="true"
+                aria-label="Show headings through H2"
+                ><svg viewBox="0 0 28 28" aria-hidden="true"
+                  ><path
+                    d="M10.6 3.4c2-.8 4.5-.9 6.5.1 2 .9 3.5 2.8 4.6 4.8 1 1.9 1.6 4.2.9 6.2-.6 1.9-2.3 3.3-3.7 4.7-1.6 1.4-3 3.3-5 3.9-2 .6-4.4-.1-6.2-1.2-1.9-1.1-3.5-2.7-4.3-4.7-.8-2.1-.6-4.4.2-6.5.9-2.2 2.5-4.2 4.4-5.3.7-.4 1.5-.8 2.6-2Z"
+                  ></path></svg
+                ></button
+              >
+              <button
+                type="button"
+                data-crumbs-demo-depth="3"
+                data-enabled="true"
+                data-active="true"
+                aria-label="Show headings through H3"
+                ><svg viewBox="0 0 28 28" aria-hidden="true"
+                  ><path
+                    d="M14.7 3.6c2.1.3 4.1 1.4 5.5 3 1.4 1.6 2.3 3.7 2.2 5.9-.2 2.2-1.6 4.1-3 5.7-1.3 1.6-2.6 3.2-4.4 4.1-1.9.9-4.2 1-6.1.2-1.9-.8-3.4-2.4-4.5-4.2-1.1-1.8-1.7-4-1.2-6.1.4-2 1.8-3.8 3.3-5.2 1.4-1.3 3-2.7 4.7-3 1.2-.2 2.4-.2 3.5-.4Z"
+                  ></path></svg
+                ></button
+              >
+            </div>
+          </div>
+          <div class="crumbs-demo-search-inline">
+            <input
+              type="text"
+              placeholder="Find a heading"
+              aria-label="Filter headings"
+              autocomplete="off"
+              data-crumbs-demo-search
+            /><button
+              type="button"
+              data-crumbs-demo-search-clear
+              aria-label="Clear search">×</button
+            >
+          </div>
+          <button
+            class="crumbs-demo-search-toggle"
+            type="button"
+            data-crumbs-demo-search-toggle
+            aria-label="Show search"
+            ><svg viewBox="0 0 24 24" aria-hidden="true"
+              ><path
+                d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"
+              ></path></svg
+            ></button
+          >
+        </div>
+
+        <div class="crumbs-demo-list-wrap">
+          <nav aria-label="Page outline">
+            <ul class="crumbs-demo-list" data-crumbs-demo-list></ul>
+          </nav><p class="crumbs-demo-empty" data-crumbs-demo-empty hidden>
+            No matching headings
+          </p>
+        </div>
+      </div>
+      <div class="crumbs-demo-rail" data-crumbs-demo-rail aria-hidden="true">
+      </div>
+    </div>
+
+    <div class="crumbs-demo-quick-buttons" data-crumbs-demo-quick-buttons>
+      <button type="button" data-crumbs-demo-top aria-label="Jump to top"
+        ><svg viewBox="0 -960 960 960" aria-hidden="true"
+          ><path
+            d="M160-760v-80h640v80H160Zm280 640v-408L336-424l-56-56 200-200 200 200-56 56-104-104v408h-80Z"
+          ></path></svg
+        ></button
+      >
+      <button type="button" data-crumbs-demo-bottom aria-label="Jump to bottom"
+        ><svg viewBox="0 -960 960 960" aria-hidden="true"
+          ><path
+            d="M160-120v-80h640v80H160Zm320-160L280-480l56-56 104 104v-408h80v408l104-104 56 56-200 200Z"
+          ></path></svg
+        ></button
+      >
+      <button
+        type="button"
+        data-crumbs-demo-dock
+        aria-label="Dock outline on the left"
+        ><svg
+          class="crumbs-demo-dock-left-icon"
+          viewBox="0 -960 960 960"
+          aria-hidden="true"
+          ><path
+            d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm120-80v-560H200v560h120Zm80 0h360v-560H400v560Zm-80 0H200h120Z"
+          ></path></svg
+        ><svg
+          class="crumbs-demo-dock-right-icon"
+          viewBox="0 -960 960 960"
+          aria-hidden="true"
+          ><path
+            d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm440-80h120v-560H640v560Zm-80 0v-560H200v560h360Zm80 0h120-120Z"
+          ></path></svg
+        ></button
+      >
+    </div>
+
+    <section
+      class="crumbs-demo-settings"
+      data-crumbs-demo-settings
+      role="dialog"
+      aria-label="Crumbs demo settings"
+      hidden
+    >
+      <div class="crumbs-demo-settings-scroll">
+        <header class="crumbs-demo-settings-header">
+          <picture class="crumbs-demo-settings-lockup"
+            ><img
+              class="crumbs-demo-lockup-light"
+              src={lightLogo.src}
+              alt="Crumbs"
+            /><img
+              class="crumbs-demo-lockup-dark"
+              src={darkLogo.src}
+              alt="Crumbs"
+            /></picture
+          ><p>Find your place. Keep your flow.</p>
+        </header>
+        <div
+          class="crumbs-demo-settings-tabs"
+          role="tablist"
+          aria-label="Settings"
+        >
+          <button type="button" role="tab" aria-selected="true">General</button
+          ><button type="button" role="tab" aria-selected="false" disabled
+            ><span aria-hidden="true">M↕︎&nbsp; JSON</span> Readers</button
+          >
+        </div>
+        <section class="crumbs-demo-current-site">
+          <div>
+            <strong>Current site</strong><code>k-veloso.github.io</code>
+          </div><div>
+            <span>Site demo is visible</span><button
+              type="button"
+              data-crumbs-demo-close>Hide</button
+            >
+          </div>
+        </section>
+        <section
+          class="crumbs-demo-setting-section crumbs-demo-site-access"
+          aria-disabled="true"
+        >
+          <strong>Show Crumbs outline</strong><div
+            class="crumbs-demo-access-picker"
+          >
+            <button type="button" class="is-selected" disabled
+              ><span aria-hidden="true">◎</span> All sites</button
+            ><button type="button" disabled aria-label="Specific sites"
+              >✓ <small>(0)</small></button
+            ><button type="button" disabled aria-label="Except these"
+              >⊘ <small>(0)</small></button
+            >
+          </div><small
+            >Show the outline on all sites. Site rules are available in the
+            extension.</small
+          >
+        </section>
+        <section class="crumbs-demo-setting-section">
+          <div class="crumbs-demo-section-copy">
+            <strong>Style</strong><small>Outline theme</small>
+          </div><div class="crumbs-demo-style-picker">
+            <button type="button" class="is-selected"
+              ><span class="crumbs-demo-adaptive-swatch" aria-hidden="true"
+              ></span>Glazed</button
+            ><button type="button" disabled title="Available in the extension"
+              ><span aria-hidden="true">▣</span> Plain</button
+            >
+          </div>
+        </section>
+        <section class="crumbs-demo-accent-setting">
+          <strong>Accent</strong><div
+            class="crumbs-demo-accents"
+            data-crumbs-demo-accent-options
+          >
+            <button
+              type="button"
+              data-value="caramel"
+              aria-label="Caramel"
+              aria-pressed="true"></button><button
+              type="button"
+              data-value="ube"
+              aria-label="Ube"
+              aria-pressed="false"></button><button
+              type="button"
+              data-value="blueberry"
+              aria-label="Blueberry"
+              aria-pressed="false"></button><button
+              type="button"
+              data-value="velvet"
+              aria-label="Velvet"
+              aria-pressed="false"></button><button
+              type="button"
+              data-value="custard"
+              aria-label="Custard"
+              aria-pressed="false"></button><button
+              type="button"
+              data-value="matcha"
+              aria-label="Matcha"
+              aria-pressed="false"></button>
+          </div>
+        </section>
+        <section class="crumbs-demo-setting-section">
+          <strong>Quick buttons</strong><small
+            >Choose which buttons appear beside the outline.</small
+          ><label
+            >Jump to Top<input
+              class="crumbs-demo-switch"
+              type="checkbox"
+              data-quick="top"
+              checked
+            /></label
+          ><label
+            >Jump to Bottom<input
+              class="crumbs-demo-switch"
+              type="checkbox"
+              data-quick="bottom"
+              checked
+            /></label
+          ><label
+            >Dock Left / Right<input
+              class="crumbs-demo-switch"
+              type="checkbox"
+              data-quick="dock"
+              checked
+            /></label
+          >
+        </section>
+        <section class="crumbs-demo-setting-section">
+          <strong>Dock side</strong><div
+            class="crumbs-demo-style-picker"
+            data-crumbs-demo-dock-options
+          >
+            <button type="button" data-value="left" aria-pressed="false"
+              >Left</button
+            ><button type="button" data-value="right" aria-pressed="true"
+              >Right</button
+            >
+          </div>
+        </section>
+        <section class="crumbs-demo-setting-section crumbs-demo-shortcuts">
+          <strong>Shortcuts</strong><small
+            >These defaults work in this demo. The extension lets you customize
+            them.</small
+          ><p><span>Pin or unpin</span><kbd>⌥⇧C</kbd></p><p>
+            <span>Search</span><kbd>⌥⇧V</kbd>
+          </p><p><span>Hover preview</span><kbd>Shift + hover</kbd></p>
+        </section>
+      </div>
+    </section>
+    <div
+      class="crumbs-demo-status"
+      data-crumbs-demo-status
+      role="status"
+      aria-live="polite"
+    >
+    </div>
+  </aside>
+</div>
+
+<script>
+  import { initSiteOutlineDemo } from "../scripts/site-outline-demo";
+  initSiteOutlineDemo();
+</script>

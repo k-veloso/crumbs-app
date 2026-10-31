@@ -124,18 +124,29 @@ test("internal links and base-prefixed assets resolve in the static build", asyn
   assert.deepEqual(failures, []);
 });
 
-test("help pages include the desktop Crumbs outline integration", async () => {
-  const html = await readFile(path.join(dist, "help", "index.html"), "utf8");
-  const scriptPath = path.join(dist, "crumbs-docs-outline.js");
+test("landing and help pages include the controlled outline demo", async () => {
+  const landing = await readFile(path.join(dist, "index.html"), "utf8");
+  const help = await readFile(path.join(dist, "help", "index.html"), "utf8");
+  const scripts = await Promise.all(
+    (await walk(path.join(dist, "_astro")))
+      .filter((file) => file.endsWith(".js"))
+      .map((file) => readFile(file, "utf8")),
+  );
+  const bundledScripts = scripts.join("\n");
 
-  assert.match(html, /\/crumbs-app\/crumbs-docs-outline\.js/);
-  assert.equal(await exists(scriptPath), true);
-
-  const script = await readFile(scriptPath, "utf8");
-  assert.match(script, /\(min-width: 72rem\)/);
-  assert.match(script, /crumbs-extension-host/);
-  assert.match(script, /\.crumbs-root/);
-  assert.match(script, /The Crumbs extension is hidden on this site/);
+  assert.match(landing, /data-crumbs-demo-root/);
+  assert.match(landing, /data-crumbs-demo-activate/);
+  assert.match(landing, /data-crumbs-demo-heading/);
+  assert.match(landing, /class="crumbs-demo-lockup"/);
+  assert.match(landing, /data-crumbs-demo-depth="3"/);
+  assert.match(landing, /class="crumbs-demo-settings"/);
+  assert.doesNotMatch(landing, />Glazed theme</);
+  assert.match(help, /crumbs-demo-outline-data/);
+  assert.match(help, /Try the Crumbs outline on this page/);
+  assert.match(help, /The Crumbs extension is hidden on this site/);
+  assert.match(bundledScripts, /\(min-width: 72rem\)/);
+  assert.match(bundledScripts, /crumbs-extension-host/);
+  assert.match(bundledScripts, /\.crumbs-root/);
 });
 
 test("legacy guide routes identify their new help-center destinations", async () => {
