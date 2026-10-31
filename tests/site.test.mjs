@@ -137,9 +137,14 @@ test("landing and help pages include the controlled outline demo", async () => {
   assert.match(landing, /data-crumbs-demo-root/);
   assert.match(landing, /data-crumbs-demo-activate/);
   assert.match(landing, /data-crumbs-demo-heading/);
+  assert.doesNotMatch(landing, /data-crumbs-demo-level="3"/);
   assert.match(landing, /class="crumbs-demo-lockup"/);
   assert.match(landing, /data-crumbs-demo-depth="3"/);
   assert.match(landing, /class="crumbs-demo-settings"/);
+  assert.match(landing, /data-crumbs-demo-settings-close/);
+  assert.match(landing, /data-tooltip="Caramel"/);
+  assert.match(landing, /data-tooltip="Matcha"/);
+  assert.doesNotMatch(landing, />Dock side</);
   assert.doesNotMatch(landing, />Glazed theme</);
   assert.match(help, /crumbs-demo-outline-data/);
   assert.match(help, /Try the Crumbs outline on this page/);
@@ -160,5 +165,28 @@ test("legacy guide routes identify their new help-center destinations", async ()
   for (const [legacy, destination] of Object.entries(mappings)) {
     const html = await readFile(path.join(dist, legacy, "index.html"), "utf8");
     assert.match(html, new RegExp(`${basePath}${destination}/`));
+  }
+});
+
+test("production glass surfaces retain the standard backdrop filter", async () => {
+  const files = (await walk(path.join(dist, "_astro"))).filter((file) =>
+    file.endsWith(".css"),
+  );
+  const css = (
+    await Promise.all(files.map((file) => readFile(file, "utf8")))
+  ).join("\n");
+  for (const selector of [
+    "crumbs-demo-panel",
+    "crumbs-demo-quick-buttons button",
+    "crumbs-demo-settings",
+  ]) {
+    const escaped = selector.replaceAll(" ", "\\s*");
+    const rule = css.match(new RegExp(`\\.${escaped}\\{([^}]+)\\}`));
+    assert.ok(rule, `Missing ${selector} rule`);
+    assert.match(
+      rule[1],
+      /(?:^|;)backdrop-filter:var\(--crumbs-glass-filter\)/,
+      `${selector} lost its standard backdrop-filter during the build`,
+    );
   }
 });
