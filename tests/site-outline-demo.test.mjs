@@ -7,6 +7,7 @@ import {
   flattenOutlineItems,
   getDemoShortcutAction,
   nestOutlineItems,
+  normalizeStarlightItems,
   reduceControllerState,
 } from "../src/lib/site-outline-demo.mjs";
 
@@ -34,6 +35,37 @@ test("explicit outline targets become a nested tree", () => {
   assert.deepEqual(
     flattenOutlineItems(tree).map((item) => item.id),
     flat.map((item) => item.id),
+  );
+});
+
+test("Starlight's synthetic top entry uses the real page title and H1 level", () => {
+  const tree = normalizeStarlightItems(
+    [
+      {
+        slug: "_top",
+        text: "Overview",
+        depth: 2,
+        children: [
+          { slug: "install", text: "Install", depth: 2, children: [] },
+        ],
+      },
+    ],
+    "Crumbs Help",
+  );
+
+  assert.deepEqual(tree, [
+    {
+      id: "_top",
+      label: "Crumbs Help",
+      level: 1,
+      children: [{ id: "install", label: "Install", level: 2, children: [] }],
+    },
+  ]);
+  assert.deepEqual(
+    flattenOutlineItems(filterOutlineItems(tree, { maxLevel: 1 })).map(
+      (item) => item.id,
+    ),
+    ["_top"],
   );
 });
 

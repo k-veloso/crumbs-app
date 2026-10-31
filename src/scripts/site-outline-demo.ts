@@ -5,6 +5,7 @@ import {
   getDemoShortcutAction,
   initialControllerState,
   nestOutlineItems,
+  normalizeStarlightItems,
   reduceControllerState,
 } from "../lib/site-outline-demo.mjs";
 
@@ -99,31 +100,16 @@ function copyText(text: string) {
   return Promise.resolve();
 }
 
-function normalizeStarlightItems(items: unknown): OutlineItem[] {
-  if (!Array.isArray(items)) return [];
-
-  return items.flatMap((candidate) => {
-    if (!candidate || typeof candidate !== "object") return [];
-    const item = candidate as Record<string, unknown>;
-    if (typeof item.slug !== "string" || typeof item.text !== "string")
-      return [];
-
-    return [
-      {
-        id: item.slug,
-        label: item.text,
-        level: typeof item.depth === "number" ? item.depth : 2,
-        children: normalizeStarlightItems(item.children),
-      },
-    ];
-  });
-}
-
 function readOutlineItems(): OutlineItem[] {
   const data = document.getElementById("crumbs-demo-outline-data");
   if (data?.textContent) {
     try {
-      return normalizeStarlightItems(JSON.parse(data.textContent));
+      const pageTitle =
+        document.querySelector<HTMLElement>("main h1")?.textContent ?? "";
+      return normalizeStarlightItems(
+        JSON.parse(data.textContent),
+        pageTitle,
+      ) as OutlineItem[];
     } catch {}
   }
 
@@ -290,8 +276,9 @@ export function initSiteOutlineDemo() {
   }
 
   function renderRail() {
+    const visibleItems = flatItems.filter((item) => item.level <= maxDepth);
     rail.replaceChildren(
-      ...flatItems.map((item) => {
+      ...visibleItems.map((item) => {
         const bar = document.createElement("i");
         bar.style.setProperty("--rail-level", String(Math.min(item.level, 4)));
         bar.classList.toggle("is-active", item.id === activeId);
@@ -318,13 +305,14 @@ export function initSiteOutlineDemo() {
 
     activeId = item.id;
     if (!preview) {
-      const accent =
-        getComputedStyle(outline).getPropertyValue("--demo-accent-soft");
-      target.style.setProperty("--demo-accent-soft", accent);
+      const accent = getComputedStyle(outline).getPropertyValue(
+        "--crumbs-accent-soft",
+      );
+      target.style.setProperty("--crumbs-accent-soft", accent);
       target.classList.add("crumbs-demo-target-highlight");
       window.setTimeout(() => {
         target.classList.remove("crumbs-demo-target-highlight");
-        target.style.removeProperty("--demo-accent-soft");
+        target.style.removeProperty("--crumbs-accent-soft");
       }, 1400);
     }
     renderOutline();
@@ -415,8 +403,9 @@ export function initSiteOutlineDemo() {
   function updateActiveSection() {
     scrollFrame = 0;
     const threshold = window.innerHeight * 0.34;
-    let next = flatItems[0]?.id ?? "";
-    for (const item of flatItems) {
+    const visibleItems = flatItems.filter((item) => item.level <= maxDepth);
+    let next = visibleItems[0]?.id ?? "";
+    for (const item of visibleItems) {
       const target = targetFor(item);
       if (target && target.getBoundingClientRect().top <= threshold)
         next = item.id;

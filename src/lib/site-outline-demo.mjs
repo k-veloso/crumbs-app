@@ -45,6 +45,37 @@ export function flattenOutlineItems(items) {
 }
 
 /**
+ * Normalize Starlight's serialized table-of-contents data for the demo.
+ * Starlight represents the page title as a synthetic level-two "Overview"
+ * entry, so replace that entry with the real page H1 supplied by the caller.
+ *
+ * @param {unknown} items
+ * @param {string} [pageTitle]
+ * @returns {OutlineItem[]}
+ */
+export function normalizeStarlightItems(items, pageTitle = "") {
+  if (!Array.isArray(items)) return [];
+
+  return items.flatMap((candidate) => {
+    if (!candidate || typeof candidate !== "object") return [];
+    const item = /** @type {Record<string, unknown>} */ (candidate);
+    if (typeof item.slug !== "string" || typeof item.text !== "string") {
+      return [];
+    }
+
+    const isPageTitle = item.slug === "_top";
+    return [
+      {
+        id: item.slug,
+        label: isPageTitle && pageTitle.trim() ? pageTitle.trim() : item.text,
+        level: isPageTitle || typeof item.depth !== "number" ? 1 : item.depth,
+        children: normalizeStarlightItems(item.children, pageTitle),
+      },
+    ];
+  });
+}
+
+/**
  * Return the visible tree for the current search, depth, and collapsed groups.
  * Searching reveals the ancestors of every match and ignores collapsed state.
  *
