@@ -58,4 +58,4 @@ This policy will be updated when Crumbs' data practices change. The updated date
 
 ## Contact
 
-For privacy questions, see our [contact page](../contact/) for GitHub options. GitHub issues are public, so do not include passwords, private documents, health or financial information, or other sensitive personal information.
+For privacy questions, email [karl.ext.dev@gmail.com](mailto:karl.ext.dev@gmail.com). You can also see our [contact page](../contact/) for support options. GitHub issues are public, so do not include passwords, private documents, health or financial information, or other sensitive personal information.

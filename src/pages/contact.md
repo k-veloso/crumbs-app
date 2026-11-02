@@ -1,12 +1,16 @@
 ---
 layout: ../layouts/ArticleLayout.astro
 title: Contact
-description: Get help with Crumbs or ask a privacy question through the public GitHub issue tracker.
+description: Get help with Crumbs or ask a privacy question by email or through the public GitHub issue tracker.
 ---
 
 # Contact us
 
-Need a hand with Crumbs, or have a privacy question? Use the public issue tracker below. A support email address has not been published yet.
+Need a hand with Crumbs, or have a privacy question? Email [karl.ext.dev@gmail.com](mailto:karl.ext.dev@gmail.com) or use the public issue tracker below.
+
+## Email
+
+Contact [karl.ext.dev@gmail.com](mailto:karl.ext.dev@gmail.com) for support or privacy questions. Include only the information needed to explain your question; do not send passwords or other sensitive personal information.
 
 ## GitHub
 
