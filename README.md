@@ -73,6 +73,6 @@ The repository currently uses the legacy branch-based Pages build; it must be ch
 
 Help articles live in `src/content/docs/help/`. Landing, privacy, contact, redirects, and onboarding routes live in `src/pages/`.
 
-No verified Chrome Web Store URL or working support email is published. Add an install CTA only after verifying the store URL. When a support inbox is ready, add it to `src/pages/contact.md`; do not use a placeholder address.
+The public support and privacy contact email is [karl.ext.dev@gmail.com](mailto:karl.ext.dev@gmail.com). Keep the contact page, privacy policy, and help contact references consistent when it changes. No verified Chrome Web Store URL is published; add an install CTA only after verifying the store URL.
 
 The [October 24 extension review](_audit/2026-10-24-extension-pr-review.md) maps merged extension work to the preserved help content. Files under `_audit/` and `docs/` are maintenance records and are not published by Astro.
