@@ -501,7 +501,7 @@ summary:focus-visible {
 
 .feature-index {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   border-block: 1px solid var(--border);
 }
 
@@ -1549,5 +1549,23 @@ summary:focus-visible {
 
   .button:hover {
     transform: none;
+  }
+}
+
+/* Alternate desktop visuals while preserving text-first reading order on mobile. */
+@media (min-width: 921px) {
+  .feature-detail-reversed {
+    grid-template-columns: minmax(0, 1.14fr) minmax(0, 0.86fr);
+  }
+  .feature-detail-json.feature-detail-reversed {
+    grid-template-columns: minmax(0, 1.26fr) minmax(0, 0.74fr);
+  }
+  .feature-detail-reversed > .feature-detail-copy {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .feature-detail-reversed > :last-child {
+    grid-column: 1;
+    grid-row: 1;
   }
 }

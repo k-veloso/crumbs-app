@@ -591,6 +591,11 @@ export function initSiteOutlineDemo() {
     scrollFrame = window.requestAnimationFrame(updateActiveSection);
   }
 
+  const currentHost = settings.querySelector<HTMLElement>(
+    "[data-crumbs-demo-current-host]",
+  );
+  if (currentHost) currentHost.textContent = window.location.host;
+
   function setSettingsOpen(open: boolean) {
     settings.hidden = !open;
     settingsButton.setAttribute("aria-expanded", String(open));
@@ -672,7 +677,11 @@ export function initSiteOutlineDemo() {
     document
       .querySelectorAll<HTMLElement>(".crumbs-demo-hero-activate")
       .forEach((button) => {
-        button.hidden = state !== "demo-available" || controller.demoEnabled;
+        button.hidden = state !== "demo-available";
+        button.setAttribute("aria-pressed", String(controller.demoEnabled));
+        button.textContent = controller.demoEnabled
+          ? "Hide page demo"
+          : "Try demo on this page";
       });
 
     if (state === "extension-active") {
@@ -756,7 +765,7 @@ export function initSiteOutlineDemo() {
     }, DETECTION_GRACE_PERIOD);
   }
 
-  trigger.addEventListener("click", () => {
+  function toggleDemoOutline() {
     if (controller.environment === "demo-available") {
       setDemoEnabled(!controller.demoEnabled);
     } else if (controller.environment === "extension-hidden") {
@@ -764,10 +773,13 @@ export function initSiteOutlineDemo() {
     } else if (controller.environment === "extension-active") {
       announce("The Crumbs extension outline is active.");
     }
-  });
+  }
+  trigger.addEventListener("click", toggleDemoOutline);
   document.addEventListener("click", (event) => {
     const target = event.target as HTMLElement;
-    if (target.closest("[data-crumbs-demo-activate]")) setDemoEnabled(true);
+    if (target.closest(".crumbs-demo-hero-activate")) toggleDemoOutline();
+    else if (target.closest("[data-crumbs-demo-activate]"))
+      setDemoEnabled(true);
   });
   outline
     .querySelector("[data-crumbs-demo-close]")

@@ -474,7 +474,7 @@
     background: var(--crumbs-hover);
   }
   .crumbs-demo-row.is-active a {
-    background: var(--crumbs-accent-soft);
+    background: transparent;
     color: var(--crumbs-accent) !important;
     font-weight: 600;
   }
@@ -501,8 +501,7 @@
     background: var(--crumbs-glass-bg-strong);
   }
   .crumbs-demo-row:hover > button,
-  .crumbs-demo-row:focus-within > button,
-  .crumbs-demo-row > button[aria-expanded="false"] {
+  .crumbs-demo-row:has(:focus-visible) > button {
     opacity: 1;
   }
   .crumbs-demo-row > button:hover {
@@ -1021,7 +1020,10 @@
     font-weight: 700;
     cursor: pointer;
   }
-  html:not([data-crumbs-outline-state="demo-available"])
+  html:not(
+      [data-crumbs-outline-state="demo-available"],
+      [data-crumbs-outline-state="demo-active"]
+    )
     .crumbs-demo-hero-activate {
     display: none;
   }
@@ -1098,5 +1100,229 @@
   .crumbs-demo-depth-blobs button::before {
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
     pointer-events: none;
+  }
+
+  /* Settings presentation mirrors the extension popup; extension-only controls stay locked. */
+  .crumbs-demo-settings {
+    width: 356px;
+    max-width: calc(100vw - 36px);
+    max-height: min(574px, calc(100vh - 36px));
+    font-size: 12px;
+  }
+  .crumbs-demo-settings-scroll {
+    padding: 16px 14px;
+  }
+  .crumbs-demo-settings-header h2 {
+    margin: 0;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.25;
+    color: var(--crumbs-muted);
+  }
+  .crumbs-demo-current-site {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 12px;
+    padding: 10px;
+  }
+  .crumbs-demo-current-site > div {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  .crumbs-demo-current-site > div:last-child {
+    align-items: flex-end;
+    gap: 6px;
+  }
+  .crumbs-demo-current-site code {
+    color: var(--crumbs-text);
+    font-size: 12px;
+    font-weight: 500;
+    overflow-wrap: anywhere;
+  }
+  .crumbs-demo-current-site small {
+    font-size: 10px;
+  }
+  .crumbs-demo-current-site button {
+    min-width: 52px;
+  }
+  .crumbs-demo-settings-tabs {
+    background: transparent;
+  }
+  .crumbs-demo-settings-tabs button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    font-size: 12px;
+  }
+  .crumbs-demo-settings-tabs button[aria-selected="true"] {
+    background: var(--crumbs-hover);
+  }
+  .crumbs-demo-setting-section,
+  .crumbs-demo-accent-setting {
+    padding: 12px 0;
+    border-top: 0;
+    border-bottom: 1px solid var(--crumbs-divider);
+    gap: 7px;
+  }
+  .crumbs-demo-setting-section:last-child {
+    border-bottom: 0;
+  }
+  .crumbs-demo-section-copy {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3px;
+  }
+  .crumbs-demo-accent-setting {
+    display: block;
+    padding-top: 4px;
+  }
+  .crumbs-demo-accent-setting > small {
+    display: block;
+    font-size: 10px;
+    margin-top: 3px;
+  }
+  .crumbs-demo-accents {
+    display: grid;
+    grid-template-columns: repeat(6, 28px);
+    gap: 10px;
+    margin-top: 10px;
+  }
+  .crumbs-demo-accents button {
+    width: 28px;
+    height: 28px;
+    padding: 4px;
+  }
+  .crumbs-demo-access-picker {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    gap: 4px;
+  }
+  .crumbs-demo-access-picker button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    gap: 4px;
+    padding: 7px 4px;
+    font-size: 10px;
+  }
+  .crumbs-demo-access-picker svg,
+  .crumbs-demo-style-picker svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .crumbs-demo-site-access {
+    opacity: 0.55;
+  }
+  .crumbs-demo-lock-icon {
+    display: inline-block;
+    width: 11px !important;
+    height: 11px !important;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    vertical-align: middle;
+  }
+  .crumbs-demo-settings-card {
+    margin-top: 8px;
+    border: 1px solid var(--crumbs-border);
+    border-radius: 9px;
+    background: color-mix(
+      in srgb,
+      var(--crumbs-glass-bg-strong) 30%,
+      transparent
+    );
+    overflow: hidden;
+  }
+  .crumbs-demo-settings-card > summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    list-style: none;
+    padding: 9px 10px;
+    cursor: pointer;
+    transition: background-color 140ms ease;
+  }
+  .crumbs-demo-settings-card > summary::-webkit-details-marker {
+    display: none;
+  }
+  .crumbs-demo-settings-card > summary:hover,
+  .crumbs-demo-settings-card[open] > summary {
+    background: var(--crumbs-hover);
+  }
+  .crumbs-demo-settings-card[open] > summary {
+    border-bottom: 1px solid var(--crumbs-divider);
+  }
+  .crumbs-demo-settings-card summary small {
+    display: block;
+    font-size: 10px;
+    line-height: 1.35;
+    margin-top: 2px;
+  }
+  .crumbs-demo-disclosure-title {
+    font-size: 11px;
+    font-weight: 550;
+    line-height: 1.35;
+  }
+  .crumbs-demo-disclosure-chevron {
+    width: 13px;
+    height: 13px;
+    flex-shrink: 0;
+    fill: none;
+    stroke: var(--crumbs-muted);
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: transform 140ms ease;
+  }
+  .crumbs-demo-settings-card[open] .crumbs-demo-disclosure-chevron {
+    transform: rotate(90deg);
+  }
+  .crumbs-demo-disclosure-body {
+    padding: 5px 10px 8px;
+  }
+  .crumbs-demo-settings-card summary:focus-visible {
+    outline: 2px solid var(--crumbs-accent);
+    outline-offset: -3px;
+    border-radius: 8px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .crumbs-demo-disclosure-chevron,
+    .crumbs-demo-settings-card > summary {
+      transition: none;
+    }
+  }
+  @media (hover: none) {
+    .crumbs-demo-row > button {
+      opacity: 1;
+    }
+  }
+  /* The real popup has a themed backing behind its glass panel. Keep the
+     website underneath from washing out secondary settings text. */
+  .crumbs-demo-settings {
+    --crumbs-muted: #595852;
+    background-color: color-mix(
+      in srgb,
+      var(--crumbs-glass-bg-strong) 30%,
+      #eef0ee 70%
+    );
+  }
+  .crumbs-demo-outline[data-resolved-theme="dark"] .crumbs-demo-settings {
+    --crumbs-muted: #c4c4bf;
+    background-color: color-mix(
+      in srgb,
+      var(--crumbs-glass-bg-strong) 30%,
+      #17191c 70%
+    );
   }
 }

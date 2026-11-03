@@ -241,131 +241,274 @@ import "../styles/site-outline-demo.css";
               data-crumbs-demo-settings-close
               aria-label="Close settings">×</button
             >
-          </div><p>Find your place. Keep your flow.</p>
+          </div><h2>Navigate this page</h2>
         </header>
-        <div
-          class="crumbs-demo-settings-tabs"
-          role="tablist"
-          aria-label="Settings"
-        >
-          <button type="button" role="tab" aria-selected="true">General</button
-          ><button type="button" role="tab" aria-selected="false" disabled
-            ><span aria-hidden="true">M↕︎&nbsp; JSON</span> Readers</button
-          >
-        </div>
         <section class="crumbs-demo-current-site">
           <div>
-            <strong>Current site</strong><code>k-veloso.github.io</code>
-          </div><div>
-            <span>Site demo is visible</span><button
+            <code data-crumbs-demo-current-host>k-veloso.github.io</code><small
+              >Site demo is visible</small
+            >
+          </div>
+          <div>
+            <small>Website outline</small><button
               type="button"
               data-crumbs-demo-close>Hide</button
             >
           </div>
         </section>
-        <section
-          class="crumbs-demo-setting-section crumbs-demo-site-access"
-          aria-disabled="true"
+        <div
+          class="crumbs-demo-settings-tabs"
+          role="tablist"
+          aria-label="Settings"
         >
-          <strong>Show Crumbs outline</strong><div
-            class="crumbs-demo-access-picker"
+          <button
+            id="crumbs-demo-general-tab"
+            type="button"
+            role="tab"
+            aria-selected="true"
+            aria-controls="crumbs-demo-general-panel">General</button
           >
-            <button type="button" class="is-selected" disabled
-              ><span aria-hidden="true">◎</span> All sites</button
-            ><button type="button" disabled aria-label="Specific sites"
-              >✓ <small>(0)</small></button
-            ><button type="button" disabled aria-label="Except these"
-              >⊘ <small>(0)</small></button
+          <button
+            type="button"
+            role="tab"
+            aria-selected="false"
+            disabled
+            aria-label="Readers — available in the extension"
+            >Readers <svg
+              class="crumbs-demo-lock-icon"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              ><rect x="5" y="10" width="14" height="11" rx="2"></rect><path
+                d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg
+            ></button
+          >
+          <button
+            type="button"
+            role="tab"
+            aria-selected="false"
+            disabled
+            aria-label="AI Chat — available in the extension"
+            >AI Chat <svg
+              class="crumbs-demo-lock-icon"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              ><rect x="5" y="10" width="14" height="11" rx="2"></rect><path
+                d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg
+            ></button
+          >
+        </div>
+        <div
+          id="crumbs-demo-general-panel"
+          role="tabpanel"
+          aria-labelledby="crumbs-demo-general-tab"
+        >
+          <section class="crumbs-demo-accent-setting">
+            <strong>Accent</strong><small
+              >Across Crumbs · outlines and readers</small
+            ><div class="crumbs-demo-accents" data-crumbs-demo-accent-options>
+              <button
+                type="button"
+                data-value="caramel"
+                data-tooltip="Caramel"
+                aria-label="Caramel"
+                aria-pressed="true"></button><button
+                type="button"
+                data-value="ube"
+                data-tooltip="Ube"
+                aria-label="Ube"
+                aria-pressed="false"></button><button
+                type="button"
+                data-value="blueberry"
+                data-tooltip="Blueberry"
+                aria-label="Blueberry"
+                aria-pressed="false"></button><button
+                type="button"
+                data-value="velvet"
+                data-tooltip="Velvet"
+                aria-label="Velvet"
+                aria-pressed="false"></button><button
+                type="button"
+                data-value="custard"
+                data-tooltip="Custard"
+                aria-label="Custard"
+                aria-pressed="false"></button><button
+                type="button"
+                data-value="matcha"
+                data-tooltip="Matcha"
+                aria-label="Matcha"
+                aria-pressed="false"></button>
+            </div>
+          </section>
+
+          <section class="crumbs-demo-setting-section">
+            <div class="crumbs-demo-section-copy">
+              <strong>Outline appearance</strong><small
+                >Website and AI chat outlines</small
+              >
+            </div>
+            <div
+              class="crumbs-demo-style-picker"
+              role="group"
+              aria-label="Appearance style"
             >
-          </div><small
-            >Show the outline on all sites. Site rules are available in the
-            extension.</small
+              <button type="button" class="is-selected" aria-pressed="true"
+                ><span class="crumbs-demo-adaptive-swatch" aria-hidden="true"
+                ></span><span class="crumbs-demo-glazed-icon" aria-hidden="true"
+                ></span>Glazed</button
+              >
+              <button
+                type="button"
+                disabled
+                aria-label="Plain — available in the extension"
+                ><svg aria-hidden="true" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="4"></circle>
+                  <path
+                    d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"
+                  ></path>
+                </svg>Plain <svg
+                  class="crumbs-demo-lock-icon"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                  ><rect x="5" y="10" width="14" height="11" rx="2"></rect><path
+                    d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg
+                ></button
+              >
+            </div>
+          </section>
+          <section
+            class="crumbs-demo-setting-section crumbs-demo-site-access"
+            aria-disabled="true"
           >
-        </section>
-        <section class="crumbs-demo-setting-section">
-          <div class="crumbs-demo-section-copy">
-            <strong>Style</strong><small>Outline theme</small>
-          </div><div class="crumbs-demo-style-picker">
-            <button type="button" class="is-selected"
-              ><span class="crumbs-demo-adaptive-swatch" aria-hidden="true"
-              ></span>Glazed</button
-            ><button type="button" disabled title="Available in the extension"
-              ><span aria-hidden="true">▣</span> Plain</button
+            <strong
+              >Where outlines appear <svg
+                class="crumbs-demo-lock-icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                ><rect x="5" y="10" width="14" height="11" rx="2"></rect><path
+                  d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg
+              ></strong
             >
-          </div>
-        </section>
-        <section class="crumbs-demo-accent-setting">
-          <strong>Accent</strong><div
-            class="crumbs-demo-accents"
-            data-crumbs-demo-accent-options
-          >
-            <button
-              type="button"
-              data-value="caramel"
-              data-tooltip="Caramel"
-              aria-label="Caramel"
-              aria-pressed="true"></button><button
-              type="button"
-              data-value="ube"
-              data-tooltip="Ube"
-              aria-label="Ube"
-              aria-pressed="false"></button><button
-              type="button"
-              data-value="blueberry"
-              data-tooltip="Blueberry"
-              aria-label="Blueberry"
-              aria-pressed="false"></button><button
-              type="button"
-              data-value="velvet"
-              data-tooltip="Velvet"
-              aria-label="Velvet"
-              aria-pressed="false"></button><button
-              type="button"
-              data-value="custard"
-              data-tooltip="Custard"
-              aria-label="Custard"
-              aria-pressed="false"></button><button
-              type="button"
-              data-value="matcha"
-              data-tooltip="Matcha"
-              aria-label="Matcha"
-              aria-pressed="false"></button>
-          </div>
-        </section>
-        <section class="crumbs-demo-setting-section">
-          <strong>Quick buttons</strong><small
-            >Choose which buttons appear beside the outline.</small
-          ><label
-            >Jump to Top<input
-              class="crumbs-demo-switch"
-              type="checkbox"
-              data-quick="top"
-              checked
-            /></label
-          ><label
-            >Jump to Bottom<input
-              class="crumbs-demo-switch"
-              type="checkbox"
-              data-quick="bottom"
-              checked
-            /></label
-          ><label
-            >Dock Left / Right<input
-              class="crumbs-demo-switch"
-              type="checkbox"
-              data-quick="dock"
-              checked
-            /></label
-          >
-        </section>
-        <section class="crumbs-demo-setting-section crumbs-demo-shortcuts">
-          <strong>Shortcuts</strong><small
-            >These defaults work in this demo. The extension lets you customize
-            them.</small
-          ><p><span>Pin or unpin</span><kbd>⌥⇧C</kbd></p><p>
-            <span>Search</span><kbd>⌥⇧V</kbd>
-          </p><p><span>Hover preview</span><kbd>Shift + hover</kbd></p>
-        </section>
+            <div
+              class="crumbs-demo-access-picker"
+              role="group"
+              aria-label="Site access mode — available in the extension"
+            >
+              <button
+                class="is-selected"
+                disabled
+                data-site-mode="always"
+                type="button"
+                data-tooltip="Show outlines on all sites"
+                ><svg aria-hidden="true" viewBox="0 0 24 24"
+                  ><circle cx="12" cy="12" r="9"></circle><ellipse
+                    cx="12"
+                    cy="12"
+                    rx="4"
+                    ry="9"></ellipse><path d="M3 12h18"></path></svg
+                ><span>All sites</span></button
+              ><button
+                class=""
+                disabled
+                data-site-mode="allowlist"
+                type="button"
+                data-tooltip="Show outlines only on listed sites"
+                ><svg aria-hidden="true" viewBox="0 0 24 24"
+                  ><circle cx="12" cy="12" r="9"></circle><path
+                    d="m8 12 3 3 5-6"></path></svg
+                ><span>Specific sites</span><span class="mode-count">(0)</span
+                ></button
+              ><button
+                class=""
+                disabled
+                data-site-mode="blocklist"
+                type="button"
+                data-tooltip="Show outlines everywhere except listed sites"
+                ><svg aria-hidden="true" viewBox="0 0 24 24"
+                  ><circle cx="12" cy="12" r="9"></circle><path d="m6 18 12-12"
+                  ></path></svg
+                ><span>Except these</span><span class="mode-count">(0)</span
+                ></button
+              >
+            </div>
+            <small
+              >Show outlines on all sites. Site rules are available in the
+              extension.</small
+            >
+          </section>
+          <section class="crumbs-demo-setting-section">
+            <strong>Controls</strong>
+            <details class="crumbs-demo-settings-card">
+              <summary
+                ><span
+                  ><span class="crumbs-demo-disclosure-title"
+                    >Keyboard shortcuts <svg
+                      class="crumbs-demo-lock-icon"
+                      viewBox="0 0 24 24"
+                      aria-hidden="true"
+                      ><rect x="5" y="10" width="14" height="11" rx="2"
+                      ></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg
+                    ></span
+                  ><small>Shared by outlines and readers.</small></span
+                ><svg
+                  class="crumbs-demo-disclosure-chevron"
+                  viewBox="0 0 16 16"
+                  aria-hidden="true"><path d="m6 4 4 4-4 4"></path></svg
+                ></summary
+              >
+              <div class="crumbs-demo-disclosure-body crumbs-demo-shortcuts">
+                <small
+                  >These defaults work in this demo. Customization is available
+                  in the extension.</small
+                ><p><span>Pin or unpin</span><kbd>⌥⇧C</kbd></p><p>
+                  <span>Search</span><kbd>⌥⇧V</kbd>
+                </p><p><span>Hover preview</span><kbd>Shift + hover</kbd></p>
+              </div>
+            </details>
+            <details class="crumbs-demo-settings-card">
+              <summary
+                ><span
+                  ><span class="crumbs-demo-disclosure-title"
+                    >Quick buttons</span
+                  ><small>Shared by outlines and readers.</small></span
+                ><svg
+                  class="crumbs-demo-disclosure-chevron"
+                  viewBox="0 0 16 16"
+                  aria-hidden="true"><path d="m6 4 4 4-4 4"></path></svg
+                ></summary
+              >
+              <div class="crumbs-demo-disclosure-body">
+                <label for="demo-quick-top"
+                  >Jump to Top<input
+                    id="demo-quick-top"
+                    class="crumbs-demo-switch"
+                    type="checkbox"
+                    role="switch"
+                    data-quick="top"
+                    checked
+                  /></label
+                ><label for="demo-quick-bottom"
+                  >Jump to Bottom<input
+                    id="demo-quick-bottom"
+                    class="crumbs-demo-switch"
+                    type="checkbox"
+                    role="switch"
+                    data-quick="bottom"
+                    checked
+                  /></label
+                ><label for="demo-quick-dock"
+                  >Dock Left / Right<input
+                    id="demo-quick-dock"
+                    class="crumbs-demo-switch"
+                    type="checkbox"
+                    role="switch"
+                    data-quick="dock"
+                    checked
+                  /></label
+                >
+              </div>
+            </details>
+          </section>
+        </div>
       </div>
     </section>
     <div
