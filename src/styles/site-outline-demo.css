@@ -474,9 +474,9 @@
     background: var(--crumbs-hover);
   }
   .crumbs-demo-row.is-active a {
-    background: transparent;
-    color: var(--crumbs-accent) !important;
-    font-weight: 600;
+    background: color-mix(in srgb, var(--crumbs-accent) 28%, transparent);
+    border-radius: 999px;
+    font-weight: 700;
   }
   .crumbs-demo-row > button {
     position: absolute;
