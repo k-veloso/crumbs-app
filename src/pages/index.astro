@@ -4,6 +4,7 @@ import SiteLayout from "../layouts/SiteLayout.astro";
 import markdownRaw from "../assets/images/mockups/markdown-raw.png";
 import markdownReader from "../assets/images/mockups/markdown-reader.png";
 import quietOutlineStates from "../assets/images/mockups/quiet-outline-states.png";
+import conversationPlaceholder from "../assets/images/mockups/chatgpt-conversation-placeholder.svg";
 import searchHeadings from "../assets/images/mockups/search-headings.png";
 import { withBase } from "../lib/paths";
 ---
@@ -40,8 +41,11 @@ import { withBase } from "../lib/paths";
         >
         <button
           class="button button-secondary crumbs-demo-hero-activate"
+          hidden
           type="button"
-          data-crumbs-demo-activate>Demo it on this page</button
+          aria-pressed="false"
+          aria-controls="crumbs-demo-outline"
+          data-crumbs-demo-activate>Try demo on this page</button
         >
       </div>
       <p class="availability-note">
@@ -105,18 +109,23 @@ import { withBase } from "../lib/paths";
         <strong>Page outline</strong>
         <small>Collapse, preview, and jump between headings</small>
       </a>
-      <a href="#markdown-reader">
+      <a href="#chatgpt-outline">
         <span>02</span>
+        <strong>ChatGPT conversation outline</strong>
+        <small>Jump between questions, answers, and answer headings</small>
+      </a>
+      <a href="#markdown-reader">
+        <span>03</span>
         <strong>Markdown reader</strong>
         <small>Render rich documents or return to raw source</small>
       </a>
       <a href="#json-reader">
-        <span>03</span>
+        <span>04</span>
         <strong>JSON reader</strong>
         <small>Search, group, and copy deeply nested data</small>
       </a>
       <a href="#appearance">
-        <span>04</span>
+        <span>05</span>
         <strong>Appearance</strong>
         <small>Choose Glazed or Plain in light or dark</small>
       </a>
@@ -194,10 +203,67 @@ import { withBase } from "../lib/paths";
     </figure>
   </section>
 
+  <section
+    class="feature-detail feature-detail-reversed shell"
+    id="chatgpt-outline"
+  >
+    <div class="feature-detail-copy">
+      <p class="feature-kicker"><span>02</span>ChatGPT conversation outline</p>
+      <h2
+        data-crumbs-demo-heading
+        data-crumbs-demo-level="2"
+        data-crumbs-demo-target="chatgpt-outline"
+      >
+        Follow the conversation.
+      </h2>
+      <p class="feature-lede">
+        Jump between your questions, answers, and headings inside long ChatGPT
+        conversations—without losing your place.
+      </p>
+      <ul class="feature-points">
+        <li>
+          <strong>Find the exchange you need.</strong> Move directly to a question
+          or answer instead of scrolling back through the conversation.
+        </li>
+        <li>
+          <strong>Explore an answer’s structure.</strong> Expand its headings to
+          reach the part you want to revisit.
+        </li>
+        <li>
+          <strong>Keep time in view.</strong> Show optional question timestamps,
+          with approximate times remembered locally when enabled.
+        </li>
+      </ul>
+      <a class="feature-link" href={withBase("/help/")}
+        >Browse Crumbs help <span aria-hidden="true">→</span></a
+      >
+    </div>
+    <figure class="feature-visual mockup-window">
+      <div class="mockup-toolbar" aria-hidden="true">
+        <span></span><span></span><span></span><p>
+          A long conversation, made navigable
+        </p>
+      </div>
+      <img
+        src={conversationPlaceholder.src}
+        alt="Placeholder for a screenshot of the Crumbs ChatGPT conversation outline"
+        width="1200"
+        height="800"
+        loading="lazy"
+        decoding="async"
+      />
+      <figcaption>
+        <span><i></i>ChatGPT conversation outline</span><span
+          >Screenshot placeholder</span
+        >
+      </figcaption>
+    </figure>
+  </section>
+
   <section class="feature-band" id="markdown-reader">
     <div class="feature-detail feature-detail-reader shell">
       <div class="feature-detail-copy">
-        <p class="feature-kicker"><span>02</span>Read Markdown</p>
+        <p class="feature-kicker"><span>03</span>Read Markdown</p>
         <h2
           data-crumbs-demo-heading
           data-crumbs-demo-level="2"
@@ -278,9 +344,11 @@ import { withBase } from "../lib/paths";
     data-crumbs-demo-surface="dark"
     data-crumbs-demo-tint="#17191d"
   >
-    <div class="feature-detail feature-detail-json shell">
+    <div
+      class="feature-detail feature-detail-json feature-detail-reversed shell"
+    >
       <div class="feature-detail-copy">
-        <p class="feature-kicker"><span>03</span>Explore JSON</p>
+        <p class="feature-kicker"><span>04</span>Explore JSON</p>
         <h2
           data-crumbs-demo-heading
           data-crumbs-demo-level="2"
@@ -392,7 +460,7 @@ import { withBase } from "../lib/paths";
     id="appearance"
   >
     <div class="feature-detail-copy">
-      <p class="feature-kicker"><span>04</span>Make it yours</p>
+      <p class="feature-kicker"><span>05</span>Make it yours</p>
       <h2
         data-crumbs-demo-heading
         data-crumbs-demo-level="2"
