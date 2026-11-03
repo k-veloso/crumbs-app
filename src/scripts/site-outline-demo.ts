@@ -31,7 +31,7 @@ const PREFERENCES_KEY = "crumbs-site-demo-preferences-v1";
 const DETECTION_GRACE_PERIOD = 500;
 // Presentation palette from the private visual fixture, with no runtime imports.
 const ACCENTS: Record<string, [string, string]> = {
-  caramel: ["#c65d00", "#e88a34"],
+  toast: ["#c65d00", "#e88a34"],
   ube: ["#7950b5", "#bb99ed"],
   blueberry: ["#2463b5", "#7bb6fa"],
   velvet: ["#ba3649", "#f38b9a"],
@@ -40,7 +40,7 @@ const ACCENTS: Record<string, [string, string]> = {
 };
 
 const defaultPreferences: Preferences = {
-  accent: "caramel",
+  accent: "toast",
   dock: "right",
   quick: { top: true, bottom: true, dock: true },
 };
@@ -276,14 +276,14 @@ export function initSiteOutlineDemo() {
     const index = theme === "dark" ? 1 : 0;
     outline.style.setProperty(
       "--crumbs-accent",
-      (ACCENTS[preferences.accent] ?? ACCENTS.caramel)[index],
+      (ACCENTS[preferences.accent] ?? ACCENTS.toast)[index],
     );
     outline
       .querySelectorAll<HTMLElement>("[data-crumbs-demo-accent-options] button")
       .forEach((button) => {
         button.style.setProperty(
           "--swatch",
-          (ACCENTS[button.dataset.value ?? ""] ?? ACCENTS.caramel)[index],
+          (ACCENTS[button.dataset.value ?? ""] ?? ACCENTS.toast)[index],
         );
       });
   }
@@ -952,7 +952,7 @@ export function initSiteOutlineDemo() {
     )
     .forEach((button) => {
       button.addEventListener("click", () => {
-        preferences.accent = button.dataset.value ?? "caramel";
+        preferences.accent = button.dataset.value ?? "toast";
         savePreferences(preferences);
         applyPreferences();
       });
