@@ -142,7 +142,7 @@ test("landing and help pages include the controlled outline demo", async () => {
   assert.match(landing, /data-crumbs-demo-depth="3"/);
   assert.match(landing, /class="crumbs-demo-settings"/);
   assert.match(landing, /data-crumbs-demo-settings-close/);
-  assert.match(landing, /data-tooltip="Caramel"/);
+  assert.match(landing, /data-tooltip="Toast"/);
   assert.match(landing, /data-tooltip="Matcha"/);
   assert.doesNotMatch(landing, />Dock side</);
   assert.doesNotMatch(landing, />Glazed theme</);

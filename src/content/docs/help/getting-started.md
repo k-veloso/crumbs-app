@@ -73,7 +73,7 @@ Duplicates are ignored. If any entry in a pasted batch is invalid, fix it and ad
 - **Glazed** adapts its light/dark appearance and subtle tint to the page background.
 - **Plain** provides solid Light, Dark, and System themes.
 
-Choose from Caramel, Ube, Blueberry, Velvet, Custard, and Matcha accents. The accent applies across the popup, outline, and heading-jump highlights.
+Choose from Toast, Ube, Blueberry, Velvet, Custard, and Matcha accents. The accent applies across the popup, outline, and heading-jump highlights.
 
 Under **General → Quick buttons**, independently show or hide **Jump to Top**, **Jump to Bottom**, and **Dock Left / Right**. Markdown's Rendered/Raw control is separate.
 
