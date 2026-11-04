@@ -89,3 +89,5 @@ Enable **Allow access to file URLs** on Chrome's extension Details page and refr
 ## Still need help?
 
 Email [karl.ext.dev@gmail.com](mailto:karl.ext.dev@gmail.com) or [contact us](../../contact/) through GitHub. Include the page type, what you expected, and what happened so we can understand the problem.
+
+Looking for a new capability? [Send a feature request](../../contact/#feature-requests) through GitHub or email. Tell us what you’d like to do and how it would help your reading workflow.
