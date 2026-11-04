@@ -3,8 +3,10 @@ import { Image } from "astro:assets";
 import SiteLayout from "../layouts/SiteLayout.astro";
 import markdownRaw from "../assets/images/mockups/markdown-raw.png";
 import markdownReader from "../assets/images/mockups/markdown-reader.png";
-import quietOutlineStates from "../assets/images/mockups/quiet-outline-states.png";
-import conversationPlaceholder from "../assets/images/mockups/chatgpt-conversation-placeholder.svg";
+import heroExpanded from "../assets/images/mockups/hero-expanded.png";
+import heroCollapsed from "../assets/images/mockups/hero-collapsed.png";
+import jsonRendered from "../assets/images/mockups/json-rendered.png";
+import conversation from "../assets/images/mockups/chatgpt-conversation.png";
 import searchHeadings from "../assets/images/mockups/search-headings.png";
 import { withBase } from "../lib/paths";
 ---
@@ -60,17 +62,26 @@ import { withBase } from "../lib/paths";
           <span></span><span></span><span></span>
           <p>A long page, made navigable</p>
         </div>
-        <Image
-          src={quietOutlineStates}
-          alt="Crumbs shown beside a long article as both a collapsed heading rail and an expanded nested outline"
-          width={1383}
-          layout="constrained"
-          format="webp"
-          quality={90}
-          loading="eager"
-          decoding="async"
-          fetchpriority="high"
-        />
+        <div class="hero-screenshot-composite">
+          <Image
+            src={heroExpanded}
+            alt="Crumbs expanded outline beside the Field Notes article"
+            width={1600}
+            layout="constrained"
+            format="webp"
+            quality={90}
+            loading="eager"
+            fetchpriority="high"
+          />
+          <svg
+            class="hero-collapsed-inset"
+            viewBox="2650 470 230 700"
+            role="img"
+            aria-label="Collapsed Crumbs heading rail and quick controls"
+          >
+            <image href={heroCollapsed.src} width="2880" height="1618" />
+          </svg>
+        </div>
         <figcaption>
           <span><i></i>Real extension states</span>
           <span>Collapsed · Expanded</span>
@@ -244,17 +255,18 @@ import { withBase } from "../lib/paths";
           A long conversation, made navigable
         </p>
       </div>
-      <img
-        src={conversationPlaceholder.src}
-        alt="Placeholder for a screenshot of the Crumbs ChatGPT conversation outline"
-        width="1200"
-        height="800"
+      <Image
+        src={conversation}
+        alt="ChatGPT conversation with questions, answer headings, and a question timestamp in the Crumbs outline"
+        width={1600}
+        layout="constrained"
+        format="webp"
+        quality={90}
         loading="lazy"
-        decoding="async"
       />
       <figcaption>
         <span><i></i>ChatGPT conversation outline</span><span
-          >Screenshot placeholder</span
+          >Questions · Answers · Headings</span
         >
       </figcaption>
     </figure>
@@ -402,54 +414,20 @@ import { withBase } from "../lib/paths";
 
       <figure
         class="json-product-preview"
-        aria-label="Crumbs Rendered JSON reader with a nested response and grouped field navigation"
+        aria-label="Crumbs Rendered JSON reader with schema search results"
       >
-        <div class="json-preview-canvas" aria-hidden="true">
-          <div class="json-reader-preview">
-            <div class="json-reader-toolbar">
-              <span class="is-active">Rendered</span><span>Raw</span>
-              <i>{`{ }`}</i>
-            </div>
-            <div class="json-pointer">Pointer: /orders/0/customer</div>
-            <div class="json-tree-preview">
-              <p><b>⌄</b><strong>{`{`}</strong></p>
-              <p class="depth-1">
-                <b>⌄</b><em>"requestId"</em>: <q>req_1042</q>,
-              </p>
-              <p class="depth-1">
-                <b>⌄</b><em>"orders"</em>: <strong>[</strong>
-              </p>
-              <p class="depth-2 selected"><b>⌄</b><strong>{`{`}</strong></p>
-              <p class="depth-3">
-                <i>"id"</i>: <mark>9007199254740993123</mark>,
-              </p>
-              <p class="depth-3"><i>"status"</i>: <q>processing</q>,</p>
-              <p class="depth-3">
-                <b>⌄</b><em>"customer"</em>: <strong>{`{`}</strong>
-              </p>
-              <p class="depth-4"><i>"name"</i>: <q>Casey</q>,</p>
-              <p class="depth-4"><i>"email"</i>: <q>casey@example.test</q></p>
-              <p class="depth-3"><strong>{`}`}</strong></p>
-              <p class="depth-2"><strong>{`}`}</strong></p>
-              <p class="depth-1"><strong>]</strong></p>
-              <p><strong>{`}`}</strong></p>
-            </div>
-          </div>
-
-          <aside class="json-outline-preview">
-            <header><strong><i></i>crumbs</strong><span>{`{ }`}</span></header>
-            <div class="json-outline-search">customer <span>⌕</span></div>
-            <small>3 matches · grouped fields</small>
-            <ul>
-              <li class="active"><b>customer</b><span>×3 · object</span></li>
-              <li><b>name</b><span>×3 · 3 values</span></li>
-              <li><b>email</b><span>×2 · string</span></li>
-            </ul>
-          </aside>
-        </div>
+        <Image
+          src={jsonRendered}
+          alt="Crumbs JSON reader displaying the package.json schema with nested definitions and outline search results"
+          width={1600}
+          layout="constrained"
+          format="webp"
+          quality={90}
+          loading="lazy"
+        />
         <figcaption>
           <span><i></i>Rendered response</span>
-          <span>Search · Group · Copy</span>
+          <span>Search · Explore · Copy</span>
         </figcaption>
       </figure>
     </div>
@@ -499,8 +477,8 @@ import { withBase } from "../lib/paths";
     </div>
     <figure class="feature-visual appearance-visual">
       <img
-        src={withBase("/images/mockups/appearance-controls.jpg")}
-        alt="Crumbs appearance settings showing Glazed and Plain styles, six accents, and quick-button controls"
+        src={withBase("/images/mockups/appearance-controls.png")}
+        alt="Crumbs appearance settings showing Glazed and Plain styles, six accents, and outline visibility controls"
         width="1280"
         height="720"
         loading="lazy"
