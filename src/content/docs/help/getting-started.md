@@ -85,3 +85,5 @@ Markdown and JSON documents share a Light/Dark/System reader setting, independen
 - [Read standalone Markdown](../markdown-reader/)
 - [Explore standalone JSON](../json-reader/)
 - [Troubleshoot common issues](../troubleshooting/)
+
+Have an idea for Crumbs? [Send a feature request](../../contact/#feature-requests) through GitHub or email.
