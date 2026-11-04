@@ -1569,3 +1569,24 @@ summary:focus-visible {
     grid-row: 1;
   }
 }
+
+.hero-screenshot-composite {
+  position: relative;
+}
+.hero-screenshot-composite > img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.hero-collapsed-inset {
+  position: absolute;
+  right: 19%;
+  top: 29%;
+  width: 8%;
+  height: auto;
+}
+.json-product-preview > img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
