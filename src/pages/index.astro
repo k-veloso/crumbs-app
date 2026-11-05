@@ -36,8 +36,41 @@ import { withBase } from "../lib/paths";
       <div class="hero-actions">
         <a
           class="button button-primary"
-          href={withBase("/help/getting-started/")}>See how Crumbs works</a
+          href="https://chromewebstore.google.com/"
         >
+          <svg
+            class="chrome-install-icon"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <defs>
+              <mask id="hero-chrome-icon-mask">
+                <circle cx="12" cy="12" r="10" fill="white"></circle>
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="4.2"
+                  fill="none"
+                  stroke="black"
+                  stroke-width="0.9"></circle>
+                <path
+                  d="M12 7.8H21.1M8.36 14.1 3.8 6.2M15.64 14.1 11.1 22"
+                  fill="none"
+                  stroke="black"
+                  stroke-width="0.9"></path>
+              </mask>
+            </defs>
+            <circle
+              cx="12"
+              cy="12"
+              r="10"
+              fill="currentColor"
+              mask="url(#hero-chrome-icon-mask)"></circle>
+          </svg>
+          Get it in Chrome (free)
+        </a>
         <a class="button button-secondary" href={withBase("/help/")}
           >Browse help <span aria-hidden="true">→</span></a
         >
@@ -51,8 +84,7 @@ import { withBase } from "../lib/paths";
         >
       </div>
       <p class="availability-note">
-        An install link will appear here when a verified store listing is
-        available.
+        Opens the Chrome Web Store. The Crumbs listing is coming soon.
       </p>
     </div>
 

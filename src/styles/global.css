@@ -1590,3 +1590,19 @@ summary:focus-visible {
   width: 100%;
   height: auto;
 }
+
+.chrome-install-icon {
+  flex-shrink: 0;
+  color: var(--accent);
+}
+
+/* A shared crumb silhouette for the landing page’s decorative accent markers. */
+.small-dot,
+.mockup-window figcaption i,
+.feature-points li::before,
+.json-product-preview figcaption i {
+  width: 8px;
+  height: 8px;
+  border-radius: 0;
+  mask: url("../assets/images/crumb-indicator.svg") center / contain no-repeat;
+}
