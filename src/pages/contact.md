@@ -14,7 +14,7 @@ Contact [karl.ext.dev@gmail.com](mailto:karl.ext.dev@gmail.com) for support or p
 
 ## GitHub
 
-[Open an issue](https://github.com/k-veloso/crumbs-app/issues) to report a problem, suggest a feature, or ask a question.
+[Open an issue](https://github.com/k-veloso/crumbs-app/issues/new/choose) to report a problem, suggest a feature, or ask a question.
 
 Issues are public. Do not include passwords, private documents, health or financial information, or other sensitive personal information.
 
@@ -24,4 +24,4 @@ For a problem with the extension, tell us your Chrome version, the kind of page 
 
 ## Feature requests
 
-Have an idea for Crumbs? [Open a GitHub issue](https://github.com/k-veloso/crumbs-app/issues) or email [karl.ext.dev@gmail.com](mailto:karl.ext.dev@gmail.com). Tell us what you’d like to do and how it would help your reading workflow. GitHub issues are public.
+Have an idea for Crumbs? [Open a GitHub issue](https://github.com/k-veloso/crumbs-app/issues/new/choose) or email [karl.ext.dev@gmail.com](mailto:karl.ext.dev@gmail.com). Tell us what you’d like to do and how it would help your reading workflow. GitHub issues are public.
