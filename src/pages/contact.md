@@ -14,7 +14,7 @@ Contact [karl.ext.dev@gmail.com](mailto:karl.ext.dev@gmail.com) for support or p
 
 ## GitHub
 
-[Open an issue](https://github.com/k-veloso/crumbs-app/issues/new/choose) to report a problem, suggest a feature, or ask a question.
+When you [open an issue](https://github.com/k-veloso/crumbs-app/issues/new/choose), choose **Bug report** if something isn’t working, **Feature request** to suggest an improvement, or **Documentation** to report a problem with a guide or request a new one.
 
 Issues are public. Do not include passwords, private documents, health or financial information, or other sensitive personal information.
 
