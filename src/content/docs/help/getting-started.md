@@ -82,6 +82,7 @@ Markdown and JSON documents share a Light/Dark/System reader setting, independen
 ## Next steps
 
 - [Learn about keyboard shortcuts](../shortcuts/)
+- [Navigate ChatGPT conversations](../chatgpt/)
 - [Read standalone Markdown](../markdown-reader/)
 - [Explore standalone JSON](../json-reader/)
 - [Troubleshoot common issues](../troubleshooting/)
