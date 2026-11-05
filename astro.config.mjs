@@ -33,6 +33,7 @@ export default defineConfig({
           items: [
             { label: "Overview", slug: "help" },
             { label: "Getting Started", slug: "help/getting-started" },
+            { label: "ChatGPT Conversations", slug: "help/chatgpt" },
             { label: "Reading Markdown", slug: "help/markdown-reader" },
             { label: "Reading JSON", slug: "help/json-reader" },
             { label: "Keyboard Shortcuts", slug: "help/shortcuts" },
