@@ -1,3 +1,8 @@
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="src/assets/images/crumbs-lockup-horizontal-dark.svg" />
+  <img alt="Crumbs" src="src/assets/images/crumbs-lockup-horizontal.svg" width="160" />
+</picture>
+
 # Crumbs — Navigate Any Page
 
 Crumbs is a Chrome extension that helps you find your place on long pages, in ChatGPT conversations, and in standalone Markdown and JSON documents.
