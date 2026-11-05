@@ -6,7 +6,7 @@ description: Get help with Crumbs, suggest a feature, or ask a privacy question 
 
 # Contact us
 
-Need a hand with Crumbs, or have a privacy question? Email [karl.ext.dev@gmail.com](mailto:karl.ext.dev@gmail.com) or use the public issue tracker below.
+Report a problem with Crumbs, such as missing headings on a page. You can also ask for help, suggest a feature, or ask a privacy question.
 
 ## Email
 
