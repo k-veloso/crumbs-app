@@ -9,13 +9,25 @@ description: Resolve common outline, shortcut, Markdown, JSON, theme, and site-r
 - Check whether the current site is excluded by your site rules.
 - Refresh tabs that were already open when Crumbs was installed or updated.
 - Chrome blocks extensions on some protected browser pages, including the Chrome Web Store and `chrome://` pages.
-- **No headings found** means the page may not contain visible, meaningful headings that Crumbs can use.
+- When Crumbs finds no headings, a small Crumbs logo appears in place of the collapsed rail. Open it to see **No headings found**. If you expected headings on the page, use the report link in the panel to [contact us](../../contact/).
 
 ## A heading is missing
 
 Check the heading-level filter and increase its depth. If the heading is inside a collapsed group, expand its parent; searching can temporarily reveal matching descendants. **Only H1** indicates that only top-level headings are available.
 
 Crumbs intentionally excludes hidden headings and page controls such as navigation, footers, sidebars, promotional sections, and duplicate tables of contents. It keeps article titles and substantive content headings when it can distinguish them from page controls. Dynamically loaded headings may take a moment to appear.
+
+Web apps like Gmail and Google Drive may show few or no headings in Crumbs. Their screens are often built around controls, lists, and panels, so they may have fewer content headings than an article or documentation page. An empty outline can be expected in these views.
+
+We try to make Crumbs work well across a wide range of websites, but some layouts can cause useful headings to be filtered out by mistake. If this happens on a public page, [contact us](../../contact/) with the page link and a brief description of the missing section so we can improve support. Please leave out private details and do not share private or access-restricted pages.
+
+## Jump to Top or Jump to Bottom does not work
+
+If a button is missing, check that it’s enabled under **General → Controls → Quick buttons** in the Crumbs popup.
+
+Jump buttons can work on pages without headings because Crumbs looks for the part of the page that scrolls. Some layouts, especially web apps with several scrolling panels, can make it hard to identify the right one. The button may scroll a different panel or have no visible effect.
+
+If jumping doesn’t work as expected, [report the problem](../../contact/). Include a public page link if available, which button you used, which part of the page you expected to scroll, and what happened. Leave out private details.
 
 ## A shortcut does not work
 

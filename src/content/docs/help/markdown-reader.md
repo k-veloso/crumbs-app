@@ -7,21 +7,30 @@ Crumbs formats eligible standalone Markdown documents and provides heading navig
 
 Crumbs remembers Raw-view choices locally for up to 500 documents. Choosing Rendered removes that document's exception. Document contents are never saved.
 
-## Supported formatting
+## Supported syntax
 
-Crumbs supports common Markdown features including:
-
-- Headings, lists, links, images, and block quotes
-- Fenced code blocks with syntax highlighting and copying
-- Tables, task lists, strikethrough, and automatic web and email links
-- Footnotes, definition lists, and GitHub-style alerts
-- Mermaid diagrams with pan, zoom, and source copying
-- Mathematical notation
-- Theme-aware images and common README layouts
+| Feature                   | Syntax or example                                                                                          | What Crumbs renders                                                               |
+| ------------------------- | ---------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| Headings                  | `# Title` through `###### Heading`                                                                         | Headings that also appear in the outline.                                         |
+| Emphasis and inline code  | `*italic*`, `**bold**`, `~~strike~~`, and `` `code` ``                                                     | Styled text and inline code.                                                      |
+| Lists and quotes          | `- Item`, `1. Item`, `- [x] Done`, and `> Quote`                                                           | Bulleted and numbered lists, task lists, and block quotes.                        |
+| Links and images          | `[Label](url)`, `![Alt text](image.png)`, and plain web or email addresses                                 | Links and images. Relative image paths resolve against the original document URL. |
+| Tables                    | Pipe-delimited rows with a `---` header separator                                                          | Tables that scroll horizontally when wider than the reading column.               |
+| Code blocks               | Triple backticks with an optional language, such as `js`                                                   | Code with copy and wrap controls. Supported languages get syntax highlighting.    |
+| Footnotes and definitions | `[^note]` with `[^note]: Text`, or a term followed by `: Definition` on the next line                      | Linked footnotes and definition lists.                                            |
+| Alerts                    | `> [!NOTE]` followed by quoted text                                                                        | GitHub-style Note, Tip, Important, Warning, and Caution callouts.                 |
+| Emoji                     | `:sparkles:`                                                                                               | Emoji from supported shortcodes.                                                  |
+| Mermaid                   | A fenced code block labeled `mermaid`                                                                      | A diagram with pan, zoom, and source copy controls.                               |
+| Math                      | `$x^2$` inline, or `$$` delimiters for display math                                                        | KaTeX-rendered math. `\( ... \)` and `\[ ... \]` delimiters also work.            |
+| YAML front matter         | A YAML block at the start of the file between `---` delimiter lines                                        | A collapsible **Metadata** panel, separate from the heading outline.              |
+| Theme-aware pictures      | `<picture>` with `<source media="(prefers-color-scheme: dark)" srcset="dark.png">` and an `<img>` fallback | The appropriate image for the reader’s light or dark theme.                       |
+| Supported HTML layouts    | `<details>`, `<summary>`, `<table>`, and `<img>`                                                           | Expandable disclosures, tables, and images with supported layout attributes.      |
 
 Code blocks show their declared language. Blocks without a declared language show `plaintext`; Crumbs does not guess the language.
 
-README layouts can preserve supported image sizes, centered headings and paragraphs, table cell widths, and vertical alignment. Theme-aware `<picture>` images can choose light/dark sources. Relative images resolve against the original document URL. Wide tables scroll horizontally, including with the keyboard, while prose stays in a readable column.
+Front matter stays in the original source when you switch to Raw or copy the full document. If YAML parsing fails, the **Metadata** panel shows the source and the article body still renders.
+
+Supported README layouts can preserve image sizes, centered headings and paragraphs, table cell widths, and vertical alignment. Wide tables can also be scrolled with the keyboard.
 
 ## Choose a reading theme
 
