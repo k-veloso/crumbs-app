@@ -666,22 +666,22 @@ export function initSiteOutlineDemo() {
 
   function setDemoEnabled(enabled: boolean) {
     if (controller.environment !== "demo-available") return;
+    const showHighlight = enabled && !controller.demoEnabled;
     controller = reduceControllerState(controller, {
       type: "demo",
       enabled,
     });
     demoRequested = controller.demoEnabled;
     saveSessionPreference(demoRequested);
-    applyControllerState();
+    applyControllerState(showHighlight);
   }
 
-  function applyControllerState() {
+  function applyControllerState(showHighlight = false) {
     const state = controller.environment;
     const visualState = controller.demoEnabled ? "demo-active" : state;
     document.documentElement.dataset.crumbsOutlineState = visualState;
 
     trigger.hidden = state === "detecting" || state === "mobile";
-    const newlyVisible = outline.hidden && controller.demoEnabled;
     outline.hidden = !controller.demoEnabled;
     trigger.setAttribute("aria-pressed", String(controller.demoEnabled));
     document
@@ -711,7 +711,7 @@ export function initSiteOutlineDemo() {
     if (controller.demoEnabled) {
       setCollapsed(!pinned);
       renderOutline();
-      if (newlyVisible && !pinned && !reducedMotion.matches) {
+      if (showHighlight && !pinned && !reducedMotion.matches) {
         panel.animate(
           [
             {
