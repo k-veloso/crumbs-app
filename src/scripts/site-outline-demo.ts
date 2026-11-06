@@ -689,9 +689,15 @@ export function initSiteOutlineDemo() {
       .forEach((button) => {
         button.hidden = state !== "demo-available";
         button.setAttribute("aria-pressed", String(controller.demoEnabled));
-        button.textContent = controller.demoEnabled
-          ? "Hide demo outline"
-          : "Try crumbs on this site";
+        const label = button.querySelector("[data-crumbs-demo-hero-label]");
+        const arrow = button.querySelector<HTMLElement>(
+          "[data-crumbs-demo-hero-arrow]",
+        );
+        if (label)
+          label.textContent = controller.demoEnabled
+            ? "Hide demo outline"
+            : "Try crumbs on this site";
+        if (arrow) arrow.hidden = controller.demoEnabled;
       });
 
     if (state === "extension-active") {

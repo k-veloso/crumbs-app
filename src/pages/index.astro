@@ -33,6 +33,7 @@ import { withBase } from "../lib/paths";
         outlines, and gives standalone Markdown and JSON a clean, browseable
         view—entirely local and private.
       </p>
+      <p class="hero-price">Free for Chrome.</p>
       <div class="hero-actions">
         <a
           class="button button-primary"
@@ -69,10 +70,10 @@ import { withBase } from "../lib/paths";
               fill="currentColor"
               mask="url(#hero-chrome-icon-mask)"></circle>
           </svg>
-          Get it in Chrome (free)
+          Get it in Chrome
         </a>
         <a class="button button-secondary" href={withBase("/help/")}
-          >Browse help <span aria-hidden="true">→</span></a
+          >Browse help</a
         >
         <button
           class="button button-secondary crumbs-demo-hero-activate"
@@ -80,8 +81,11 @@ import { withBase } from "../lib/paths";
           type="button"
           aria-pressed="false"
           aria-controls="crumbs-demo-outline"
-          data-crumbs-demo-activate>Try crumbs on this site</button
+          data-crumbs-demo-activate
         >
+          <span data-crumbs-demo-hero-label>Try crumbs on this site</span>
+          <span data-crumbs-demo-hero-arrow aria-hidden="true">→</span>
+        </button>
       </div>
       <p class="availability-note">
         Opens the Chrome Web Store. The Crumbs listing is coming soon.
@@ -588,15 +592,20 @@ import { withBase } from "../lib/paths";
         </p>
       </details>
       <details>
+        <summary>Is Crumbs free?</summary>
+        <p>
+          Yes. Crumbs is free at launch. We plan to keep the core features free
+          and may introduce a paid Pro plan for additional features later.
+        </p>
+      </details>
+      <details>
         <summary>Can it read local Markdown and JSON files?</summary>
         <p>
           Yes. Enable the matching local-file switch under <strong
             >Readers</strong
-          >
-          in Crumbs settings and grant Chrome’s <strong
+          >{" "}in Crumbs settings and grant Chrome’s <strong
             >Allow access to file URLs</strong
-          >
-          permission. Refresh the file after changing these settings.
+          >{" "}permission. Refresh the file after changing these settings.
         </p>
       </details>
       <details>
