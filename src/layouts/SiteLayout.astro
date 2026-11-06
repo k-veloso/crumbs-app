@@ -1,6 +1,7 @@
 ---
 import logoDark from "../assets/images/crumbs-lockup-horizontal-dark.svg";
 import logoLight from "../assets/images/crumbs-lockup-horizontal.svg";
+import "../styles/site-theme.css";
 import SiteOutlineDemo from "../components/SiteOutlineDemo.astro";
 import { withBase } from "../lib/paths";
 import "../styles/global.css";
@@ -79,9 +80,7 @@ const isPrivacy = Astro.url.pathname.includes("/privacy/");
             aria-current={isPrivacy ? "page" : undefined}>Privacy</a
           >
           {outlineDemo && <SiteOutlineDemo />}
-          <button class="theme-toggle" type="button" hidden
-            >Theme: System</button
-          >
+          <div class="site-theme-controls" data-site-theme></div>
         </nav>
       </div>
     </header>
@@ -100,46 +99,34 @@ const isPrivacy = Astro.url.pathname.includes("/privacy/");
           >
         </nav>
       </div>
+      {
+        bodyClass === "landing-page" && (
+          <div class="footer-wordmark" aria-hidden="true">
+            <img
+              class="logo-light"
+              src={logoLight.src}
+              alt=""
+              width="1007"
+              height="256"
+              loading="lazy"
+              decoding="async"
+            />
+            <img
+              class="logo-dark"
+              src={logoDark.src}
+              alt=""
+              width="1007"
+              height="256"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        )
+      }
     </footer>
     <script>
-      const root = document.documentElement;
-      const button = document.querySelector<HTMLButtonElement>(".theme-toggle");
-      const options = ["system", "light", "dark"] as const;
-      type Theme = (typeof options)[number];
-      let preference: Theme =
-        root.dataset.theme === "light" || root.dataset.theme === "dark"
-          ? root.dataset.theme
-          : "system";
-
-      function updateTheme() {
-        if (!button) return;
-        if (preference === "system") delete root.dataset.theme;
-        else root.dataset.theme = preference;
-        const next =
-          options[(options.indexOf(preference) + 1) % options.length];
-        const label = preference[0].toUpperCase() + preference.slice(1);
-        button.textContent = `Theme: ${label}`;
-        button.setAttribute(
-          "aria-label",
-          `Color theme: ${label}. Switch to ${next}.`,
-        );
-      }
-
-      if (button) {
-        button.hidden = false;
-        updateTheme();
-        button.addEventListener("click", () => {
-          preference =
-            options[(options.indexOf(preference) + 1) % options.length];
-          updateTheme();
-          try {
-            localStorage.setItem(
-              "starlight-theme",
-              preference === "system" ? "" : preference,
-            );
-          } catch {}
-        });
-      }
+      import { initSiteTheme } from "../scripts/site-theme";
+      initSiteTheme();
     </script>
   </body>
 </html>

@@ -11,6 +11,7 @@ const requiredRoutes = [
   "",
   "help/",
   "help/getting-started/",
+  "help/chatgpt/",
   "help/markdown-reader/",
   "help/json-reader/",
   "help/shortcuts/",
@@ -147,7 +148,7 @@ test("landing and help pages include the controlled outline demo", async () => {
   assert.doesNotMatch(landing, />Dock side</);
   assert.doesNotMatch(landing, />Glazed theme</);
   assert.match(help, /crumbs-demo-outline-data/);
-  assert.match(help, /Try the Crumbs outline on this page/);
+  assert.match(help, /Tip: try a different way to navigate/);
   assert.match(help, /The Crumbs extension is hidden on this site/);
   assert.match(bundledScripts, /\(min-width: 72rem\)/);
   assert.match(bundledScripts, /crumbs-extension-host/);

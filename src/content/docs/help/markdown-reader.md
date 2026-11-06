@@ -34,9 +34,9 @@ Supported README layouts can preserve image sizes, centered headings and paragra
 
 ## Choose a reading theme
 
-Markdown defaults to **System**, following your system's light or dark appearance. Select **Light**, **Dark**, or **System** from the palette icon at the document's top right, or under **Markdown → Style** in the extension popup.
+Markdown defaults to **System**, following your system's light or dark appearance. Select **Light**, **Dark**, or **System** from the palette icon at the document's top right, or under **Readers → Reader appearance** in the extension popup.
 
-This preference saves locally and applies across open Markdown documents in both Rendered and Raw views. It is independent of the Glazed/Plain style and Plain theme used by the floating outline. Mermaid diagrams use a light canvas in either reading theme.
+This preference saves locally and applies across open Markdown and JSON documents in both Rendered and Raw views. It is independent of the Glazed/Plain style and Plain theme used by the floating outline. Mermaid diagrams use a light canvas in either reading theme.
 
 ## Copy Markdown, code, or diagram source
 
@@ -50,7 +50,7 @@ For Mermaid diagrams, drag to pan, use the zoom controls, or select the percenta
 
 ## Automatic rendering
 
-Open the popup's **Markdown** tab and turn on **Render Markdown automatically**. Under **Websites**, choose **All detected Markdown** or **Only matching URLs**.
+Open **Readers → Markdown reader** in the popup. Enable the reader, then open **More options → Render automatically**. Under **Websites**, choose **All detected Markdown** or **Only matching URLs**.
 
 For matching URLs, enter domains or wildcard patterns separated by commas. These use the same [domain and pattern syntax](../getting-started/#domain-and-pattern-examples) as General's Specific sites and Except these lists. For example, `example.com/*` matches one domain, `*.example.com/*` includes its subdomains, and `localhost/*` matches localhost on any port.
 
@@ -62,15 +62,17 @@ These settings do not convert ordinary HTML pages, GitHub's already-rendered fil
 
 ## Local Markdown files
 
+Reload after changing reader settings; the shared reader theme updates immediately.
+
 Local Markdown is off by default:
 
-1. Open the Crumbs popup's **Markdown** tab.
+1. Open the Crumbs popup's **Readers** tab.
 2. Enable **Local Markdown files**.
 3. Select **Open extension settings** if **One more step required** appears.
 4. On Crumbs' Chrome Details page, enable **Allow access to file URLs**.
 5. Refresh the Markdown file.
 
-Both settings are required. A green permission dot indicates that Chrome's file access is granted. Local Markdown works independently of the Specific sites and Except these lists. **Show/Hide** does not remove the formatted document; you can still choose Rendered or Raw in the popup.
+Both settings are required. A green permission dot indicates that Chrome's file access is granted. Local Markdown works independently of the Specific sites and Except these lists. **Show/Hide** does not remove the formatted document; you can still choose Rendered or Raw from the document control.
 
 Crumbs does not edit files or watch the disk for changes, so refresh the page after editing a local file. Local images also need Chrome's file-access permission.
 

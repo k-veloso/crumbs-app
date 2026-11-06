@@ -1,0 +1,117 @@
+/* Reader palette menu, using the site’s theme tokens. */
+.site-theme-controls {
+  display: flex;
+  position: relative;
+}
+.crumbs-reader-theme-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 32px;
+  padding: 6px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--page);
+  color: var(--muted);
+  cursor: pointer;
+}
+.crumbs-reader-theme-button > svg {
+  width: 18px;
+  height: 18px;
+}
+.crumbs-reader-theme-button:hover {
+  color: var(--accent);
+}
+.crumbs-reader-theme-button[aria-expanded="false"]:is(
+    :hover,
+    :focus-visible
+  )::after {
+  display: block;
+}
+.crumbs-reader-theme-menu {
+  z-index: 2147483001;
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  box-sizing: border-box;
+  width: max-content;
+  min-width: 0;
+  max-width: calc(100vw - 16px);
+  padding: 5px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--page);
+  color: var(--text);
+  box-shadow: 0 8px 24px #0003;
+}
+.crumbs-reader-theme-menu[hidden] {
+  display: none;
+}
+.crumbs-reader-theme-menu button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 7px 9px;
+  border: 0;
+  border-radius: 5px;
+  background: transparent;
+  color: inherit;
+  font:
+    12px/1.4 system-ui,
+    sans-serif;
+  cursor: pointer;
+}
+.crumbs-reader-theme-menu button > svg {
+  width: 16px;
+  height: 16px;
+}
+.crumbs-reader-theme-menu button:is(:hover, :focus-visible) {
+  background: var(--surface);
+}
+.crumbs-reader-theme-menu button[aria-checked="true"] {
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+}
+
+.site-theme-controls :is(button):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.site-theme-controls .crumbs-reader-theme-button::after {
+  content: attr(aria-label);
+  display: none;
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  width: max-content;
+  padding: 7px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text);
+  font:
+    12px/1.4 system-ui,
+    sans-serif;
+  pointer-events: none;
+}
+.site-theme-controls
+  .crumbs-reader-theme-button[aria-expanded="false"]:is(
+    :hover,
+    :focus-visible
+  )::after {
+  display: block;
+}
+
+/* Help pages use Starlight's resolved light/dark theme tokens. */
+.site-theme-controls[data-starlight-theme] {
+  --page: var(--sl-color-black);
+  --surface: var(--sl-color-gray-6);
+  --border: var(--sl-color-gray-5);
+  --text: var(--sl-color-white);
+  --muted: var(--sl-color-gray-2);
+  --accent: var(--sl-color-accent-high);
+}

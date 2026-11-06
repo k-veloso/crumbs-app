@@ -11,11 +11,11 @@ Crumbs recognizes standalone JSON content types such as `application/json`, `tex
 
 HTML pages containing JSON examples, already-rendered repository pages, downloads, streaming NDJSON, JSON with comments, and custom HTML JSON viewers are left alone. Crumbs does not repair, edit, or convert JSON.
 
-Local `.json` files work after Chrome's **Allow access to file URLs** permission is enabled for Crumbs. The separate **Local Markdown files** setting applies only to Markdown. Refresh a local JSON file after editing it elsewhere.
+Local `.json` files require **Readers → JSON reader → Local JSON files** and Chrome’s **Allow access to file URLs** permission for Crumbs. The Markdown reader has its own local-file switch. Refresh a local JSON file after editing it elsewhere.
 
 ## Rendered and Raw views
 
-**Rendered** displays syntax-colored objects and arrays with expandable branches. Crumbs initially opens up to three levels below the root, showing the first 20 keys or items at each level and 200 visible lines overall. Large collections continue in batches with **Show more**.
+**Rendered** displays syntax-colored objects and arrays with expandable branches. By default, Crumbs opens up to three levels below the root, showing the first 20 keys or items at each level and 200 visible lines overall. Large collections continue in batches with **Show more**.
 
 **Raw** preserves the original decoded text, including whitespace, line breaks, large numbers, and escape sequences. A one-line response stays on one line with horizontal scrolling. Switching to Raw stops any expansion in progress.
 
@@ -30,6 +30,8 @@ Use **Copy raw JSON** to copy the entire response from either view.
 - **Collapse all** closes every branch and cancels expansion in progress.
 
 When the visible-line limit is reached, collapse branches or use the Crumbs outline search to reveal a specific field.
+
+The default branch modifier is **Shift**. Change it under **Readers → JSON reader → More options → Advanced → Expand branch modifier**, or choose **Off**. This is separate from the hover-preview modifier. **Initial expansion depth** in the same section selects one through five levels; preview limits still apply.
 
 ## Search and grouped fields
 
@@ -48,6 +50,12 @@ Each Rendered line offers **Copy value** and a menu with additional actions:
 - **Copy Path** copies a JSONPath-style location such as `$.orders[0].customer.email`.
 
 Copies use the original source text, so large integers are not rounded and escape sequences are preserved. Duplicate keys are shown separately; pointer and path actions are disabled when a location would be ambiguous.
+
+## Reader settings
+
+In **Readers → JSON reader**, enable the reader and choose whether to allow local JSON files. Under **More options**, **Render automatically** controls whether eligible documents start in Rendered or Raw. For websites, choose **All detected JSON** or **Only matching URLs**, using the [shared domain and pattern syntax](../getting-started/#domain-and-pattern-examples).
+
+Reload the document after changing reader settings. Reader theme and the branch modifier update immediately. You can choose Rendered manually when automatic rendering is off. **Show/Hide** controls floating navigation separately; use the document’s Rendered/Raw control to change views.
 
 ## Theme and saved preferences
 

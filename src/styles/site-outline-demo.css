@@ -62,6 +62,9 @@
   }
 
   .crumbs-demo-outline {
+    /* Match the extension’s isolated UI rather than inheriting the site’s
+       antialiased smoothing, which makes macOS text appear lighter. */
+    -webkit-font-smoothing: auto;
     --crumbs-page-tint: #eef2f5;
     --crumbs-glass-bg: color-mix(
       in srgb,
@@ -722,7 +725,7 @@
     background: var(--crumbs-glass-bg-strong);
     color: var(--crumbs-accent);
   }
-  .crumbs-demo-settings-tabs button:disabled {
+  .crumbs-demo-settings-tabs button:is(:disabled, [aria-disabled="true"]) {
     opacity: 0.72;
     cursor: default;
   }
@@ -832,7 +835,7 @@
     background: var(--crumbs-glass-bg-strong);
     color: var(--crumbs-accent);
   }
-  .crumbs-demo-style-picker button:disabled {
+  .crumbs-demo-style-picker button:is(:disabled, [aria-disabled="true"]) {
     opacity: 0.48;
     cursor: not-allowed;
   }
@@ -874,51 +877,6 @@
   }
   .crumbs-demo-accents button[aria-pressed="true"] {
     border-color: var(--crumbs-text);
-  }
-  .crumbs-demo-accents button::after {
-    content: attr(data-tooltip);
-    position: absolute;
-    z-index: 2;
-    left: 50%;
-    bottom: calc(100% + 6px);
-    padding: 4px 6px;
-    border: 1px solid var(--crumbs-border);
-    border-radius: 5px;
-    background-color: var(--crumbs-glass-bg-strong);
-    background-image: var(--crumbs-glass-sheen);
-    color: var(--crumbs-text);
-    box-shadow: var(--crumbs-shadow), var(--crumbs-inner-highlight);
-    opacity: 0;
-    transform: translate(-50%, 2px) scale(0.96);
-    font-size: 0.625rem;
-    line-height: 1.2;
-    white-space: nowrap;
-    pointer-events: none;
-    transition:
-      opacity 100ms ease 120ms,
-      transform 100ms ease 120ms;
-    -webkit-backdrop-filter: var(--crumbs-glass-filter);
-    backdrop-filter: var(--crumbs-glass-filter);
-  }
-  .crumbs-demo-accents button:hover::after,
-  .crumbs-demo-accents button:focus-visible::after {
-    opacity: 1;
-    transform: translate(-50%, 0) scale(1);
-  }
-  .crumbs-demo-accents [data-value="ube"] {
-    --swatch: #aa8de1;
-  }
-  .crumbs-demo-accents [data-value="blueberry"] {
-    --swatch: #8ab5ed;
-  }
-  .crumbs-demo-accents [data-value="velvet"] {
-    --swatch: #e993a2;
-  }
-  .crumbs-demo-accents [data-value="custard"] {
-    --swatch: #e5c967;
-  }
-  .crumbs-demo-accents [data-value="matcha"] {
-    --swatch: #a6c982;
   }
   .crumbs-demo-switch {
     appearance: none;
@@ -994,10 +952,9 @@
     gap: 0.45rem;
     margin-block-end: 1rem;
     padding: 0.8rem 0.9rem;
-    border: 1px solid
-      color-mix(in srgb, var(--sl-color-accent) 28%, transparent);
+    border: 1px solid var(--sl-color-gray-5);
     border-radius: 0.75rem;
-    background: color-mix(in srgb, var(--sl-color-accent-low) 64%, transparent);
+    background: color-mix(in srgb, var(--sl-color-gray-6) 45%, transparent);
     color: var(--sl-color-gray-2);
     font-size: var(--sl-text-xs);
     line-height: 1.45;

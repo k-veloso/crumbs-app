@@ -175,24 +175,24 @@ summary:focus-visible {
   height: auto;
 }
 
-.brand .logo-dark {
+:is(.brand, .footer-wordmark) .logo-dark {
   display: none;
 }
 
-:root[data-theme="dark"] .brand .logo-light {
+:root[data-theme="dark"] :is(.brand, .footer-wordmark) .logo-light {
   display: none;
 }
 
-:root[data-theme="dark"] .brand .logo-dark {
+:root[data-theme="dark"] :is(.brand, .footer-wordmark) .logo-dark {
   display: block;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .brand .logo-light {
+  :root:not([data-theme="light"]) :is(.brand, .footer-wordmark) .logo-light {
     display: none;
   }
 
-  :root:not([data-theme="light"]) .brand .logo-dark {
+  :root:not([data-theme="light"]) :is(.brand, .footer-wordmark) .logo-dark {
     display: block;
   }
 }
@@ -211,21 +211,6 @@ summary:focus-visible {
 
 .header-nav a:hover,
 .header-nav a[aria-current="page"] {
-  color: var(--text);
-}
-
-.theme-toggle {
-  min-width: 108px;
-  padding: 7px 11px;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  background: var(--surface);
-  color: var(--muted);
-  font-size: 11px;
-}
-
-.theme-toggle:hover {
-  border-color: var(--accent);
   color: var(--text);
 }
 
@@ -1396,12 +1381,6 @@ summary:focus-visible {
     font-size: 12px;
   }
 
-  .theme-toggle {
-    min-width: 94px;
-    padding-inline: 7px;
-    font-size: 9px;
-  }
-
   .hero {
     padding-block: 58px 84px;
   }
@@ -1568,6 +1547,20 @@ summary:focus-visible {
     grid-column: 1;
     grid-row: 1;
   }
+}
+
+/* A large closing brand mark, using the header’s exact theme-aware assets. */
+.footer-wordmark {
+  width: 100%;
+  padding: clamp(40px, 6vw, 100px) clamp(12px, 2vw, 40px) 0;
+}
+.footer-wordmark img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.footer-wordmark .logo-dark {
+  display: none;
 }
 
 .hero-screenshot-composite {

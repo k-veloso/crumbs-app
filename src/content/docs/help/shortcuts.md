@@ -3,7 +3,7 @@ title: Keyboard Shortcuts
 description: Use and customize Crumbs keyboard shortcuts and hover preview.
 ---
 
-Open **General → Shortcuts** in the Crumbs popup to enable, disable, customize, or reset in-page shortcuts.
+Open **General → Controls → Keyboard shortcuts** in the Crumbs popup to enable, disable, customize, or reset in-page shortcuts.
 
 ## Default shortcuts
 
@@ -13,6 +13,16 @@ Open **General → Shortcuts** in the Crumbs popup to enable, disable, customize
 Search opens the outline and focuses heading search even when the outline is collapsed. Pin/unpin controls whether the outline stays expanded; it does not replace **Show/Hide** in the popup.
 
 The former Command/Ctrl + K search default has changed. Check the shortcut shown in your popup if you previously customized it. Hover over or focus Search or Pin/Unpin to see the current shortcut beneath its tooltip label. Disabled shortcuts do not show a hint.
+
+## ChatGPT and reader controls
+
+The same pin/unpin and search shortcuts work in page outlines, ChatGPT conversations, and Markdown and JSON readers. On ChatGPT, Search opens **Find in conversation** and searches entries available to Crumbs; it cannot search older messages that have never loaded.
+
+In outline search, **Enter** jumps to a result. **Escape** clears the query first; press it again to close search.
+
+In the reader’s theme palette menu, use **Up/Down arrows** to move between Light, Dark, and System, **Home/End** for the first/last option, **Enter** to select, and **Escape** to close.
+
+In JSON Rendered view, **Shift-click** a collapsed chevron to expand descendants within the rendering limits. Change or disable this under **Readers → JSON reader → More options → Advanced → Expand branch modifier**. It is independent of hover preview.
 
 ## Customize a shortcut
 

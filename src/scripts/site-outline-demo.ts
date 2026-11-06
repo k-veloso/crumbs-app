@@ -70,11 +70,11 @@ function savePreferences(preferences: Preferences) {
   } catch {}
 }
 
-function readSessionPreference() {
+function readSessionPreference(fallback = false) {
   try {
     return sessionStorage.getItem(SESSION_KEY) === "true";
   } catch {
-    return false;
+    return fallback;
   }
 }
 
@@ -208,6 +208,7 @@ export function initSiteOutlineDemo() {
   const tooltip = document.createElement("div");
   tooltip.className = "crumbs-demo-tooltip";
   tooltip.setAttribute("role", "tooltip");
+  tooltip.id = "crumbs-demo-control-tooltip";
   tooltip.hidden = true;
   outline.append(tooltip);
 
@@ -220,10 +221,9 @@ export function initSiteOutlineDemo() {
   const darkScheme = window.matchMedia("(prefers-color-scheme: dark)");
   const collapsedIds = new Set<string>();
   const preferences = readStoredPreferences();
-  let controller: { environment: string; demoEnabled: boolean } = {
-    ...initialControllerState,
-    demoEnabled: readSessionPreference(),
-  };
+  let controller: { environment: string; demoEnabled: boolean } =
+    initialControllerState;
+  let demoRequested = readSessionPreference();
   let pinned = false;
   let maxDepth = 3;
   let activeId = flatItems[0]?.id ?? "";
@@ -232,6 +232,7 @@ export function initSiteOutlineDemo() {
   let scrollFrame = 0;
   let detectionTimer = 0;
   let tooltipTimer = 0;
+  let tooltipAnchor: HTMLElement | null = null;
   let collapseTimer = 0;
   let railExpansionTimer = 0;
   let searchHeight: number | null = null;
@@ -291,12 +292,18 @@ export function initSiteOutlineDemo() {
   function hideTooltip() {
     window.clearTimeout(tooltipTimer);
     tooltip.hidden = true;
+    if (tooltipAnchor?.getAttribute("aria-describedby") === tooltip.id)
+      tooltipAnchor.removeAttribute("aria-describedby");
+    tooltipAnchor = null;
   }
 
   function showTooltip(element: HTMLElement, text: string) {
     hideTooltip();
+    tooltipAnchor = element;
+    element.removeAttribute("title");
     tooltipTimer = window.setTimeout(() => {
       if (!element.isConnected) return;
+      element.setAttribute("aria-describedby", tooltip.id);
       tooltip.textContent = text;
       tooltip.hidden = false;
       const rect = element.getBoundingClientRect();
@@ -658,11 +665,13 @@ export function initSiteOutlineDemo() {
   }
 
   function setDemoEnabled(enabled: boolean) {
+    if (controller.environment !== "demo-available") return;
     controller = reduceControllerState(controller, {
       type: "demo",
       enabled,
     });
-    saveSessionPreference(controller.demoEnabled);
+    demoRequested = controller.demoEnabled;
+    saveSessionPreference(demoRequested);
     applyControllerState();
   }
 
@@ -672,6 +681,7 @@ export function initSiteOutlineDemo() {
     document.documentElement.dataset.crumbsOutlineState = visualState;
 
     trigger.hidden = state === "detecting" || state === "mobile";
+    const newlyVisible = outline.hidden && controller.demoEnabled;
     outline.hidden = !controller.demoEnabled;
     trigger.setAttribute("aria-pressed", String(controller.demoEnabled));
     document
@@ -680,8 +690,8 @@ export function initSiteOutlineDemo() {
         button.hidden = state !== "demo-available";
         button.setAttribute("aria-pressed", String(controller.demoEnabled));
         button.textContent = controller.demoEnabled
-          ? "Hide page demo"
-          : "Try demo on this page";
+          ? "Hide demo outline"
+          : "Try crumbs on this site";
       });
 
     if (state === "extension-active") {
@@ -701,6 +711,20 @@ export function initSiteOutlineDemo() {
     if (controller.demoEnabled) {
       setCollapsed(!pinned);
       renderOutline();
+      if (newlyVisible && !pinned && !reducedMotion.matches) {
+        panel.animate(
+          [
+            {
+              boxShadow:
+                "var(--crumbs-shadow), var(--crumbs-inner-highlight), 0 0 0 2px var(--crumbs-accent), 0 0 32px 6px var(--crumbs-accent)",
+            },
+            {
+              boxShadow: "var(--crumbs-shadow), var(--crumbs-inner-highlight)",
+            },
+          ],
+          { duration: 2600, easing: "ease-out" },
+        );
+      }
     } else {
       settings.hidden = true;
       settingsButton.setAttribute("aria-expanded", "false");
@@ -708,12 +732,17 @@ export function initSiteOutlineDemo() {
   }
 
   function setEnvironment(environment: string) {
-    const wasEnabled = controller.demoEnabled;
     controller = reduceControllerState(controller, {
       type: "environment",
       environment,
     });
-    if (wasEnabled && !controller.demoEnabled) saveSessionPreference(false);
+    if (environment === "demo-available") {
+      // Detection and unsupported environments only suspend the demo.
+      controller = reduceControllerState(controller, {
+        type: "demo",
+        enabled: demoRequested,
+      });
+    }
     applyControllerState();
   }
 
@@ -876,6 +905,7 @@ export function initSiteOutlineDemo() {
   });
   outline.addEventListener("mouseenter", () => {
     window.clearTimeout(collapseTimer);
+    if (!outline.classList.contains("is-collapsed")) return;
     // Retain the rail briefly so a rail click remains possible before expansion.
     railExpansionTimer = window.setTimeout(() => setCollapsed(false), 160);
   });
@@ -885,6 +915,16 @@ export function initSiteOutlineDemo() {
     hideTooltip();
     scheduleCollapse();
   });
+  outline.addEventListener(
+    "click",
+    (event) => {
+      if ((event.target as Element).closest('button[aria-disabled="true"]')) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+      }
+    },
+    true,
+  );
   outline.addEventListener("focusin", (event) => {
     window.clearTimeout(collapseTimer);
     if (!rail.contains(event.target as Node)) setCollapsed(false);
@@ -895,7 +935,10 @@ export function initSiteOutlineDemo() {
       (rail.contains(target) ? target.getAttribute("aria-label") : null);
     if (text) showTooltip(target, text);
   });
-  outline.addEventListener("focusout", scheduleCollapse);
+  outline.addEventListener("focusout", () => {
+    hideTooltip();
+    scheduleCollapse();
+  });
   outline.addEventListener("pointerover", (event) => {
     const target = (event.target as Element).closest<HTMLElement>(
       "[data-tooltip], [data-full-label], .crumbs-demo-rail button",
@@ -915,13 +958,26 @@ export function initSiteOutlineDemo() {
         "",
     );
   });
-  outline.addEventListener("pointerout", hideTooltip);
+  outline.addEventListener("pointerout", (event) => {
+    if (tooltipAnchor?.contains(event.relatedTarget as Node)) return;
+    hideTooltip();
+  });
   outline
     .querySelectorAll<HTMLElement>("button[aria-label]")
     .forEach((button) => {
       if (!button.dataset.tooltip && !button.closest(".crumbs-demo-settings"))
         button.dataset.tooltip = button.getAttribute("aria-label")!;
       button.removeAttribute("title");
+    });
+  outline.querySelectorAll<HTMLElement>("[title]").forEach((element) => {
+    element.dataset.tooltip ??= element.title;
+    element.removeAttribute("title");
+  });
+  outline
+    .querySelectorAll<HTMLElement>("[data-crumbs-demo-depth]")
+    .forEach((button) => {
+      const level = button.dataset.crumbsDemoDepth;
+      button.dataset.tooltip = level === "1" ? "Only H1" : `Up to H${level}`;
     });
   outline
     .querySelector("[data-crumbs-demo-top]")
@@ -991,6 +1047,12 @@ export function initSiteOutlineDemo() {
   themeObserver.observe(document.documentElement, {
     attributes: true,
     attributeFilter: ["data-theme"],
+  });
+  window.addEventListener("pageshow", (event) => {
+    if (event.persisted) {
+      demoRequested = readSessionPreference(demoRequested);
+      evaluateEnvironment();
+    }
   });
   desktop.addEventListener("change", evaluateEnvironment);
   darkScheme.addEventListener("change", resolveTheme);

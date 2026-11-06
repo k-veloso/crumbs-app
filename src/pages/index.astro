@@ -13,7 +13,7 @@ import { withBase } from "../lib/paths";
 
 <SiteLayout
   title="Crumbs"
-  description="A Chrome extension for navigating long pages and reading standalone Markdown or JSON without losing your place."
+  description="Navigate long pages and ChatGPT conversations with a searchable outline, and read standalone Markdown and JSON in Chrome."
   bodyClass="landing-page"
   outlineDemo
 >
@@ -29,9 +29,9 @@ import { withBase } from "../lib/paths";
         Keep your place.<br /><span>Find what matters.</span>
       </h1>
       <p class="hero-lede">
-        Crumbs turns a page's headings into a focused outline and gives
-        standalone Markdown and JSON a clean, browseable view—entirely local and
-        private.
+        Crumbs turns page headings and ChatGPT conversations into focused
+        outlines, and gives standalone Markdown and JSON a clean, browseable
+        view—entirely local and private.
       </p>
       <div class="hero-actions">
         <a
@@ -80,7 +80,7 @@ import { withBase } from "../lib/paths";
           type="button"
           aria-pressed="false"
           aria-controls="crumbs-demo-outline"
-          data-crumbs-demo-activate>Try demo on this page</button
+          data-crumbs-demo-activate>Try crumbs on this site</button
         >
       </div>
       <p class="availability-note">
@@ -122,6 +122,7 @@ import { withBase } from "../lib/paths";
       <nav class="hero-highlights" aria-label="Crumbs features at a glance">
         <a href="#page-outline">Outline navigation</a>
         <a href="#page-outline">Search and depth</a>
+        <a href="#chatgpt-outline">ChatGPT outline</a>
         <a href="#markdown-reader">Markdown + JSON</a>
         <a href="#privacy">Private by design</a>
       </nav>
@@ -435,8 +436,8 @@ import { withBase } from "../lib/paths";
             <strong id="json-large-documents"
               >Stay responsive on large documents.</strong
             >
-            Collections load progressively, with depth controls and clear safety
-            limits when a response is too large to render.
+            Collections load progressively. Set the initial expansion depth and choose
+            a modifier to expand branches within rendering limits.
           </li>
         </ul>
         <a class="feature-link" href={withBase("/help/json-reader/")}
@@ -533,9 +534,9 @@ import { withBase } from "../lib/paths";
           Your reading stays on your device.
         </h2>
         <p>
-          Crumbs processes headings, eligible Markdown and JSON, and preferences
-          locally. It has no account system, analytics, advertising, telemetry,
-          or developer-operated backend.
+          Crumbs processes page headings, ChatGPT conversations, and eligible
+          Markdown and JSON locally. It has no account system, analytics,
+          advertising, telemetry, or developer-operated backend.
         </p>
         <a href={withBase("/privacy/")}
           >Read the full privacy policy <span aria-hidden="true">→</span></a
@@ -580,25 +581,31 @@ import { withBase } from "../lib/paths";
       <details open>
         <summary>What kinds of pages does Crumbs support?</summary>
         <p>
-          Crumbs works on supported Chrome pages with visible, meaningful
-          headings. Chrome blocks extensions on protected pages such as the
-          Chrome Web Store and <code>chrome://</code> pages.
+          Crumbs outlines supported web pages with meaningful headings and
+          conversations on ChatGPT. It also provides reading views for eligible
+          standalone Markdown and JSON. Chrome blocks extensions on protected
+          pages such as the Chrome Web Store and <code>chrome://</code> pages.
         </p>
       </details>
       <details>
         <summary>Can it read local Markdown and JSON files?</summary>
         <p>
-          Yes. Both require Chrome's Allow access to file URLs permission. Local
-          Markdown also requires the Local Markdown files setting; local JSON
-          does not. Refresh the file after changing it.
+          Yes. Enable the matching local-file switch under <strong
+            >Readers</strong
+          >
+          in Crumbs settings and grant Chrome’s <strong
+            >Allow access to file URLs</strong
+          >
+          permission. Refresh the file after changing these settings.
         </p>
       </details>
       <details>
         <summary>Does Crumbs save document contents?</summary>
         <p>
-          No. It does not save the contents of web pages, Markdown documents, or
-          JSON responses. It can remember local preferences such as a document's
-          Raw-view choice.
+          Crumbs does not save page content, ChatGPT message text, or Markdown
+          and JSON contents. It can remember preferences such as a document’s
+          Raw-view choice. If approximate question times are enabled, Crumbs can
+          save question identifiers and timestamps locally.
         </p>
       </details>
       <details>
