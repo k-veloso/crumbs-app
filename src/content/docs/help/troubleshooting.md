@@ -29,15 +29,31 @@ Jump buttons can work on pages without headings because Crumbs looks for the par
 
 If jumping doesn’t work as expected, [report the problem](../../contact/). Include a public page link if available, which button you used, which part of the page you expected to scroll, and what happened. Leave out private details.
 
+## Older ChatGPT messages are missing
+
+ChatGPT loads long conversations in portions. Crumbs cannot list messages that ChatGPT has not loaded yet. Use **Jump to Top**, or **Go to top** in the outline’s older-messages notice, then wait for ChatGPT to load earlier content. Repeat if more history is still missing. It may take several attempts; one jump does not guarantee that the entire conversation is loaded.
+
+An outline entry can also remain listed after ChatGPT removes its content from the visible page. If a tooltip says **Not loaded**, selecting it jumps toward the nearest loaded entry. Let ChatGPT load that area, then select the entry again if needed. See [ChatGPT Conversations](../chatgpt/#load-older-messages).
+
+## The ChatGPT outline is empty or looks different
+
+Confirm **AI Chat → ChatGPT → Conversation outline** is enabled, the popup is set to **Show**, and your site rules allow chatgpt.com. Check the Question, Answer, and Heading in Answers filters directly in the outline, and clear any search query. An answer without headings has no answer-heading rows.
+
+The ChatGPT outline follows the current conversation and selected answer branch. Editing a question or switching an answer can change its entries. Wait for streaming or loading to settle; refresh if the outline still appears out of sync after an extension update. Claude, Gemini, and Perplexity conversation outlines are not supported yet.
+
+## ChatGPT question times are missing or approximate
+
+Check **AI Chat → ChatGPT → Show question times**. When ChatGPT does not provide a time, Crumbs can remember approximate times for new questions sent on this device if **Remember approximate times** is enabled. It does not reconstruct missing times for older history. **Clear times** removes locally saved times.
+
 ## A shortcut does not work
 
-The current search default is **Option/Alt + Shift + V**, including when the outline is collapsed. Pin/unpin defaults to **Option/Alt + Shift + C**. Check **General → Shortcuts** for disabled or customized bindings, and use Reset if needed.
+The current search default is **Option/Alt + Shift + V**, including when the outline is collapsed. Pin/unpin defaults to **Option/Alt + Shift + C**. Check **General → Controls → Keyboard shortcuts** for disabled or customized bindings, and use Reset if needed.
 
 In-page shortcuts do not run while you are typing in an input or editor. Browser or operating-system shortcuts may take priority. Chrome manages the separate Settings shortcut: use **Set in Chrome shortcuts** to inspect **Activate the extension**. The suggested Option/Alt + Shift + X may be unassigned if it conflicts.
 
 ## Hover preview does not work
 
-In **General → Shortcuts**, confirm **Hover preview** is enabled and check its selected key. Hold only that modifier, pause over a heading in the expanded outline, and avoid additional keys. The default is Shift; preview does not run while typing. Caps Lock is not supported.
+In **General → Controls → Keyboard shortcuts**, confirm **Hover preview** is enabled and check its selected key. Hold only that modifier, pause over a heading in the expanded outline, and avoid additional keys. The default is Shift; preview does not run while typing. Caps Lock is not supported.
 
 Preview scrolls without changing the URL or showing a heading highlight, so the absence of those effects is expected. Release the modifier to stop previewing.
 
@@ -59,7 +75,7 @@ Older Markdown rules keep their original matching behavior and labels until remo
 
 Two controls must be enabled:
 
-1. **Local Markdown files** in the Crumbs popup's Markdown tab.
+1. **Local Markdown files** in the Crumbs popup's **Readers** tab.
 2. **Allow access to file URLs** on Chrome's extension Details page.
 
 **One more step required** means Chrome's permission is still off. Select **Open extension settings**, grant file access, and refresh the Markdown file. A green permission dot indicates that browser file access is granted.
@@ -72,7 +88,7 @@ Use the Rendered/Raw control to select **Rendered**. That removes the locally sa
 
 ## Markdown and the outline have different themes
 
-This is expected: the document has its own Light/Dark/System preference. Change it from the document's palette icon or **Markdown → Style** in the popup. Glazed/Plain and Plain's theme control the floating outline separately. Mermaid diagrams retain a light canvas in either document theme.
+This is expected: the document has its own Light/Dark/System preference. Change it from the document's palette icon or **Readers → Reader appearance** in the popup. Glazed/Plain and Plain's theme control the floating outline separately. Mermaid diagrams retain a light canvas in either document theme.
 
 ## A Markdown image does not load
 
@@ -84,7 +100,7 @@ Hover over or focus the icon for an explanation. The markup may be restricted, s
 
 ## JSON stays in Raw view
 
-Select **Rendered** from the document control or the Crumbs popup. Invalid JSON, responses larger than the rendering limits, or documents nested beyond 128 levels remain in Raw with an explanation. Crumbs does not repair trailing commas, comments, incomplete responses, or other invalid syntax.
+Select **Rendered** from the document control. Invalid JSON, responses larger than the rendering limits, or documents nested beyond 128 levels remain in Raw with an explanation. Crumbs does not repair trailing commas, comments, incomplete responses, or other invalid syntax.
 
 Crumbs recognizes standalone JSON responses, not JSON examples embedded in HTML, already-rendered repository pages, downloads, streaming NDJSON, or custom JSON viewers. See [Reading JSON](../json-reader/) for the supported content types and limits.
 
@@ -96,10 +112,12 @@ Browser Find only searches mounted lines in Rendered view. Switch to Raw or use 
 
 ## Local JSON does not render
 
-Enable **Allow access to file URLs** on Chrome's extension Details page and refresh the `.json` file. Unlike local Markdown, local JSON does not require the separate **Local Markdown files** setting.
+Enable **Readers → JSON reader → Local JSON files** and Chrome’s **Allow access to file URLs** permission, then refresh the `.json` file. Markdown and JSON have separate local-file switches.
 
 ## Still need help?
 
-Email [karl.ext.dev@gmail.com](mailto:karl.ext.dev@gmail.com) or [contact us](../../contact/) through GitHub. Include the page type, what you expected, and what happened so we can understand the problem.
+Email [karl.ext.dev@gmail.com](mailto:karl.ext.dev@gmail.com) or [contact us](../../contact/) through GitHub. Opening a GitHub issue requires a GitHub account; email is available too. Include your Crumbs extension version, Chrome version, the page type, what you expected, and what happened so we can understand the problem.
+
+Find the extension version in the settings popup: select the **info icon** at the top right to open **About Crumbs**. Share only public example links and leave out private details.
 
 Looking for a new capability? [Send a feature request](../../contact/#feature-requests) through GitHub or email. Tell us what you’d like to do and how it would help your reading workflow.

@@ -14,13 +14,15 @@ Contact [karl.ext.dev@gmail.com](mailto:karl.ext.dev@gmail.com) for support or p
 
 ## GitHub
 
-When you [open an issue](https://github.com/k-veloso/crumbs-app/issues/new/choose), choose **Bug report** if something isn’t working, **Feature request** to suggest an improvement, or **Documentation** to report a problem with a guide or request a new one.
+When you [open an issue](https://github.com/k-veloso/crumbs-app/issues/new/choose), choose **Bug report** if something isn’t working, **Feature request** to suggest an improvement, or **Documentation** to report a problem with a guide or request a new one. You’ll need a GitHub account to open an issue; you can email us instead if you prefer.
 
 Issues are public. Do not include passwords, private documents, health or financial information, or other sensitive personal information.
 
 ## What to include
 
-For a problem with the extension, tell us your Chrome version, the kind of page or document you were reading, what you expected, and what happened. Share a public example URL if it helps explain the problem.
+For a problem with the extension, tell us your Crumbs extension version, Chrome version, the kind of page or document you were reading, what you expected, and what happened. Share a public example URL if it helps explain the problem.
+
+To find your Crumbs version, open the extension’s settings popup and select the **info icon** at the top right. The **About Crumbs** panel shows the version.
 
 ## Feature requests
 

@@ -17,6 +17,12 @@ Crumbs tracks the section you are currently reading. You can dock the rail on ei
 
 Open settings from the browser toolbar or the **Settings** button beside Pin/Unpin in the expanded outline.
 
+## Navigate a ChatGPT conversation
+
+On **chatgpt.com**, Crumbs provides a conversation outline instead of a general page-heading outline. Jump between questions, answers, and headings inside answers. The three outline filters select these content types rather than H1–H3 depth. Open **AI Chat → ChatGPT** in settings to enable the conversation outline and choose whether to show question times.
+
+Long conversations may only have some messages loaded. Use **Jump to Top**, or **Go to top** in the older-messages notice, to help ChatGPT load earlier messages. Wait for loading to finish and repeat if needed. See [ChatGPT Conversations](../chatgpt/) for the full workflow.
+
 ## Expand or collapse heading groups
 
 Use the arrow beside a parent heading to hide or reveal its child headings. This lets you focus on one part of a long document without changing the page itself.
@@ -27,7 +33,7 @@ Groups stay collapsed when you close and reopen the outline, until the page relo
 
 Hold <kbd>Shift</kbd> and pause over a heading in the expanded outline. After a short delay, Crumbs scrolls instantly to that section without a heading highlight or a URL change. The outline list stays in place as you move between headings.
 
-Release the key to stop previewing. Hover preview is enabled by default. In **General → Shortcuts**, find **Hover preview** below Search to turn it off, edit its modifier key, or reset it to Shift.
+Release the key to stop previewing. Hover preview is enabled by default. In **General → Controls → Keyboard shortcuts**, find **Hover preview** below Search to turn it off, edit its modifier key, or reset it to Shift.
 
 You can choose Shift, Alt/Option, Control/Ctrl, or Command on Mac. Hold only the selected modifier, without other keys. Preview does not run while you are typing; Caps Lock is not supported as a preview key.
 
@@ -39,7 +45,7 @@ The control is hidden when Crumbs cannot create a reliable target, including loc
 
 ## Choose where Crumbs appears
 
-Open the Crumbs toolbar button and choose one of the site modes:
+Open the Crumbs toolbar button and look under **General → Where outlines appear**:
 
 - **All sites** shows Crumbs wherever a supported page is available.
 - **Specific sites** limits Crumbs to domains and URL patterns you add.
@@ -68,6 +74,18 @@ For text anywhere in a hostname or path, use a pattern such as `*webmonitoring*`
 
 Duplicates are ignored. If any entry in a pasted batch is invalid, fix it and add the batch again; valid entries are not partially added. Open **Pattern examples** in the popup for a reminder.
 
+## Find your settings
+
+- **General:** accent, outline appearance, where outlines appear, and Controls. Expand **Keyboard shortcuts** or **Quick buttons** under Controls to customize them.
+- **Readers:** a shared reader appearance plus separate Markdown and JSON switches, local-file controls, and More options.
+- **AI Chat:** ChatGPT conversation display and question-time settings.
+
+The popup’s current-page card identifies the page type. Its **Show/Hide** control affects floating navigation, not a reader’s Rendered/Raw view.
+
+## Find your extension version
+
+Open the Crumbs settings popup and select the **info icon** at the top right. The **About Crumbs** panel shows your installed extension version and a link to help. Include that version when reporting a problem so we can check the right release.
+
 ## Appearance and quick buttons
 
 - **Glazed** adapts its light/dark appearance and subtle tint to the page background.
@@ -75,7 +93,7 @@ Duplicates are ignored. If any entry in a pasted batch is invalid, fix it and ad
 
 Choose from Toast, Ube, Blueberry, Velvet, Custard, and Matcha accents. The accent applies across the popup, outline, and heading-jump highlights.
 
-Under **General → Quick buttons**, independently show or hide **Jump to Top**, **Jump to Bottom**, and **Dock Left / Right**. Markdown's Rendered/Raw control is separate.
+Under **General → Controls → Quick buttons**, independently show or hide **Jump to Top**, **Jump to Bottom**, and **Dock Left / Right**. Markdown's Rendered/Raw control is separate.
 
 Markdown and JSON documents share a Light/Dark/System reader setting, independent of the floating outline's appearance. See the [Markdown](../markdown-reader/#choose-a-reading-theme) and [JSON](../json-reader/#theme-and-saved-preferences) guides.
 

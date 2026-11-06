@@ -63,7 +63,6 @@ import "../styles/site-outline-demo.css";
               data-crumbs-demo-pin
               aria-label="Pin outline"
               aria-pressed="false"
-              title="Pin · Alt/Option + Shift + C"
             >
               <svg
                 class="crumbs-demo-pin-icon"
@@ -272,8 +271,9 @@ import "../styles/site-outline-demo.css";
             type="button"
             role="tab"
             aria-selected="false"
-            disabled
+            aria-disabled="true"
             aria-label="Readers — available in the extension"
+            data-tooltip="Markdown and JSON reader"
             >Readers <svg
               class="crumbs-demo-lock-icon"
               viewBox="0 0 24 24"
@@ -286,8 +286,9 @@ import "../styles/site-outline-demo.css";
             type="button"
             role="tab"
             aria-selected="false"
-            disabled
+            aria-disabled="true"
             aria-label="AI Chat — available in the extension"
+            data-tooltip="ChatGPT conversation outline (more platforms supported soon)"
             >AI Chat <svg
               class="crumbs-demo-lock-icon"
               viewBox="0 0 24 24"
@@ -351,15 +352,20 @@ import "../styles/site-outline-demo.css";
               role="group"
               aria-label="Appearance style"
             >
-              <button type="button" class="is-selected" aria-pressed="true"
+              <button
+                type="button"
+                class="is-selected"
+                aria-pressed="true"
+                data-tooltip="Adapts to the page background"
                 ><span class="crumbs-demo-adaptive-swatch" aria-hidden="true"
                 ></span><span class="crumbs-demo-glazed-icon" aria-hidden="true"
                 ></span>Glazed</button
               >
               <button
                 type="button"
-                disabled
+                aria-disabled="true"
                 aria-label="Plain — available in the extension"
+                data-tooltip="Solid light or dark background themes."
                 ><svg aria-hidden="true" viewBox="0 0 24 24">
                   <circle cx="12" cy="12" r="4"></circle>
                   <path

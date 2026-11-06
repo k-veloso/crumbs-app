@@ -12,7 +12,8 @@ export default defineConfig({
   integrations: [
     starlight({
       title: "Crumbs Help",
-      description: "Guides and support for Crumbs — Navigate Any Page.",
+      description:
+        "Guides for page and ChatGPT outlines, Markdown and JSON readers, and Crumbs settings.",
       favicon: "/favicon.svg",
       logo: {
         light: "./src/assets/images/crumbs-lockup-horizontal.svg",
