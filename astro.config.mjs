@@ -34,6 +34,10 @@ export default defineConfig({
           items: [
             { label: "Overview", slug: "help" },
             { label: "Getting Started", slug: "help/getting-started" },
+            {
+              label: "Where Crumbs appears",
+              slug: "help/choose-where-crumbs-appears",
+            },
             { label: "ChatGPT Conversations", slug: "help/chatgpt" },
             { label: "Reading Markdown", slug: "help/markdown-reader" },
             { label: "Reading JSON", slug: "help/json-reader" },
