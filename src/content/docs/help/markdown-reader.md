@@ -52,7 +52,7 @@ For Mermaid diagrams, drag to pan, use the zoom controls, or select the percenta
 
 Open **Readers → Markdown reader** in the popup. Enable the reader, then open **More options → Render automatically**. Under **Websites**, choose **All detected Markdown** or **Only matching URLs**.
 
-For matching URLs, enter domains or wildcard patterns separated by commas. These use the same [domain and pattern syntax](../getting-started/#domain-and-pattern-examples) as General's Specific sites and Except these lists. For example, `example.com/*` matches one domain, `*.example.com/*` includes its subdomains, and `localhost/*` matches localhost on any port.
+For matching URLs, enter domains or wildcard patterns separated by commas. These use the same [domain and pattern syntax](../choose-where-crumbs-appears/#match-a-whole-site-or-just-part-of-it) as General's Specific sites and Except these lists. For example, `example.com/*` matches one domain, `*.example.com/*` includes its subdomains, and `localhost/*` matches localhost on any port.
 
 Use **Add current site**, remove entries individually, or open the list menu for **Copy all** and **Clear all**. **Undo** can restore a cleared list while its feedback is visible. Invalid batches are not partially added; duplicates are ignored.
 

@@ -53,7 +53,7 @@ Copies use the original source text, so large integers are not rounded and escap
 
 ## Reader settings
 
-In **Readers → JSON reader**, enable the reader and choose whether to allow local JSON files. Under **More options**, **Render automatically** controls whether eligible documents start in Rendered or Raw. For websites, choose **All detected JSON** or **Only matching URLs**, using the [shared domain and pattern syntax](../getting-started/#domain-and-pattern-examples).
+In **Readers → JSON reader**, enable the reader and choose whether to allow local JSON files. Under **More options**, **Render automatically** controls whether eligible documents start in Rendered or Raw. For websites, choose **All detected JSON** or **Only matching URLs**, using the [shared domain and pattern syntax](../choose-where-crumbs-appears/#match-a-whole-site-or-just-part-of-it).
 
 Reload the document after changing reader settings. Reader theme and the branch modifier update immediately. You can choose Rendered manually when automatic rendering is off. **Show/Hide** controls floating navigation separately; use the document’s Rendered/Raw control to change views.
 

@@ -45,34 +45,19 @@ The control is hidden when Crumbs cannot create a reliable target, including loc
 
 ## Choose where Crumbs appears
 
-Open the Crumbs toolbar button and look under **General → Where outlines appear**:
+Crumbs starts with **All sites** selected, so the outline appears automatically on supported pages. You can keep that default or choose where it stays out of the way.
 
-- **All sites** shows Crumbs wherever a supported page is available.
-- **Specific sites** limits Crumbs to domains and URL patterns you add.
-- **Except these** shows Crumbs everywhere except your listed sites.
+- **All sites:** show the outline on every supported page.
+- **Specific sites:** show it automatically only on listed domains or URL patterns. Leave the list empty if you prefer to show it manually.
+- **Except these:** show it automatically everywhere except your listed sites.
 
-Add one rule at a time or paste a comma-separated list. **Add current site** fills in the current site's domain. Rule lists show their counts; remove entries individually or open the list menu for **Copy all** and **Clear all**. After clearing, use **Undo** while the feedback is visible to restore the list.
+Open settings from the outline’s **gear icon** or Chrome’s extension toolbar, then go to **General → Where outlines appear**.
 
-### Domain and pattern examples
+For a temporary change, use **Show/Hide** in the current-page card. Reloading the page resets that choice and applies your saved site rules again.
 
-The outline site lists and Markdown's **Only matching URLs** setting use the same syntax:
+<span id="domain-and-pattern-examples"></span>
 
-| Rule                             | Matches                                           |
-| -------------------------------- | ------------------------------------------------- |
-| `example.com` or `example.com/*` | That domain and all its paths, without subdomains |
-| `*.example.com/*`                | The domain and its subdomains                     |
-| `example.com/blog/*`             | The `/blog/` section on that domain               |
-| `*/blog*`                        | Paths containing `/blog`, including `/blogger`    |
-| `*/blog/*`                       | Paths containing a `/blog/` section               |
-| `localhost/*`                    | Localhost on any port                             |
-| `localhost:5173/*`               | Localhost on port 5173                            |
-| `127.0.0.1/*`                    | That local address                                |
-
-`*` matches zero or more characters. Rules without a scheme match HTTP and HTTPS; include a scheme to restrict them. New rules ignore query strings and fragments, and paths are case-sensitive. A domain without a path matches all its paths.
-
-For text anywhere in a hostname or path, use a pattern such as `*webmonitoring*`. To match a path section, use `*/webmonitoring/*`; `/webmonitoring/` alone needs wildcards or a domain. Broad wildcard rules can match beyond one domain, so use a literal domain when you need that boundary.
-
-Duplicates are ignored. If any entry in a pasted batch is invalid, fix it and add the batch again; valid entries are not partially added. Open **Pattern examples** in the popup for a reminder.
+See [Choose where Crumbs appears](../choose-where-crumbs-appears/) for setup tips, domain and wildcard examples, and ways to manage your lists.
 
 ## Find your settings
 

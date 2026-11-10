@@ -67,7 +67,7 @@ Copied links use the page's own anchor where possible, or a text fragment. Their
 
 New rules use shared domains and wildcard patterns. `example.com/*` does not include subdomains; use `*.example.com/*` for those. `localhost/*` matches any port, while `localhost:5173/*` limits it to one port. Paths are case-sensitive, and new rules ignore query strings and fragments.
 
-A bare path such as `/blog/` needs a domain or wildcards, such as `*/blog/*`. Invalid batches are not partially added, so fix the reported entry before submitting again. Open **Pattern examples** in the popup or see the [pattern guide](../getting-started/#domain-and-pattern-examples).
+A bare path such as `/blog/` needs a domain or wildcards, such as `*/blog/*`. Invalid batches are not partially added, so fix the reported entry before submitting again. Open **Pattern examples** in the popup or see the [pattern guide](../choose-where-crumbs-appears/#match-a-whole-site-or-just-part-of-it).
 
 Older Markdown rules keep their original matching behavior and labels until removed. Check which type you are editing before comparing it with a new rule.
 

@@ -11,6 +11,7 @@ const requiredRoutes = [
   "",
   "help/",
   "help/getting-started/",
+  "help/choose-where-crumbs-appears/",
   "help/chatgpt/",
   "help/markdown-reader/",
   "help/json-reader/",
