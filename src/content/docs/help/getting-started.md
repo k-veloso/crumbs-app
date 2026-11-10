@@ -5,6 +5,16 @@ description: Learn page navigation, site rules, appearance controls, and section
 
 Crumbs requires Chrome 127 or newer. After installing it, open a page with headings. A narrow rail appears at the edge of supported pages.
 
+## Try the Quick Start Guide
+
+Crumbs opens an interactive Quick Start Guide when you first install it. Use it to practice expanding the outline, jumping between headings, pinning it open, and copying section links. It also includes optional setup for local Markdown and JSON files.
+
+To open it again:
+
+1. Open Crumbs from Chrome’s extension toolbar.
+2. Select the **info icon** to open **About Crumbs**.
+3. Select **Quick Start Guide**.
+
 ## Navigate a page
 
 1. Expand the rail to see the page outline.

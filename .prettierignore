@@ -5,3 +5,6 @@ package-lock.json
 public/favicon.svg
 src/assets/images/crumbs-lockup-horizontal.svg
 src/assets/images/crumbs-lockup-horizontal-dark.svg
+# Preserve copied reader fixtures exactly for Rendered/Raw testing.
+/reader.md
+/reader-image.svg
