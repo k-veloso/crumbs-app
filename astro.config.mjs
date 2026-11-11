@@ -48,6 +48,7 @@ export default defineConfig({
         {
           label: "More",
           items: [
+            { label: "Changelog", link: "/changelog/" },
             { label: "Privacy Policy", link: "/privacy/" },
             { label: "Contact", link: "/contact/" },
             { label: "Product home", link: "/" },

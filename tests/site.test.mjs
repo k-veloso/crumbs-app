@@ -17,6 +17,7 @@ const requiredRoutes = [
   "help/json-reader/",
   "help/shortcuts/",
   "help/troubleshooting/",
+  "changelog/",
   "privacy/",
   "contact/",
   "onboarding/",

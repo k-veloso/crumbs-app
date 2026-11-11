@@ -10,6 +10,7 @@
 - `/help/json-reader/` — JSON rendering, search, copying, and limits
 - `/help/shortcuts/` — keyboard shortcuts and hover preview
 - `/help/troubleshooting/` — common problems and fixes
+- `/changelog/` — release notes
 - `/privacy/` — privacy policy
 - `/contact/` — public support route
 - `/onboarding/` — future onboarding scaffold; no extension integration is active
