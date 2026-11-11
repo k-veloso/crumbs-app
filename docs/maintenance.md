@@ -62,3 +62,11 @@ Help articles live in `src/content/docs/help/`. Landing, privacy, contact, redir
 The public support and privacy contact email is [karl.ext.dev@gmail.com](mailto:karl.ext.dev@gmail.com). Keep the contact page, privacy policy, and help contact references consistent when it changes. The homepage currently links to the Chrome Web Store homepage. Use a direct install link once the Crumbs listing URL is verified.
 
 The [October 24 extension review](../_audit/2026-10-24-extension-pr-review.md) maps merged extension work to the preserved help content. Files under `_audit/` and `docs/` are maintenance records and are not published by Astro.
+
+## Help control icons
+
+Help articles use `HelpControl.astro` from MDX to pair a control label with its actual extension icon. Keep the visible label: the adjacent SVG is decorative, hidden from assistive technology, and not interactive. Preserve plain-text headings so guide anchors stay stable.
+
+`src/lib/help-control-icons.json` contains local copies of vectors from the Crumbs extension: `public/welcome.html` (settings and section copy), `src/ui/App.tsx` (pin, unpin, top, bottom, dock), `src/ui/components/OutlineList.tsx` (heading chevron), `src/markdown/themeControls.ts` (reader palette), `src/markdown/copyControls.ts` (document copy), `src/json/controls.ts` (JSON controls), and `public/popup.html` (About info). Search matches the shared outline demo and extension search control. The restricted-HTML notice uses the extension’s `ⓘ` text glyph instead of the About icon.
+
+When an extension control changes, refresh its vector here and check the affected guide in light and dark themes. These are static presentation assets; the site does not import extension runtime code.

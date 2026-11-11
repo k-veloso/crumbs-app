@@ -206,3 +206,43 @@ test("changelog offers the shared outline toggle without a demo prompt", async (
   assert.doesNotMatch(html, /data-crumbs-demo-activate/);
   assert.doesNotMatch(html, /crumbs-demo-help-prompt/);
 });
+
+test("help guides show labeled extension icons without adding interactive controls", async () => {
+  for (const guide of [
+    "getting-started",
+    "chatgpt",
+    "markdown-reader",
+    "json-reader",
+    "shortcuts",
+    "troubleshooting",
+  ]) {
+    const html = await readFile(
+      path.join(dist, "help", guide, "index.html"),
+      "utf8",
+    );
+    assert.match(html, /class="help-control /, guide);
+    assert.match(
+      html,
+      /data-help-icon="[^"]+" aria-hidden="true" focusable="false"/,
+      guide,
+    );
+    assert.doesNotMatch(html, /<HelpControl|\*\*Settings\*\*/, guide);
+  }
+  const gettingStarted = await readFile(
+    path.join(dist, "help", "getting-started", "index.html"),
+    "utf8",
+  );
+  for (const icon of [
+    "settings",
+    "pin",
+    "unpin",
+    "search",
+    "copy",
+    "top",
+    "bottom",
+    "info",
+  ]) {
+    assert.ok(gettingStarted.includes(`data-help-icon="${icon}"`), icon);
+  }
+  assert.match(gettingStarted, /id="copy-a-section-link"/);
+});

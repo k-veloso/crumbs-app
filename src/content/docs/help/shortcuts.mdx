@@ -3,12 +3,17 @@ title: Keyboard Shortcuts
 description: Use and customize Crumbs keyboard shortcuts and hover preview.
 ---
 
+import HelpControl from "../../../components/HelpControl.astro";
+
 Open **General → Controls → Keyboard shortcuts** in the Crumbs popup to enable, disable, customize, or reset in-page shortcuts.
 
 ## Default shortcuts
 
-- **Pin or unpin:** <kbd>Option/Alt</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd>
-- **Search the outline:** <kbd>Option/Alt</kbd> + <kbd>Shift</kbd> + <kbd>V</kbd>
+- <HelpControl icon="pin">**Pin**</HelpControl> or
+  <HelpControl icon="unpin">**unpin**</HelpControl>: <kbd>Option/Alt</kbd> +
+  <kbd>Shift</kbd> + <kbd>C</kbd>
+- <HelpControl icon="search">**Search the outline**</HelpControl>:
+  <kbd>Option/Alt</kbd> + <kbd>Shift</kbd> + <kbd>V</kbd>
 
 Search opens the outline and focuses heading search even when the outline is collapsed. Pin/unpin controls whether the outline stays expanded; it does not replace **Show/Hide** in the popup.
 
@@ -20,9 +25,9 @@ The same pin/unpin and search shortcuts work in page outlines, ChatGPT conversat
 
 In outline search, **Enter** jumps to a result. **Escape** clears the query first; press it again to close search.
 
-In the reader’s theme palette menu, use **Up/Down arrows** to move between Light, Dark, and System, **Home/End** for the first/last option, **Enter** to select, and **Escape** to close.
+In the reader’s theme <HelpControl icon="palette">palette menu</HelpControl>, use **Up/Down arrows** to move between Light, Dark, and System, **Home/End** for the first/last option, **Enter** to select, and **Escape** to close.
 
-In JSON Rendered view, **Shift-click** a collapsed chevron to expand descendants within the rendering limits. Change or disable this under **Readers → JSON reader → More options → Advanced → Expand branch modifier**. It is independent of hover preview.
+In JSON Rendered view, **Shift-click** a collapsed <HelpControl icon="json-down">chevron</HelpControl> to expand descendants within the rendering limits. Change or disable this under **Readers → JSON reader → More options → Advanced → Expand branch modifier**. It is independent of hover preview.
 
 ## Customize a shortcut
 

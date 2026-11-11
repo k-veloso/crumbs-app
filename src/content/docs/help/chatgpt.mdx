@@ -3,6 +3,8 @@ title: ChatGPT Conversations
 description: Navigate questions, answers, and answer headings in ChatGPT, load older messages, and manage optional question times.
 ---
 
+import HelpControl from "../../../components/HelpControl.astro";
+
 Crumbs provides a conversation outline on **chatgpt.com**. It helps you return to a question, answer, or heading inside an answer without scrolling through the whole chat.
 
 Conversation outlines currently support **ChatGPT**. Support for Claude, Gemini, and Perplexity is planned.
@@ -11,7 +13,9 @@ Conversation outlines currently support **ChatGPT**. Support for Claude, Gemini,
 
 1. Open a ChatGPT conversation and expand the Crumbs rail.
 2. Select a question, answer, or answer heading to jump to it.
-3. Pin the outline if you want it to stay open. Use search to find text in the conversation entries available to Crumbs.
+3. <HelpControl icon="pin">Pin</HelpControl> the outline if you want it to stay
+   open. Use <HelpControl icon="search">search</HelpControl> to find text in the
+   conversation entries available to Crumbs.
 
 Use the three content filters in the outline to show or hide **Question**, **Answer**, and **Heading in Answers**. These select content types rather than the heading-depth levels used on ordinary pages. At least one content type stays visible. Collapse a parent entry to fold its descendants.
 
@@ -21,13 +25,14 @@ The outline updates as answers stream and as ChatGPT loads more messages. It fol
 
 ChatGPT may load only part of a long conversation. Messages that have never loaded cannot appear in the outline or its search results.
 
-- Select **Jump to Top** to move to the top of the loaded messages. This may prompt ChatGPT to load earlier messages.
+- Select <HelpControl icon="top">**Jump to Top**</HelpControl> to move to the top of the loaded messages. This may prompt ChatGPT to load earlier messages.
 - When the outline says **Some older messages aren’t loaded**, its **Go to top** link uses the same action.
 - Wait for ChatGPT to finish loading, then repeat if earlier messages are still missing. Loading the entire history is not guaranteed in one step.
 
 ChatGPT may also unload messages you have already visited. Crumbs can retain their outline entries while the conversation remains open. A **Not loaded** hint means the entry’s content is currently unavailable on the page. Select it to move toward the nearest loaded entry, wait for more content, and select it again if needed.
 
-**Jump to Bottom** returns you toward the latest loaded part of the conversation.
+<HelpControl icon="bottom">**Jump to Bottom**</HelpControl> returns you toward
+the latest loaded part of the conversation.
 
 ## Question times
 

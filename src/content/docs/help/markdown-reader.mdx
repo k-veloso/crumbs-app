@@ -3,6 +3,8 @@ title: Reading Markdown with Crumbs
 description: Render, theme, copy, and safely read standalone Markdown documents with Crumbs.
 ---
 
+import HelpControl from "../../../components/HelpControl.astro";
+
 Crumbs formats eligible standalone Markdown documents and provides heading navigation in both views. Choose **Rendered** for the reading view or **Raw** for the original Markdown text.
 
 Crumbs remembers Raw-view choices locally for up to 500 documents. Choosing Rendered removes that document's exception. Document contents are never saved.
@@ -34,15 +36,18 @@ Supported README layouts can preserve image sizes, centered headings and paragra
 
 ## Choose a reading theme
 
-Markdown defaults to **System**, following your system's light or dark appearance. Select **Light**, **Dark**, or **System** from the palette icon at the document's top right, or under **Readers → Reader appearance** in the extension popup.
+Markdown defaults to **System**, following your system's light or dark appearance. Select **Light**, **Dark**, or **System** from the <HelpControl icon="palette">palette icon</HelpControl> at the document's top right, or under **Readers → Reader appearance** in the extension popup.
 
 This preference saves locally and applies across open Markdown and JSON documents in both Rendered and Raw views. It is independent of the Glazed/Plain style and Plain theme used by the floating outline. Mermaid diagrams use a light canvas in either reading theme.
 
 ## Copy Markdown, code, or diagram source
 
-- **Copy raw Markdown**, at the document's top right in either view, copies the entire original source, including formatting and front matter. It remains available when the floating outline is hidden.
-- The copy button above a code block copies its text with indentation and line breaks, without Markdown fence markers.
-- The copy button beside a Mermaid diagram's zoom controls copies the original diagram source, rather than an image.
+- <HelpControl icon="copy-markdown">**Copy raw Markdown**</HelpControl>, at the
+  document's top right in either view, copies the entire original source,
+  including formatting and front matter. It remains available when the floating
+  outline is hidden.
+- The <HelpControl icon="copy">copy button</HelpControl> above a code block copies its text with indentation and line breaks, without Markdown fence markers.
+- The <HelpControl icon="copy">copy button</HelpControl> beside a Mermaid diagram's zoom controls copies the original diagram source, rather than an image.
 
 Copy controls show hints on hover or focus and a short confirmation after success. Crumbs writes to the clipboard only after you select a Copy control; it does not read the clipboard.
 
@@ -78,7 +83,7 @@ Crumbs does not edit files or watch the disk for changes, so refresh the page af
 
 ## HTML shown as source
 
-Markdown can include HTML. Crumbs renders a supported subset, including tables and expandable disclosures. Unsupported or restricted HTML appears as its original markup with an information icon. Hover over or focus the icon for details.
+Markdown can include HTML. Crumbs renders a supported subset, including tables and expandable disclosures. Unsupported or restricted HTML appears as its original markup with an <span class="help-html-info">information icon <span aria-hidden="true">ⓘ</span></span>. Hover over or focus the icon for details.
 
 The icon does not necessarily mean the document is harmful. Scripts, embedded frames, and forms are restricted intentionally; other elements can be harmless but outside the supported formatting. Code examples inside backticks or fenced blocks stay ordinary code examples.
 
