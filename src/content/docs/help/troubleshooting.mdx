@@ -3,6 +3,8 @@ title: Troubleshooting
 description: Resolve common outline, shortcut, Markdown, JSON, theme, and site-rule problems.
 ---
 
+import HelpControl from "../../../components/HelpControl.astro";
+
 ## The outline does not appear
 
 - Open the Crumbs popup and confirm the outline is set to **Show**. Pin/unpin does not turn the outline on or off.
@@ -31,7 +33,7 @@ If jumping doesn’t work as expected, [report the problem](../../contact/). Inc
 
 ## Older ChatGPT messages are missing
 
-ChatGPT loads long conversations in portions. Crumbs cannot list messages that ChatGPT has not loaded yet. Use **Jump to Top**, or **Go to top** in the outline’s older-messages notice, then wait for ChatGPT to load earlier content. Repeat if more history is still missing. It may take several attempts; one jump does not guarantee that the entire conversation is loaded.
+ChatGPT loads long conversations in portions. Crumbs cannot list messages that ChatGPT has not loaded yet. Use <HelpControl icon="top">**Jump to Top**</HelpControl>, or **Go to top** in the outline’s older-messages notice, then wait for ChatGPT to load earlier content. Repeat if more history is still missing. It may take several attempts; one jump does not guarantee that the entire conversation is loaded.
 
 An outline entry can also remain listed after ChatGPT removes its content from the visible page. If a tooltip says **Not loaded**, selecting it jumps toward the nearest loaded entry. Let ChatGPT load that area, then select the entry again if needed. See [ChatGPT Conversations](../chatgpt/#load-older-messages).
 
@@ -88,13 +90,13 @@ Use the Rendered/Raw control to select **Rendered**. That removes the locally sa
 
 ## Markdown and the outline have different themes
 
-This is expected: the document has its own Light/Dark/System preference. Change it from the document's palette icon or **Readers → Reader appearance** in the popup. Glazed/Plain and Plain's theme control the floating outline separately. Mermaid diagrams retain a light canvas in either document theme.
+This is expected: the document has its own Light/Dark/System preference. Change it from the document's <HelpControl icon="palette">palette icon</HelpControl> or **Readers → Reader appearance** in the popup. Glazed/Plain and Plain's theme control the floating outline separately. Mermaid diagrams retain a light canvas in either document theme.
 
 ## A Markdown image does not load
 
 Images are requested from the location referenced by the document. The host may require authentication, block loading, or no longer contain the resource. Local images also require Chrome's file-access permission. Relative images resolve against the original document URL.
 
-## HTML appears as code with an information icon
+## HTML appears as code with an <span class="help-html-info">information icon <span aria-hidden="true">ⓘ</span></span>
 
 Hover over or focus the icon for an explanation. The markup may be restricted, such as a script or form, or simply outside Crumbs' supported HTML subset. The icon alone does not mean the document is harmful. Raw view preserves the original source.
 
@@ -118,6 +120,6 @@ Enable **Readers → JSON reader → Local JSON files** and Chrome’s **Allow a
 
 Email [karl.ext.dev@gmail.com](mailto:karl.ext.dev@gmail.com) or [contact us](../../contact/) through GitHub. Opening a GitHub issue requires a GitHub account; email is available too. Include your Crumbs extension version, Chrome version, the page type, what you expected, and what happened so we can understand the problem.
 
-Find the extension version in the settings popup: select the **info icon** at the top right to open **About Crumbs**. Share only public example links and leave out private details.
+Find the extension version in the settings popup: select the <HelpControl icon="info">**info icon**</HelpControl> at the top right to open **About Crumbs**. Share only public example links and leave out private details.
 
 Looking for a new capability? [Send a feature request](../../contact/#feature-requests) through GitHub or email. Tell us what you’d like to do and how it would help your reading workflow.

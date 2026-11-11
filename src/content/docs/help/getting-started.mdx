@@ -3,6 +3,8 @@ title: Getting Started
 description: Learn page navigation, site rules, appearance controls, and section links in Crumbs.
 ---
 
+import HelpControl from "../../../components/HelpControl.astro";
+
 Crumbs requires Chrome 127 or newer. After installing it, open a page with headings. A narrow rail appears at the edge of supported pages.
 
 ## Try the Quick Start Guide
@@ -12,30 +14,32 @@ Crumbs opens an interactive Quick Start Guide when you first install it. Use it 
 To open it again:
 
 1. Open Crumbs from Chrome’s extension toolbar.
-2. Select the **info icon** to open **About Crumbs**.
+2. Select the <HelpControl icon="info">**info icon**</HelpControl> to open **About Crumbs**.
 3. Select **Quick Start Guide**.
 
 ## Navigate a page
 
 1. Expand the rail to see the page outline.
 2. Select a heading to jump to that section.
-3. Use search to narrow the outline by heading text. The search shortcut opens the outline even when it is collapsed.
+3. Use <HelpControl icon="search">search</HelpControl> to narrow the outline by heading text. The search shortcut opens the outline even when it is collapsed.
 4. Filter by heading level when you only want the document's major sections. Increase the depth to reveal deeper headings.
-5. Pin the outline to keep it expanded, or unpin it to return to its hover behavior.
+5. <HelpControl icon="pin">Pin</HelpControl> the outline to keep it expanded, or
+   <HelpControl icon="unpin">unpin</HelpControl> it to return to its hover
+   behavior.
 
 Crumbs tracks the section you are currently reading. You can dock the rail on either side of the page. Unpinning while your pointer is over the outline keeps it open until you move away. Pinning is separate from **Show/Hide** in the popup, which controls whether the floating outline appears at all.
 
-Open settings from the browser toolbar or the **Settings** button beside Pin/Unpin in the expanded outline.
+Open settings from the browser toolbar or the <HelpControl icon="settings">**Settings**</HelpControl> button beside Pin/Unpin in the expanded outline.
 
 ## Navigate a ChatGPT conversation
 
 On **chatgpt.com**, Crumbs provides a conversation outline instead of a general page-heading outline. Jump between questions, answers, and headings inside answers. The three outline filters select these content types rather than H1–H3 depth. Open **AI Chat → ChatGPT** in settings to enable the conversation outline and choose whether to show question times.
 
-Long conversations may only have some messages loaded. Use **Jump to Top**, or **Go to top** in the older-messages notice, to help ChatGPT load earlier messages. Wait for loading to finish and repeat if needed. See [ChatGPT Conversations](../chatgpt/) for the full workflow.
+Long conversations may only have some messages loaded. Use <HelpControl icon="top">**Jump to Top**</HelpControl>, or **Go to top** in the older-messages notice, to help ChatGPT load earlier messages. Wait for loading to finish and repeat if needed. See [ChatGPT Conversations](../chatgpt/) for the full workflow.
 
 ## Expand or collapse heading groups
 
-Use the arrow beside a parent heading to hide or reveal its child headings. This lets you focus on one part of a long document without changing the page itself.
+Use the <HelpControl icon="chevron">arrow</HelpControl> beside a parent heading to hide or reveal its child headings. This lets you focus on one part of a long document without changing the page itself.
 
 Groups stay collapsed when you close and reopen the outline, until the page reloads. Search temporarily reveals matching descendants; clearing search restores your collapsed groups. The open panel avoids shrinking as you change groups or heading depth; closing the outline resets its sizing.
 
@@ -49,7 +53,7 @@ You can choose Shift, Alt/Option, Control/Ctrl, or Command on Mac. Hold only the
 
 ## Copy a section link
 
-Use **Copy section link** beside a heading to copy a link you can paste elsewhere. Crumbs uses a page's own section anchor when available, or a text-fragment link when it can identify the heading reliably. Markdown links target the original source document rather than temporary reader IDs.
+Use <HelpControl icon="copy">**Copy section link**</HelpControl> beside a heading to copy a link you can paste elsewhere. Crumbs uses a page's own section anchor when available, or a text-fragment link when it can identify the heading reliably. Markdown links target the original source document rather than temporary reader IDs.
 
 The control is hidden when Crumbs cannot create a reliable target, including local files, some pages that use the URL fragment for routing, and ambiguous repeated headings. Whether a pasted link jumps to the section depends on the destination page and the receiving browser's support.
 
@@ -61,7 +65,7 @@ Crumbs starts with **All sites** selected, so the outline appears automatically 
 - **Specific sites:** show it automatically only on listed domains or URL patterns. Leave the list empty if you prefer to show it manually.
 - **Except these:** show it automatically everywhere except your listed sites.
 
-Open settings from the outline’s **gear icon** or Chrome’s extension toolbar, then go to **General → Where outlines appear**.
+Open settings from the outline’s <HelpControl icon="settings">**gear icon**</HelpControl> or Chrome’s extension toolbar, then go to **General → Where outlines appear**.
 
 For a temporary change, use **Show/Hide** in the current-page card. Reloading the page resets that choice and applies your saved site rules again.
 
@@ -79,7 +83,7 @@ The popup’s current-page card identifies the page type. Its **Show/Hide** cont
 
 ## Find your extension version
 
-Open the Crumbs settings popup and select the **info icon** at the top right. The **About Crumbs** panel shows your installed extension version and a link to help. Include that version when reporting a problem so we can check the right release.
+Open the Crumbs settings popup and select the <HelpControl icon="info">**info icon**</HelpControl> at the top right. The **About Crumbs** panel shows your installed extension version and a link to help. Include that version when reporting a problem so we can check the right release.
 
 ## Appearance and quick buttons
 
@@ -88,7 +92,7 @@ Open the Crumbs settings popup and select the **info icon** at the top right. Th
 
 Choose from Toast, Ube, Blueberry, Velvet, Custard, and Matcha accents. The accent applies across the popup, outline, and heading-jump highlights.
 
-Under **General → Controls → Quick buttons**, independently show or hide **Jump to Top**, **Jump to Bottom**, and **Dock Left / Right**. Markdown's Rendered/Raw control is separate.
+Under **General → Controls → Quick buttons**, independently show or hide <HelpControl icon="top">**Jump to Top**</HelpControl>, <HelpControl icon="bottom">**Jump to Bottom**</HelpControl>, and <HelpControl icon="dock-left">**Dock Left**</HelpControl> / <HelpControl icon="dock-right">**Right**</HelpControl>. Markdown's Rendered/Raw control is separate.
 
 Markdown and JSON documents share a Light/Dark/System reader setting, independent of the floating outline's appearance. See the [Markdown](../markdown-reader/#choose-a-reading-theme) and [JSON](../json-reader/#theme-and-saved-preferences) guides.
 

@@ -1,0 +1,37 @@
+---
+import icons from "../lib/help-control-icons.json";
+interface Props {
+  icon: keyof typeof icons;
+}
+const { icon } = Astro.props;
+const glyph = icons[icon];
+---
+
+<span class="help-control"
+  ><slot /><svg
+    class="help-control-icon"
+    data-help-icon={icon}
+    aria-hidden="true"
+    focusable="false"
+    viewBox={glyph.viewBox}
+    fill={glyph.stroke ? "none" : "currentColor"}
+    stroke={glyph.stroke ? "currentColor" : undefined}
+    stroke-width={glyph.stroke ? "1.8" : undefined}
+    stroke-linecap={glyph.stroke ? "round" : undefined}
+    stroke-linejoin={glyph.stroke ? "round" : undefined}
+    set:html={glyph.shape}
+  /></span
+>
+<style>
+  .help-control {
+    display: inline-block;
+  }
+  .help-control-icon {
+    display: inline-block;
+    width: 1.05em;
+    height: 1.05em;
+    margin-inline-start: 0.2em;
+    vertical-align: -0.16em;
+    color: var(--sl-color-text-accent);
+  }
+</style>
