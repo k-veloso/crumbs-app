@@ -19,6 +19,7 @@ Meet Crumbs: a Chrome extension that helps you find your place on long pages, in
 - Jump between headings with a searchable outline that follows the section you’re reading.
 - Filter by heading level and collapse groups to focus on what matters.
 - Pin the outline, dock it on either side, or let it expand on hover.
+- Use Jump to Top and Jump to Bottom to move quickly to either end of the page.
 - Preview sections by holding Shift while hovering over headings, and copy links to supported sections.
 
 ### ChatGPT conversations
