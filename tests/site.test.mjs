@@ -246,3 +246,22 @@ test("help guides show labeled extension icons without adding interactive contro
   }
   assert.match(gettingStarted, /id="copy-a-section-link"/);
 });
+
+test("both reader guides identify the Rendered and Raw view icons", async () => {
+  for (const guide of ["markdown-reader", "json-reader"]) {
+    const html = await readFile(
+      path.join(dist, "help", guide, "index.html"),
+      "utf8",
+    );
+    assert.match(
+      html,
+      /<strong>Rendered<\/strong><svg[^>]+data-help-icon="view-rendered"/,
+      guide,
+    );
+    assert.match(
+      html,
+      /<strong>Raw<\/strong><svg[^>]+data-help-icon="view-raw"/,
+      guide,
+    );
+  }
+});

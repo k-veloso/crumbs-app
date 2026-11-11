@@ -103,5 +103,15 @@
     "viewBox": "0 0 24 24",
     "shape": "<path d=\"m7 10 5 5 5-5\"/>",
     "stroke": true
+  },
+  "view-rendered": {
+    "viewBox": "0 0 24 24",
+    "shape": "<path d=\"M4 3h16v18H4zM8 8h8M8 12h8M8 16h5\"/>",
+    "stroke": true
+  },
+  "view-raw": {
+    "viewBox": "0 0 24 24",
+    "shape": "<path d=\"m8 6-6 6 6 6m8-12 6 6-6 6M14 4l-4 16\"/>",
+    "stroke": true
   }
 }
