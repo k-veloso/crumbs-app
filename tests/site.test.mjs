@@ -152,7 +152,7 @@ test("landing and help pages include the controlled outline demo", async () => {
   assert.match(help, /crumbs-demo-outline-data/);
   assert.match(help, /Tip: try a different way to navigate/);
   assert.match(help, /The Crumbs extension is hidden on this site/);
-  assert.match(bundledScripts, /\(min-width: 72rem\)/);
+  assert.match(bundledScripts, /\(min-width: 900px\)/);
   assert.match(bundledScripts, /crumbs-extension-host/);
   assert.match(bundledScripts, /\.crumbs-root/);
 });

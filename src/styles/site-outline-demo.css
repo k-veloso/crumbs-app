@@ -984,7 +984,7 @@
     .crumbs-demo-hero-activate {
     display: none;
   }
-  @media (max-width: 71.999rem) {
+  @media (max-width: 899.999px) {
     .crumbs-demo,
     .crumbs-demo-help-prompt,
     .crumbs-demo-hero-activate {

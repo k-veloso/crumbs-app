@@ -23,7 +23,7 @@ type Preferences = {
   quick: { top: boolean; bottom: boolean; dock: boolean };
 };
 
-const DESKTOP_QUERY = "(min-width: 72rem)";
+const DESKTOP_QUERY = "(min-width: 900px)";
 const EXTENSION_HOST_ID = "crumbs-extension-host";
 const EXTENSION_ROOT_SELECTOR = ".crumbs-root";
 const SESSION_KEY = "crumbs-site-demo-enabled";
