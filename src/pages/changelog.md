@@ -8,7 +8,9 @@ description: New features, improvements, and fixes in Crumbs, starting with v1.0
 
 New features, improvements, and fixes in Crumbs.
 
-## v1.0.0 — First release
+## v1.0.0 · November 8, 2026
+
+First release.
 
 Meet Crumbs: a Chrome extension that helps you find your place on long pages, in ChatGPT conversations, and in standalone Markdown and JSON documents.
 
