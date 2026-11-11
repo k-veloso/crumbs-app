@@ -134,7 +134,19 @@ function readOutlineItems(): OutlineItem[] {
     })
     .filter((item) => item.id && item.label && Number.isFinite(item.level));
 
-  return nestOutlineItems(declared) as OutlineItem[];
+  const items = declared.length
+    ? declared
+    : [
+        ...document.querySelectorAll<HTMLElement>(
+          "article.prose h1[id], article.prose h2[id], article.prose h3[id]",
+        ),
+      ].map((element) => ({
+        id: element.id,
+        label: element.textContent?.trim() ?? "",
+        level: Number(element.tagName.slice(1)),
+      }));
+
+  return nestOutlineItems(items) as OutlineItem[];
 }
 
 function targetFor(item: OutlineItem) {

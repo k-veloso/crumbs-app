@@ -193,3 +193,16 @@ test("production glass surfaces retain the standard backdrop filter", async () =
     );
   }
 });
+
+test("changelog offers the shared outline toggle without a demo prompt", async () => {
+  const html = await readFile(
+    path.join(dist, "changelog", "index.html"),
+    "utf8",
+  );
+  assert.match(html, /data-crumbs-demo-root/);
+  assert.match(html, /data-crumbs-demo-trigger/);
+  assert.match(html, /<h2 id="v100/);
+  assert.match(html, /<h3 id="page-outlines"/);
+  assert.doesNotMatch(html, /data-crumbs-demo-activate/);
+  assert.doesNotMatch(html, /crumbs-demo-help-prompt/);
+});

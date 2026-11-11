@@ -1,6 +1,7 @@
 ---
 layout: ../layouts/ArticleLayout.astro
 title: Changelog
+outlineDemo: true
 description: New features, improvements, and fixes in Crumbs, starting with v1.0.0.
 ---
 

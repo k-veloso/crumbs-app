@@ -9,6 +9,7 @@ const { frontmatter } = Astro.props;
   title={frontmatter.title}
   description={frontmatter.description}
   bodyClass="article-page"
+  outlineDemo={frontmatter.outlineDemo === true}
 >
   <div class="article-shell shell">
     <a class="back-link" href={withBase("/")}>← Crumbs home</a>
