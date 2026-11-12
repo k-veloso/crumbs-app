@@ -6,7 +6,7 @@ description: How Crumbs handles page and ChatGPT content, question timestamps, p
 
 # Privacy Policy for Crumbs – Page & ChatGPT Outline, Markdown & JSON Reader
 
-Last updated: November 2, 2026
+Last updated: November 12, 2026
 
 Crumbs helps people navigate structured web pages and supported AI conversations, and read standalone Markdown and JSON documents. It processes page headings and eligible Markdown and JSON content in the current browser tab to provide these features.
 
