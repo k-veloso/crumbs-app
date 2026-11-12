@@ -4,7 +4,7 @@ title: Privacy Policy
 description: How Crumbs handles page and ChatGPT content, question timestamps, preferences, local storage, network requests, and clipboard access.
 ---
 
-# Privacy Policy for Crumbs - Navigate Any Page
+# Privacy Policy for Crumbs – Page & ChatGPT Outline, Markdown & JSON Reader
 
 Last updated: November 2, 2026
 
