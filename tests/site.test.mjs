@@ -5,7 +5,8 @@ import test from "node:test";
 
 const root = path.resolve(import.meta.dirname, "..");
 const dist = path.join(root, "dist");
-const basePath = "/crumbs-app/";
+const basePath = "/";
+const siteOrigin = "https://addcrumbs.com";
 
 const requiredRoutes = [
   "",
@@ -76,6 +77,10 @@ test("the build contains no stale repository base paths", async () => {
   const htmlFiles = (await walk(dist)).filter((file) => file.endsWith(".html"));
   for (const file of htmlFiles) {
     const html = await readFile(file, "utf8");
+    assert.doesNotMatch(
+      html,
+      /https:\/\/k-veloso\.github\.io|["'=]\/crumbs-app\//,
+    );
     assert.equal(
       html.includes("/crumbs-help/"),
       false,
@@ -89,7 +94,7 @@ test("the build contains no stale repository base paths", async () => {
   }
 });
 
-test("internal links and base-prefixed assets resolve in the static build", async () => {
+test("internal links and assets resolve in the static build", async () => {
   const htmlFiles = (await walk(dist)).filter((file) => file.endsWith(".html"));
   const failures = [];
 
@@ -111,12 +116,8 @@ test("internal links and base-prefixed assets resolve in the static build", asyn
         continue;
       }
 
-      const url = new URL(reference, `https://example.test${route}`);
-      if (url.origin !== "https://example.test") continue;
-      if (!url.pathname.startsWith(basePath)) {
-        failures.push(`${route} points outside the project base: ${reference}`);
-        continue;
-      }
+      const url = new URL(reference, `${siteOrigin}${route}`);
+      if (url.origin !== siteOrigin) continue;
 
       const target = targetFileForUrl(url);
       if (!(await exists(target)))
@@ -130,6 +131,7 @@ test("internal links and base-prefixed assets resolve in the static build", asyn
 test("landing and help pages include the controlled outline demo", async () => {
   const landing = await readFile(path.join(dist, "index.html"), "utf8");
   const help = await readFile(path.join(dist, "help", "index.html"), "utf8");
+  assert.ok(help.includes(`<link rel="canonical" href="${siteOrigin}/help/"`));
   const scripts = await Promise.all(
     (await walk(path.join(dist, "_astro")))
       .filter((file) => file.endsWith(".js"))

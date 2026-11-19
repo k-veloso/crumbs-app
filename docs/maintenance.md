@@ -26,7 +26,7 @@ npm ci
 npm run dev
 ```
 
-Astro serves the project with the configured `/crumbs-app` base path. Follow the local URL printed in the terminal.
+Astro serves the site at the root of the local URL printed in the terminal.
 
 ## Validation
 
@@ -38,7 +38,7 @@ npm test
 
 - `npm run lint` runs Astro's type/content checks and Prettier's formatting check.
 - `npm run build` creates the static site in `dist/`.
-- `npm test` validates generated routes, project-base URLs, internal links, assets, and legacy redirects. Run it after the build.
+- `npm test` validates generated routes, canonical URLs, internal links, assets, and legacy redirects. Run it after the build.
 
 The dependency versions are pinned in `package.json`; commit `package-lock.json` whenever dependencies change.
 
@@ -49,11 +49,10 @@ The dependency versions are pinned in `package.json`; commit `package-lock.json`
 Astro is configured with:
 
 ```js
-site: "https://k-veloso.github.io";
-base: "/crumbs-app";
+site: "https://addcrumbs.com";
 ```
 
-GitHub Pages uses **GitHub Actions** as its publishing source. After merging to `main`, check the **Deploy to GitHub Pages** workflow and verify the [published site](https://k-veloso.github.io/crumbs-app/).
+GitHub Pages uses **GitHub Actions** as its publishing source. After merging to `main`, check the **Deploy to GitHub Pages** workflow and verify the [published site](https://addcrumbs.com/).
 
 ## Content and contact maintenance
 
