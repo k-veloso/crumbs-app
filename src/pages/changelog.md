@@ -51,4 +51,4 @@ Meet Crumbs: a Chrome extension that helps you find your place on long pages, in
 
 ---
 
-Need a hand? [Visit Help](https://k-veloso.github.io/crumbs-app/help/). Have an idea or found a problem? [Get in touch](https://k-veloso.github.io/crumbs-app/contact/).
+Need a hand? [Visit Help](https://addcrumbs.com/help/). Have an idea or found a problem? [Get in touch](https://addcrumbs.com/contact/).

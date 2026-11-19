@@ -7,7 +7,7 @@
 
 Crumbs is a Chrome extension that helps you find your place on long pages, in ChatGPT conversations, and in standalone Markdown and JSON documents.
 
-[Website](https://k-veloso.github.io/crumbs-app/) · [Help](https://k-veloso.github.io/crumbs-app/help/) · [Privacy policy](https://k-veloso.github.io/crumbs-app/privacy/)
+[Website](https://addcrumbs.com/) · [Help](https://addcrumbs.com/help/) · [Privacy policy](https://addcrumbs.com/privacy/)
 
 - Jump between headings with a searchable outline.
 - Navigate questions, answers, and headings in ChatGPT conversations.

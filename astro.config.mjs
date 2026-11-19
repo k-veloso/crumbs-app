@@ -2,11 +2,8 @@
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 
-const base = "/crumbs-app";
-
 export default defineConfig({
-  site: "https://k-veloso.github.io",
-  base,
+  site: "https://addcrumbs.com",
   output: "static",
   trailingSlash: "always",
   integrations: [
